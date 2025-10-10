@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv7a6rg7qobwb"]
+[gd_scene load_steps=16 format=3 uid="uid://bv7a6rg7qobwb"]
 
 [ext_resource type="Script" uid="uid://bo4gpgvco00hw" path="res://Source/Tmp/Level/Level.cs" id="1_ubtqd"]
 [ext_resource type="PackedScene" uid="uid://d1d24nbw5nh3i" path="res://Source/Tmp/CharacterTmp/CharacterTmp.tscn" id="2_pqjd0"]
+[ext_resource type="PackedScene" uid="uid://bhj21u4bkuleu" path="res://Source/CameraArea/CameraArea.tscn" id="3_nsrc4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t8vco"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,8 +35,11 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubtqd"]
 albedo_color = Color(0, 1, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pqjd0"]
-size = Vector3(5.2890625, 2.4746094, 11.725159)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bi3hl"]
+size = Vector3(5, 3, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nsrc4"]
+size = Vector3(5, 3, 10)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_ubtqd")
@@ -72,24 +76,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ubtqd")
 [node name="CharacterTmp" parent="." instance=ExtResource("2_pqjd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4056416, 1.0744684, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="CameraArea" parent="." instance=ExtResource("3_nsrc4")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1445313, 0.7373047, -0.8673401)
-shape = SubResource("BoxShape3D_pqjd0")
+[node name="StaticCamera3D" parent="CameraArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.136074, 1.5006852, 3.3781748)
 
-[node name="Camera3D" type="Camera3D" parent="Area3D" groups=["StaticCameras"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.362368, 1.4676919, 3.0778546)
+[node name="AreaCollisionShape3D" parent="CameraArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6100628, 0, -1.4730005)
+shape = SubResource("BoxShape3D_bi3hl")
 
-[node name="Area3D2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.398554, 0, 0)
+[node name="CameraArea2" parent="." instance=ExtResource("3_nsrc4")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1445313, 0.7373047, -0.8673401)
-shape = SubResource("BoxShape3D_pqjd0")
+[node name="StaticCamera3D" parent="CameraArea2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4472044, 1.6185751, 3.440189)
 
-[node name="Camera3D2" type="Camera3D" parent="Area3D2" groups=["StaticCameras"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7381654, 1.4676919, 3.0778546)
+[node name="AreaCollisionShape3D" parent="CameraArea2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.837969, 0, -2.2178283)
+shape = SubResource("BoxShape3D_nsrc4")
 
-[connection signal="body_entered" from="Area3D" to="." method="OnArea1Entered"]
-[connection signal="body_entered" from="Area3D2" to="." method="OnArea2Entered"]
+[editable path="CameraArea"]
+[editable path="CameraArea2"]

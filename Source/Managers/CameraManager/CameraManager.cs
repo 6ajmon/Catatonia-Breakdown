@@ -5,7 +5,7 @@ public partial class CameraManager : Node
 {
     public static CameraManager Instance => ((SceneTree)Engine.GetMainLoop()).Root.GetNode<CameraManager>("CameraManager");
     [Export] private NodePath _cameraPath;
-    private List<Camera3D> _cameras = new();
+    public List<Camera3D> Cameras = new();
 
     public override void _Ready()
     {
@@ -14,10 +14,10 @@ public partial class CameraManager : Node
 
     public void GetCameras()
     {
-        _cameras.Clear();
+        Cameras.Clear();
         foreach (Camera3D cam in GetTree().GetNodesInGroup("StaticCameras"))
         {
-            _cameras.Add(cam);
+            Cameras.Add(cam);
         }
     }
 
@@ -35,26 +35,26 @@ public partial class CameraManager : Node
 
     public void OnNextCamera()
     {
-        if (_cameras.Count == 0) return;
-        int currentIndex = _cameras.FindIndex(cam => cam.Current);
-        int nextIndex = (currentIndex + 1) % _cameras.Count;
+        if (Cameras.Count == 0) return;
+        int currentIndex = Cameras.FindIndex(cam => cam.Current);
+        int nextIndex = (currentIndex + 1) % Cameras.Count;
         SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), nextIndex);
     }
     public void OnPreviousCamera()
     {
-        if (_cameras.Count == 0) return;
-        int currentIndex = _cameras.FindIndex(cam => cam.Current);
-        int previousIndex = (currentIndex - 1 + _cameras.Count) % _cameras.Count;
+        if (Cameras.Count == 0) return;
+        int currentIndex = Cameras.FindIndex(cam => cam.Current);
+        int previousIndex = (currentIndex - 1 + Cameras.Count) % Cameras.Count;
         SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), previousIndex);
     }
     public void OnChangeCamera(int index)
     {
-        if (_cameras.Count == 0 || index < 0 || index >= _cameras.Count) return;
+        if (Cameras.Count == 0 || index < 0 || index >= Cameras.Count) return;
 
-        foreach (var cam in _cameras)
+        foreach (var cam in Cameras)
         {
             cam.Current = false;
         }
-        _cameras[index].Current = true;
+        Cameras[index].Current = true;
     }
 }
