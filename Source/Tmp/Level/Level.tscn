@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv7a6rg7qobwb"]
+[gd_scene load_steps=14 format=3 uid="uid://bv7a6rg7qobwb"]
 
 [ext_resource type="Script" uid="uid://bo4gpgvco00hw" path="res://Source/Tmp/Level/Level.cs" id="1_ubtqd"]
+[ext_resource type="PackedScene" uid="uid://d1d24nbw5nh3i" path="res://Source/Tmp/CharacterTmp/CharacterTmp.tscn" id="2_pqjd0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t8vco"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,7 +16,10 @@ sky = SubResource("Sky_ubtqd")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_t8vco"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubtqd"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ubtqd"]
 size = Vector2(10, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nsrc4"]
@@ -30,6 +34,9 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubtqd"]
 albedo_color = Color(0, 1, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqjd0"]
+size = Vector3(5.2890625, 2.4746094, 11.725159)
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_ubtqd")
 
@@ -40,8 +47,13 @@ environment = SubResource("Environment_pqjd0")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_t8vco")
+[node name="MeshInstance3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
+shape = SubResource("BoxShape3D_ubtqd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_ubtqd")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.39928436, 0, 0, 0, 1.9828925, 0, 0, 0, 7.4263806, 0, 0.5562124, 0)
@@ -57,8 +69,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4286044, 0.439435, 0)
 mesh = SubResource("BoxMesh_t8vco")
 surface_material_override/0 = SubResource("StandardMaterial3D_ubtqd")
 
-[node name="Camera3D" type="Camera3D" parent="." groups=["StaticCameras"]]
+[node name="CharacterTmp" parent="." instance=ExtResource("2_pqjd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4056416, 1.0744684, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1445313, 0.7373047, -0.8673401)
+shape = SubResource("BoxShape3D_pqjd0")
+
+[node name="Camera3D" type="Camera3D" parent="Area3D" groups=["StaticCameras"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.362368, 1.4676919, 3.0778546)
 
-[node name="Camera3D2" type="Camera3D" parent="." groups=["StaticCameras"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3396115, 1.4676919, 3.0778546)
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.398554, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1445313, 0.7373047, -0.8673401)
+shape = SubResource("BoxShape3D_pqjd0")
+
+[node name="Camera3D2" type="Camera3D" parent="Area3D2" groups=["StaticCameras"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7381654, 1.4676919, 3.0778546)
+
+[connection signal="body_entered" from="Area3D" to="." method="OnArea1Entered"]
+[connection signal="body_entered" from="Area3D2" to="." method="OnArea2Entered"]

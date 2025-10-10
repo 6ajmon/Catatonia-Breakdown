@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1d24nbw5nh3i"]
+
+[ext_resource type="Script" uid="uid://c2gnrs633fd2f" path="res://Source/Tmp/CharacterTmp/CharacterTmp.cs" id="1_srix4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oyix4"]
+radius = 0.2
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_srix4"]
+radius = 0.2
+height = 1.0
+
+[node name="CharacterTmp" type="CharacterBody3D"]
+script = ExtResource("1_srix4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oyix4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_srix4")
