@@ -20,6 +20,11 @@ config/icon="uid://pkt80fwl6cst"
 SignalManager="*res://Source/Managers/SignalManager/SignalManager.cs"
 CameraManager="*res://Source/Managers/CameraManager/CameraManager.cs"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="ProjectCamera"
