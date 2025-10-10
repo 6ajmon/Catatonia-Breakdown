@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dltn41w6b7a62"]
+
+[ext_resource type="Script" uid="uid://d6n57qdavq31" path="res://Source/Managers/CameraManager/CameraManager.cs" id="1_cgktr"]
+
+[node name="CameraManager" type="Node"]
+script = ExtResource("1_cgktr")
