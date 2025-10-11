@@ -3,9 +3,11 @@ using System;
 
 public partial class CharacterTmp : CharacterBody3D
 {
+    [Export] public float Speed = 3.0f;
     public override void _Ready()
     {
         CameraManager.Instance.GetFirstPersonCamera();
+        GameManager.Instance.PlayerInstance = this;
     }
     public override void _Process(double delta)
     {
@@ -22,8 +24,7 @@ public partial class CharacterTmp : CharacterBody3D
 
         direction = direction.Normalized();
 
-        float speed = 5.0f;
-        Velocity = direction * speed;
+        Velocity = direction * Speed;
 
         MoveAndSlide();
     }

@@ -13,3 +13,5 @@ https://sketchfab.com/3d-models/retro-psx-like-spooky-house-pieces-452c8783fd964
 
 https://mcpato.itch.io/house-interior-psx-assets
 
+https://sketchfab.com/3d-models/low-poly-psx-hinged-door-4c195ed39f14418ba998eda8c3ce72a6#download
+
