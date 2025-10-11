@@ -5,6 +5,7 @@ public partial class CharacterTmp : CharacterBody3D
 {
     public override void _Ready()
     {
+        CameraManager.Instance.GetFirstPersonCamera();
     }
     public override void _Process(double delta)
     {
