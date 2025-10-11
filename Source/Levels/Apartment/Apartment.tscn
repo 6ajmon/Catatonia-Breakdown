@@ -175,9 +175,10 @@ shape = SubResource("BoxShape3D_tc1mv")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0805008, 0, 1.2507598)
 
 [node name="Bed" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8962102, 0, -1.6256595)
 
 [node name="Bed" type="MeshInstance3D" parent="Bed"]
-transform = Transform3D(40, -3.4969114e-06, -1.5285486e-13, 0, -1.7484556e-06, 40, -3.4969114e-06, -40, -1.7484556e-06, 1.9098672, 0.012181163, -1.6662605)
+transform = Transform3D(40, -3.4969114e-06, -1.5285486e-13, 0, -1.7484556e-06, 40, -3.4969114e-06, -40, -1.7484556e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_483uy")
 skeleton = NodePath("")
 
