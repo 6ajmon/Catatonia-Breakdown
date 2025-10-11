@@ -17,8 +17,9 @@ config/icon="uid://pkt80fwl6cst"
 
 [autoload]
 
-SignalManager="*res://Source/Managers/SignalManager/SignalManager.cs"
-CameraManager="*res://Source/Managers/CameraManager/CameraManager.cs"
+SignalManager="*res://Source/Managers/SignalManager/SignalManager.tscn"
+GameManager="*res://Source/Managers/GameManager/GameManager.tscn"
+CameraManager="*res://Source/Managers/CameraManager/CameraManager.tscn"
 
 [display]
 
