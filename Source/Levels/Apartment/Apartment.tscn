@@ -1,10 +1,20 @@
-[gd_scene load_steps=17 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=38 format=4 uid="uid://cdf81rys0cvt1"]
 
+[ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
 [ext_resource type="Texture2D" uid="uid://dbd58lrtvnmoy" path="res://Assets/Models/Interior/Bed/MattressWood.png" id="1_yvjt0"]
 [ext_resource type="Texture2D" uid="uid://wd1kf6on2d8u" path="res://Assets/Models/Interior/Bed/Mattress.png" id="2_03vwg"]
 [ext_resource type="Texture2D" uid="uid://b1qj7rortt7gv" path="res://Assets/Models/Interior/Bed/Blanket.png" id="3_3kpmy"]
 [ext_resource type="Texture2D" uid="uid://cp4k646t344x6" path="res://Assets/Models/Interior/Bed/Pillow.png" id="4_s4evh"]
 [ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="5_03vwg"]
+[ext_resource type="Texture2D" uid="uid://de0atk42il3bf" path="res://Assets/Models/Interior/Bookshelf/Bookshelf.png" id="7_483uy"]
+[ext_resource type="Material" uid="uid://ca2eiwu21gjvv" path="res://Assets/Textures/Walls/WallMaterial.tres" id="8_483uy"]
+[ext_resource type="PackedScene" uid="uid://bhj21u4bkuleu" path="res://Source/Areas/CameraArea/CameraArea.tscn" id="9_qqis0"]
+[ext_resource type="Texture2D" uid="uid://diprnlmrgou2n" path="res://Assets/Models/Interior/Rug/PersianCarpetTexture.png" id="10_0j5y3"]
+[ext_resource type="Texture2D" uid="uid://djfist86w85yd" path="res://Assets/Models/Interior/Rug/Rug.png" id="10_si3id"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqis0"]
+albedo_texture = ExtResource("1_s4evh")
+uv1_scale = Vector3(16, 16, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tc1mv"]
 size = Vector3(6, 0.1, 8)
@@ -161,11 +171,116 @@ shadow_mesh = SubResource("ArrayMesh_nxepx")
 [sub_resource type="BoxShape3D" id="BoxShape3D_03vwg"]
 size = Vector3(1.1871338, 0.60331726, 2.3551025)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptd1n"]
+resource_name = "Bookshelf"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_483uy")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mvu2s"]
+_surfaces = [{
+"aabb": AABB(-9.6559525e-09, 0, 0, 0.035349783, 0.008915208, 0.056255832),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAQAAAAQAAwAFAAQABQADAAIABAAGAAEABgAEAAUABQAHAAYAAgAHAAUABgAHAAgACAAHAAIAAQAGAAkACAAJAAYACQAKAAEAAgABAAoACQAIAAsAAgALAAgACwAKAAkACgALAAIA"),
+"name": "Bookshelf",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("7MoQPRgREjyEbGY96sqQPBgREjyEbGY96sqQPBcREjwAAAAA7MoQPRcREjwAAAAA68oQPQAAAACEbGY968oQPQAAAAAAAAAA6sqQPAAAAACEbGY96sqQPAAAAAAAAAAA3bWEsQAAAAAAAAAA3bWEsQAAAACEbGY9VOMlshgREjyEbGY9VOMlshcREjwAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0wnx2"]
+resource_name = "Cube_018"
+_surfaces = [{
+"aabb": AABB(-9.6559525e-09, 0, 0, 0.035349783, 0.008915208, 0.056255832),
+"attribute_data": PackedByteArray("4lh+PzI6Bz/iWH4/3N+uPn5SDj/c364+flIOPzI6Bz9V+Hw/EibBPlX4fD8IDwI/Oh4PPwoPAj86Hg8/EibBPog5ZT++xAw/ijllP0gkqj7uyhQ/SCSqPu7KFD++xAw/L1puP/6XCT+W6x0//pcJP5brHT/IyqM+MVpuP8jKoz4vWm4//pcJPzFabj/IyqM+5QxLPgAAAAA/yvk+AAAAAD/K+T4AAIA/5QxLPgAAgD8/yvk+AACAPz/K+T4AAAAA4lh+PzI6Bz9+Ug4/MjoHP35SDj/c364+4lh+P9zfrj5V+Hw/EibBPjoeDz8SJsE+Oh4PPwoPAj9V+Hw/CA8CP4g5ZT++xAw/7soUP77EDD/uyhQ/SCSqPoo5ZT9IJKo+"),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwADgANABAAEAARAA4AEgATABQAFAAVABIAEgAVABYAFgAXABIAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAA"),
+"material": SubResource("StandardMaterial3D_ptd1n"),
+"name": "Bookshelf",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("7MoQPRgREjyEbGY96sqQPBgREjyEbGY96sqQPBcREjwAAAAA7MoQPRcREjwAAAAA68oQPQAAAACEbGY97MoQPRgREjyEbGY97MoQPRcREjwAAAAA68oQPQAAAAAAAAAA68oQPQAAAAAAAAAA7MoQPRcREjwAAAAA6sqQPBcREjwAAAAA6sqQPAAAAAAAAAAA68oQPQAAAACEbGY96sqQPAAAAACEbGY96sqQPBgREjyEbGY97MoQPRgREjyEbGY93bWEsQAAAACEbGY9VOMlshgREjyEbGY96sqQPAAAAACEbGY968oQPQAAAACEbGY968oQPQAAAAAAAAAA6sqQPAAAAAAAAAAA3bWEsQAAAAAAAAAA3bWEsQAAAACEbGY9VOMlshgREjyEbGY9VOMlshcREjwAAAAA6sqQPBcREjwAAAAA6sqQPBgREjyEbGY93bWEsQAAAACEbGY93bWEsQAAAAAAAAAAVOMlshcREjwAAAAAVOMlshgREjyEbGY93bWEsQAAAAAAAAAA6sqQPAAAAAAAAAAA6sqQPBcREjwAAAAAVOMlshcREjwAAAAA/3////9//z//f////3//P/9/////f/8//3////9//z/+//9//3//v/7//3//f/+//v//f/9//7/+//9//3//v/////////8//////////z//////////P/////////8//3//f////7//f/9/AAD/P/9//38AAP8//3//f////7//f/9/AAD/P/9//38AAP8//38AAAAA/z//fwAA////v/9/AAD///+//38AAAAA/z//fwAAAAD/P/9/AAAAAP8//3////9//7//f////3//v/9/////f/+//3////9//78AAP9//3//PwAA/3//f/8/AAD/f/9//z8AAP9//3//P/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mvu2s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_si3id"]
+size = Vector3(1.3647461, 2.1787415, 0.35717773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqis0"]
+size = Vector3(0.1, 3, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j5y3"]
+size = Vector3(6, 3, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s847f"]
+size = Vector3(0.1, 3, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nhmvm"]
+size = Vector3(0.1, 3, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8b48c"]
+size = Vector3(6, 3, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqis0"]
+size = Vector3(6, 0.1, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8b48c"]
+albedo_texture = ExtResource("10_0j5y3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxsu7"]
+resource_name = "Rug"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("10_si3id")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6rwbx"]
+_surfaces = [{
+"aabb": AABB(-0.035477318, -0.023644805, 0, 0.070954636, 0.04728961, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "Rug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qFARvcCywTwAAAAAqlARPb2ywTwAAAAAqFARPcCywbwAAAAAqlARvb2ywbwAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g05u1"]
+resource_name = "Plane"
+_surfaces = [{
+"aabb": AABB(-0.035477318, -0.023644805, 0, 0.070954636, 0.04728961, 1e-05),
+"attribute_data": PackedByteArray("HE9VPwAAAAAcT1U/AACAP5LDKj4AAIA/ksMqPgAAAAA="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_xxsu7"),
+"name": "Rug",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qFARvcCywTwAAAAAqlARPb2ywTwAAAAAqFARPcCywbwAAAAAqlARvb2ywbwAAAAA/3//f/9/////f/9//3////9//3//f////3//f/9///8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6rwbx")
+
 [node name="Apartment" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_qqis0")
 mesh = SubResource("BoxMesh_tc1mv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -190,3 +305,97 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bed"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48546362, 0.33737266, -1.1456909)
 shape = SubResource("BoxShape3D_03vwg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.6199725)
+
+[node name="Bookshelf" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(40, -3.4969114e-06, -1.5285486e-13, 0, -1.7484556e-06, 40, -3.4969114e-06, -40, -1.7484556e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_0wnx2")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71313477, 1.1413878, -0.16442871)
+shape = SubResource("BoxShape3D_si3id")
+
+[node name="Walls" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.6, 0)
+visible = false
+shape = SubResource("BoxShape3D_qqis0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.6, 0)
+visible = false
+shape = SubResource("BoxShape3D_qqis0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -4)
+visible = false
+shape = SubResource("BoxShape3D_0j5y3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 4)
+visible = false
+shape = SubResource("BoxShape3D_0j5y3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5076821, 0)
+material_override = ExtResource("8_483uy")
+mesh = SubResource("BoxMesh_s847f")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.5076821, 4)
+material_override = ExtResource("8_483uy")
+mesh = SubResource("BoxMesh_nhmvm")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.5076821, -4)
+material_override = ExtResource("8_483uy")
+mesh = SubResource("BoxMesh_nhmvm")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Walls"]
+
+[node name="MeshInstance3D2" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5076821, 0)
+material_override = ExtResource("8_483uy")
+size = Vector3(0.1, 3, 8)
+material = ExtResource("8_483uy")
+
+[node name="WindowBox" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.6166892, 1.3090718)
+operation = 2
+size = Vector3(0.2, 2, 2)
+material = ExtResource("8_483uy")
+
+[node name="CameraArea" parent="." instance=ExtResource("9_qqis0")]
+
+[node name="StaticCamera3D" parent="CameraArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8425088, 0.5386826, 0, -0.5386826, 0.8425088, 0, 2.6339774, 3.9356842)
+
+[node name="AreaCollisionShape3D" parent="CameraArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+shape = SubResource("BoxShape3D_8b48c")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+material_override = ExtResource("8_483uy")
+mesh = SubResource("BoxMesh_qqis0")
+skeleton = NodePath("../../Floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_tc1mv")
+
+[node name="Rug" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.6226833e-06, -60, -2.6226833e-06, 0, -2.6226833e-06, 60, -60, 2.6226833e-06, 1.1464113e-13, 0, 0.086164, 0)
+material_override = SubResource("StandardMaterial3D_8b48c")
+mesh = SubResource("ArrayMesh_g05u1")
+skeleton = NodePath("")
+
+[editable path="CameraArea"]
