@@ -9,6 +9,7 @@ public partial class CameraManager : Node
     [Export] private NodePath _cameraPath;
     public List<Camera3D> Cameras = new();
     public Camera3D FirstPersonCamera;
+    public int PreviousCameraIndex = -1;
 
     public override void _Ready()
     {
@@ -65,6 +66,7 @@ public partial class CameraManager : Node
     {
         if (Cameras.Count == 0 || index < 0 || index >= Cameras.Count) return;
 
+        PreviousCameraIndex = Cameras.FindIndex(cam => cam.Current);
         foreach (var cam in Cameras)
         {
             cam.Current = false;
@@ -75,6 +77,7 @@ public partial class CameraManager : Node
     {
         if (FirstPersonCamera == null) return;
 
+        PreviousCameraIndex = Cameras.FindIndex(cam => cam.Current);
         foreach (var cam in Cameras)
         {
             cam.Current = false;
