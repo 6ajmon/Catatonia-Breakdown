@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj3ka656a8osp"]
+
+[ext_resource type="Script" uid="uid://nnmipetsixjg" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.cs" id="1_bawf1"]
+
+[node name="FirstPersonCameraSwitchArea" type="Area3D"]
+script = ExtResource("1_bawf1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

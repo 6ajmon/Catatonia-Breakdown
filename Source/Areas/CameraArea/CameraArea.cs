@@ -14,7 +14,7 @@ public partial class CameraArea : Area3D
         var cameraIndex = CameraManager.Instance.Cameras.IndexOf(Camera);
         if (body is CharacterTmp)
         {
-            CameraManager.Instance.OnChangeCamera(cameraIndex);
+            SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), cameraIndex);
         }
     }
 }
