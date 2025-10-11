@@ -20,7 +20,7 @@ public partial class FirstPersonCameraSwitchArea : Area3D
     private void OnBodyExited(Node3D body)
     {
         if (CameraManager.Instance.FirstPersonCamera == null) return;
-        if (body is CharacterTmp)
+        if (body is CharacterTmp && CameraManager.Instance.FirstPersonCamera.Current)
         {
             SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), CameraManager.Instance.PreviousCameraIndex);
         }
