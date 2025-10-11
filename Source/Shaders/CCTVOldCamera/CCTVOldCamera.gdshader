@@ -1,3 +1,5 @@
+// https://godotshaders.com/shader/cctv-old-security-camera-style-shader/
+
 shader_type canvas_item;
 
 uniform sampler2D screen_tex : hint_screen_texture;
