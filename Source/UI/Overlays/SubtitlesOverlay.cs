@@ -12,7 +12,7 @@ public partial class SubtitlesOverlay : Control
     private float charTimer = 0.0f;
     private bool isTyping = false;
     
-    public void ShowSubtitle(string personName, string subtitle)
+    public void ShowSubtitle(string personName, string subtitle, float duration = 0.0f)
     {
         personNameLabel.Text = personName;
         currentSubtitle = subtitle;
@@ -21,6 +21,10 @@ public partial class SubtitlesOverlay : Control
         isTyping = true;
         subtitleLabel.Text = "";
         Visible = true;
+        if (duration > 0.0f)
+        {
+            GetTree().CreateTimer(duration).Timeout += () => HideSubtitle();
+        }
     }
     
     public void HideSubtitle()

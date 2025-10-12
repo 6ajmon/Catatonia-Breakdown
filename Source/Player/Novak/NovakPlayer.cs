@@ -22,6 +22,7 @@ public partial class NovakPlayer : CharacterBody3D
     }
     public override void _Process(double delta)
     {
+        if (GameManager.Instance.IsCutscenePlaying) return;
         if (firstPersonCamera.Current)
         {
             skeleton.Visible = false;
