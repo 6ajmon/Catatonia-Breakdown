@@ -19,4 +19,16 @@ https://sketchfab.com/3d-models/ps1low-poly-human-richard-177c3ebb448c4b91b7d99b
 
 https://sketchfab.com/3d-models/low-poly-psx-street-lamp-81a8d1861bbd4cef8ab1aed2986bf873
 
-https://sketchfab.com/3d-models/soviet-panel-house-75dc0bb868f64b9f920d3b85f307886c
+https://sketchfab.com/3d-models/russian-panel-house-eb4cecddb9da494b816090a0ede0efe6
+
+https://cuboy.itch.io/grasspackvol1
+
+https://valsekamerplant.itch.io/psx-style-walls-fences
+
+https://juliovii.itch.io/concretepk01
+
+https://kkryy.itch.io/streetfurniture
+
+https://oxycodonee.itch.io/bench
+
+https://sketchfab.com/3d-models/bush-square-c90165bb23744f009f950295c6b384e6
