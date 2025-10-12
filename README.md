@@ -15,3 +15,4 @@ https://mcpato.itch.io/house-interior-psx-assets
 
 https://sketchfab.com/3d-models/low-poly-psx-hinged-door-4c195ed39f14418ba998eda8c3ce72a6#download
 
+https://sketchfab.com/3d-models/ps1low-poly-human-richard-177c3ebb448c4b91b7d99bb6a6fba157

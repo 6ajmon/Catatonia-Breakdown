@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d22he5gfcpsyi"
-path.s3tc="res://.godot/imported/BigfootTexture.png-f78c4624a1683768bbda720e34f7e375.s3tc.ctex"
-path.etc2="res://.godot/imported/BigfootTexture.png-f78c4624a1683768bbda720e34f7e375.etc2.ctex"
+uid="uid://b4pjfhkj5x75q"
+path.s3tc="res://.godot/imported/Texture.png-3e9b9058748ad0c633f78dc3b7ffb209.s3tc.ctex"
+path.etc2="res://.godot/imported/Texture.png-3e9b9058748ad0c633f78dc3b7ffb209.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/MonkeyMan/BigfootTexture.png"
-dest_files=["res://.godot/imported/BigfootTexture.png-f78c4624a1683768bbda720e34f7e375.s3tc.ctex", "res://.godot/imported/BigfootTexture.png-f78c4624a1683768bbda720e34f7e375.etc2.ctex"]
+source_file="res://Assets/Models/Novak/Texture.png"
+dest_files=["res://.godot/imported/Texture.png-3e9b9058748ad0c633f78dc3b7ffb209.s3tc.ctex", "res://.godot/imported/Texture.png-3e9b9058748ad0c633f78dc3b7ffb209.etc2.ctex"]
 
 [params]
 

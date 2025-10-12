@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6ke01eikbyh4"
-path="res://.godot/imported/Running+Model.fbx-8305706bd0052127221bf0a1b5d8e4b1.scn"
+uid="uid://ce8wc1i3nwdxd"
+path="res://.godot/imported/Novak Start Walking.fbx-5be2c2367c02a9f1235d323e1c049666.scn"
 
 [deps]
 
-source_file="res://Assets/Models/MonkeyMan/Running+Model.fbx"
-dest_files=["res://.godot/imported/Running+Model.fbx-8305706bd0052127221bf0a1b5d8e4b1.scn"]
+source_file="res://Assets/Models/Novak/Novak Start Walking.fbx"
+dest_files=["res://.godot/imported/Novak Start Walking.fbx-5be2c2367c02a9f1235d323e1c049666.scn"]
 
 [params]
 
