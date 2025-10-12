@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=77 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
@@ -44,7 +44,10 @@ size = Vector3(6, 0.1, 8)
 [sub_resource type="BoxMesh" id="BoxMesh_5tusi"]
 size = Vector3(6, 0.1, 4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tc1mv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hj6lc"]
+size = Vector3(6, 0.1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tfwf"]
 size = Vector3(6, 0.1, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rladt"]
@@ -345,6 +348,9 @@ size = Vector3(6, 0.1, 8)
 [sub_resource type="BoxMesh" id="BoxMesh_ndseh"]
 size = Vector3(6, 0.1, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc1mv"]
+size = Vector3(6, 0.1, 4)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8b48c"]
 albedo_texture = ExtResource("10_0j5y3")
 
@@ -553,11 +559,11 @@ material_override = SubResource("StandardMaterial3D_qqis0")
 mesh = SubResource("BoxMesh_5tusi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_tc1mv")
+shape = SubResource("BoxShape3D_hj6lc")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
-shape = SubResource("BoxShape3D_tc1mv")
+shape = SubResource("BoxShape3D_7tfwf")
 
 [node name="Bigfoot" parent="." instance=ExtResource("5_03vwg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0805008, 0, 1.2507598)
@@ -842,7 +848,7 @@ light_color = Color(0.735357, 0.6971649, 0.5825884, 1)
 light_energy = 0.6
 
 [node name="Novak" parent="." instance=ExtResource("21_xs1mg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1354942, 0.06259894, 0.4380219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.043097, 0.6516179, -2.6499362)
 
 [editable path="Bigfoot"]
 [editable path="Walls/WindowMesh/FirstPersonCameraSwitchArea"]
