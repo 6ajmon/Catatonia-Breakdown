@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bifa8hgrfoe1g"]
+
+[ext_resource type="Script" uid="uid://dhwbahsja8uwg" path="res://Source/Cutscenes/Cutscene/Cutscene.cs" id="1_1yua3"]
+
+[node name="Cutscene" type="Node3D"]
+script = ExtResource("1_1yua3")
+
+[node name="Cameras" type="Node3D" parent="."]

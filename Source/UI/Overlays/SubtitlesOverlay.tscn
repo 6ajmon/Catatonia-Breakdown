@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhnpe57oq6tq8"]
+
+[ext_resource type="Script" uid="uid://b8luv4n2gpsp5" path="res://Source/UI/Overlays/SubtitlesOverlay.cs" id="1_3mt3j"]
+[ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="2_2n201"]
+
+[node name="SubtitlesOverlay" type="Control" node_paths=PackedStringArray("personNameLabel", "subtitleLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mt3j")
+personNameLabel = NodePath("MarginContainer/VBoxContainer/Person/MarginContainer/Label")
+subtitleLabel = NodePath("MarginContainer/VBoxContainer/Text/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Person"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Person/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2n201")
+theme_override_font_sizes/font_size = 32
+text = "NOVAK TEST:"
+
+[node name="Text" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_2n201")
+theme_override_font_sizes/font_size = 32
+text = "TEST TEST test Test"
+horizontal_alignment = 1
