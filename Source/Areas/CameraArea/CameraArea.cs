@@ -13,10 +13,12 @@ public partial class CameraArea : Area3D
     {
         Camera = GetNode<Camera3D>("StaticCamera3D");
         BodyEntered += OnBodyEntered;
+        SignalManager.Instance.CutsceneEnded += OnCutsceneEnded;
     }
     public override void _ExitTree()
     {
         BodyEntered -= OnBodyEntered;
+        SignalManager.Instance.CutsceneEnded -= OnCutsceneEnded;
     }
     public override void _Process(double delta)
     {
@@ -39,9 +41,24 @@ public partial class CameraArea : Area3D
     private void OnBodyEntered(Node3D body)
     {
         var cameraIndex = CameraManager.Instance.Cameras.IndexOf(Camera);
-        if (body is CharacterTmp)
+        if (body is NovakPlayer && GameManager.Instance.IsCutscenePlaying == false)
         {
             SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), cameraIndex);
+        }
+    }
+    private void OnCutsceneEnded()
+    {
+        if (GameManager.Instance.PlayerInstance == null) return;
+
+        var overlappingBodies = GetOverlappingBodies();
+        foreach (var body in overlappingBodies)
+        {
+            if (body is NovakPlayer)
+            {
+                var cameraIndex = CameraManager.Instance.Cameras.IndexOf(Camera);
+                SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeCamera), cameraIndex);
+                break;
+            }
         }
     }
 }

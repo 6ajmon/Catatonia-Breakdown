@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkhjaw240tdsv"]
+
+[ext_resource type="Script" uid="uid://dfhugt5a41xap" path="res://Source/Cutscenes/SleepingCutscene.cs" id="1_3odj2"]
+[ext_resource type="PackedScene" uid="uid://cdf81rys0cvt1" path="res://Source/Levels/Apartment/Apartment.tscn" id="8_x15du"]
+[ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="19_pku13"]
+[ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/SubtitlesOverlay.tscn" id="25_3yq8m"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3yq8m"]
+exposure_multiplier = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rh146"]
+shader = ExtResource("19_pku13")
+shader_parameter/exposure = 1.20000005048023
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.8
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 5.00000019
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 8.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.014000000665
+shader_parameter/vignette_strength = 1.2
+shader_parameter/grain_strength = 0.0510000024225
+shader_parameter/tint_strength = 0.25
+shader_parameter/scanline_density = 240.0
+shader_parameter/scanline_strength = 0.15
+shader_parameter/glitch_strength = 0.06000000285
+shader_parameter/glitch_speed = 1.0000000475
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[node name="SleepingCutscene" type="Node3D" node_paths=PackedStringArray("bedCamera", "windowCamera", "subtitlesOverlay")]
+script = ExtResource("1_3odj2")
+bedCamera = NodePath("Cameras/BedCamera")
+windowCamera = NodePath("Cameras/WindowCamera")
+subtitlesOverlay = NodePath("SubtitlesOverlay")
+
+[node name="Apartment" parent="." instance=ExtResource("8_x15du")]
+
+[node name="Ceiling" parent="Apartment" index="7"]
+visible = true
+
+[node name="OmniLight3D" parent="Apartment/TableLamp" index="2"]
+light_energy = 0.6
+omni_range = 3.0
+
+[node name="Novak" parent="Apartment" index="12"]
+transform = Transform3D(1, 0, 0, 0, 0.19594613, 0.98061466, 0, -0.98061466, 0.19594613, 2.371, 0.534, -1.93)
+
+[node name="Cameras" type="Node3D" parent="."]
+
+[node name="BedCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
+transform = Transform3D(1, 0, 0, 0, 0.42302957, 0.90611595, 0, -0.90611595, 0.42302957, 2.358228, 1.8972723, -2.834449)
+attributes = SubResource("CameraAttributesPractical_3yq8m")
+fov = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="Cameras/BedCamera"]
+material = SubResource("ShaderMaterial_rh146")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
+transform = Transform3D(-2.2095088e-08, -0.093013555, 0.9956649, 3.7715942e-08, 0.9956649, 0.093013555, -1, 3.960758e-08, -1.849121e-08, -0.25167763, 1.9902694, 0.9925791)
+attributes = SubResource("CameraAttributesPractical_3yq8m")
+fov = 30.0
+
+[node name="ColorRect" type="ColorRect" parent="Cameras/WindowCamera"]
+material = SubResource("ShaderMaterial_rh146")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubtitlesOverlay" parent="." instance=ExtResource("25_3yq8m")]
+
+[editable path="Apartment"]
+[editable path="Apartment/Bigfoot"]
+[editable path="Apartment/Walls/WindowMesh/FirstPersonCameraSwitchArea"]
+[editable path="Apartment/CameraArea"]

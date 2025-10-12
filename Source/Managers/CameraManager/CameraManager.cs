@@ -73,6 +73,17 @@ public partial class CameraManager : Node
         }
         Cameras[index].Current = true;
     }
+    public void TransitionToCamera(Camera3D targetCamera)
+    {
+        if (targetCamera == null) return;
+
+        PreviousCameraIndex = Cameras.FindIndex(cam => cam.Current);
+        foreach (var cam in Cameras)
+        {
+            cam.Current = false;
+        }
+        targetCamera.Current = true;
+    }
     public void OnSwitchToFirstPersonCamera()
     {
         if (FirstPersonCamera == null) return;
