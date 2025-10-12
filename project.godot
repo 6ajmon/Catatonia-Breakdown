@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectCamera"
-run/main_scene="uid://bv7a6rg7qobwb"
+run/main_scene="uid://cdf81rys0cvt1"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="uid://pkt80fwl6cst"
 
