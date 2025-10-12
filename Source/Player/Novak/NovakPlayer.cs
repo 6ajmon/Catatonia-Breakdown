@@ -5,8 +5,8 @@ public partial class NovakPlayer : CharacterBody3D
 {
     [Export] public float Speed = 2.0f;
     [Export] public float RunSpeed = 3.0f;
-    [Export] public float RotationSpeed = 2.0f;
-    [Export] public float RunRotationSpeed = 3.0f;
+    [Export] public float RotationSpeed = 3.0f;
+    [Export] public float RunRotationSpeed = 4.5f;
     [Export] public float MouseSensitivity = 0.16f;
     [Export] public float MaxCameraAngle = 60.0f;
     [Export] public float GravityForce = 9.8f;
