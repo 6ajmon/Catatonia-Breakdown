@@ -8,7 +8,7 @@ public partial class Bigfoot : CharacterBody3D
     {
         if (animationPlayer != null)
         {
-            animationPlayer.Play("Idle/mixamo_com");
+            animationPlayer.Play("Bigfoot/Idle");
         }
     }
 }

@@ -7,7 +7,6 @@ public partial class CharacterTmp : CharacterBody3D
     public override void _Ready()
     {
         CameraManager.Instance.GetFirstPersonCamera();
-        GameManager.Instance.PlayerInstance = this;
     }
     public override void _Process(double delta)
     {
@@ -15,6 +14,7 @@ public partial class CharacterTmp : CharacterBody3D
 
         if (Input.IsActionPressed("MoveUp"))
             direction -= Transform.Basis.Z;
+            
         if (Input.IsActionPressed("MoveDown"))
             direction += Transform.Basis.Z;
         if (Input.IsActionPressed("MoveLeft"))

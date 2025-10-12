@@ -1,15 +1,15 @@
 [remap]
 
-importer="animation_library"
+importer="scene"
 importer_version=1
-type="AnimationLibrary"
-uid="uid://deffbqshxjiwf"
-path="res://.godot/imported/IdleAnimation.fbx-ef0e8103635d8b0b769dff1e9f11fb61.res"
+type="PackedScene"
+uid="uid://chi6d3eo14nt8"
+path="res://.godot/imported/Model+Idle.fbx-d85c4e1c182a49b1ead6bb9a3790a5bb.scn"
 
 [deps]
 
-source_file="res://Assets/Models/MonkeyMan/IdleAnimation.fbx"
-dest_files=["res://.godot/imported/IdleAnimation.fbx-ef0e8103635d8b0b769dff1e9f11fb61.res"]
+source_file="res://Assets/Models/Novak/Model+Idle.fbx"
+dest_files=["res://.godot/imported/Model+Idle.fbx-d85c4e1c182a49b1ead6bb9a3790a5bb.scn"]
 
 [params]
 

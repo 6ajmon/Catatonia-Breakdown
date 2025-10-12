@@ -1,11 +1,11 @@
-[gd_scene load_steps=76 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=75 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
 [ext_resource type="Texture2D" uid="uid://dbd58lrtvnmoy" path="res://Assets/Models/Interior/Bed/MattressWood.png" id="1_yvjt0"]
 [ext_resource type="Texture2D" uid="uid://wd1kf6on2d8u" path="res://Assets/Models/Interior/Bed/Mattress.png" id="2_03vwg"]
 [ext_resource type="Texture2D" uid="uid://b1qj7rortt7gv" path="res://Assets/Models/Interior/Bed/Blanket.png" id="3_3kpmy"]
-[ext_resource type="Texture2D" uid="uid://d22he5gfcpsyi" path="res://Assets/Models/MonkeyMan/BigfootTexture.png" id="3_bewf3"]
+[ext_resource type="Texture2D" uid="uid://d22he5gfcpsyi" path="res://Assets/Models/Bigfoot/BigfootTexture.png" id="3_bewf3"]
 [ext_resource type="Texture2D" uid="uid://cp4k646t344x6" path="res://Assets/Models/Interior/Bed/Pillow.png" id="4_s4evh"]
 [ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="5_03vwg"]
 [ext_resource type="Texture2D" uid="uid://de0atk42il3bf" path="res://Assets/Models/Interior/Bookshelf/Bookshelf.png" id="7_483uy"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://18y5ufg32ue" path="res://Assets/Models/Interior/Door/Wooden_Door.png" id="12_lgi8l"]
 [ext_resource type="PackedScene" uid="uid://c174jql4rkeu6" path="res://Assets/Models/Interior/Door/Doors.fbx" id="12_ndseh"]
 [ext_resource type="Texture2D" uid="uid://dfg8f6upm047n" path="res://Assets/Models/Interior/TableLamp/Lamp.png" id="13_fyaxn"]
-[ext_resource type="PackedScene" uid="uid://d1d24nbw5nh3i" path="res://Source/Tmp/CharacterTmp/CharacterTmp.tscn" id="15_nhmvm"]
+[ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="21_xs1mg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s847f"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -535,9 +535,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o5c12")
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_nhmvm"]
-exposure_multiplier = 0.275
-
 [node name="Apartment" type="Node3D"]
 script = ExtResource("1_5tusi")
 
@@ -784,6 +781,7 @@ visible = false
 shape = SubResource("BoxShape3D_8b48c")
 
 [node name="Ceiling" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -843,14 +841,9 @@ transform = Transform3D(1, -8.7422784e-08, -3.8213697e-15, -2.1175824e-21, -4.37
 light_color = Color(0.735357, 0.6971649, 0.5825884, 1)
 light_energy = 0.6
 
-[node name="CharacterTmp" parent="." instance=ExtResource("15_nhmvm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7552806, 0)
-
-[node name="Camera3D" parent="CharacterTmp" index="2"]
-transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 0, 0.29752743, 0)
-attributes = SubResource("CameraAttributesPractical_nhmvm")
+[node name="Novak" parent="." instance=ExtResource("21_xs1mg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1354942, 0.06259894, 0.4380219)
 
 [editable path="Bigfoot"]
 [editable path="Walls/WindowMesh/FirstPersonCameraSwitchArea"]
 [editable path="CameraArea"]
-[editable path="CharacterTmp"]
