@@ -9,6 +9,7 @@ public partial class NovakPlayer : CharacterBody3D
     [Export] public float RunRotationSpeed = 3.0f;
     [Export] public float MouseSensitivity = 0.16f;
     [Export] public float MaxCameraAngle = 60.0f;
+    [Export] public float GravityForce = 9.8f;
     Vector3 direction = Vector3.Zero;
     private bool _isRunning = false;
     private bool _movingBackwards = false;
@@ -39,7 +40,7 @@ public partial class NovakPlayer : CharacterBody3D
             Input.MouseMode = Input.MouseModeEnum.Visible;
         }
         
-        updateInput();
+        updateInput(delta);
         updateStateMachine();
         HandleAnimation(delta);
         skeleton.Visible = !isFirstPerson;
@@ -74,7 +75,7 @@ public partial class NovakPlayer : CharacterBody3D
         }
     }
 
-    public void updateInput()
+    public void updateInput(double delta)
     {
         direction = Vector3.Zero;
         _movingBackwards = false;
@@ -119,6 +120,11 @@ public partial class NovakPlayer : CharacterBody3D
         {
             _isRunning = false;
             speed = Speed;
+        }
+
+        if (!IsOnFloor())
+        {
+            direction.Y = -GravityForce * (float)delta;
         }
         
         Velocity = direction * speed;
