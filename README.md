@@ -19,4 +19,4 @@ https://sketchfab.com/3d-models/ps1low-poly-human-richard-177c3ebb448c4b91b7d99b
 
 https://sketchfab.com/3d-models/low-poly-psx-street-lamp-81a8d1861bbd4cef8ab1aed2986bf873
 
-https://sketchfab.com/3d-models/russian-panel-house-eb4cecddb9da494b816090a0ede0efe6
+https://sketchfab.com/3d-models/soviet-panel-house-75dc0bb868f64b9f920d3b85f307886c
