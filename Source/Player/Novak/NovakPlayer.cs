@@ -9,16 +9,27 @@ public partial class NovakPlayer : CharacterBody3D
     [Export] public AnimationPlayer animationPlayer;
     [Export] public AnimationTree animationTree;
     [Export] public StateMachine stateMachine;
+    [Export] public Camera3D firstPersonCamera;
+    private Node3D skeleton;
     private float _walkBlendAmount = 0.0f;
     private float _runBlendAmount = 0.0f;
     [Export] public float BlendSpeed = 3.0f;
     public override void _Ready()
     {
+        skeleton = GetNode<Node3D>("Skeleton");
         CameraManager.Instance.GetFirstPersonCamera();
         GameManager.Instance.PlayerInstance = this;
     }
     public override void _Process(double delta)
     {
+        if (firstPersonCamera.Current)
+        {
+            skeleton.Visible = false;
+        }
+        else
+        {
+            skeleton.Visible = true;
+        }
         Vector3 direction = Vector3.Zero;
 
         if (Input.IsActionPressed("MoveUp"))
