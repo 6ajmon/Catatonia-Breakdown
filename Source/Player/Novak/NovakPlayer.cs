@@ -30,6 +30,7 @@ public partial class NovakPlayer : CharacterBody3D
     }
     public override void _Process(double delta)
     {
+        if (GameManager.Instance.IsCutscenePlaying) return;
         isFirstPerson = firstPersonCamera.Current;
         if (isFirstPerson)
         {
