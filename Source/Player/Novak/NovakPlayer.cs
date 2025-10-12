@@ -3,16 +3,19 @@ using System;
 
 public partial class NovakPlayer : CharacterBody3D
 {
-    [Export] public float Speed = 3.0f;
+    [Export] public float Speed = 2.0f;
+    [Export] public float RunSpeed = 3.0f;
+    private bool _isRunning = false;
     [Export] public AnimationPlayer animationPlayer;
+    [Export] public AnimationTree animationTree;
+    [Export] public StateMachine stateMachine;
+    private float _walkBlendAmount = 0.0f;
+    private float _runBlendAmount = 0.0f;
+    [Export] public float BlendSpeed = 3.0f;
     public override void _Ready()
     {
         CameraManager.Instance.GetFirstPersonCamera();
         GameManager.Instance.PlayerInstance = this;
-        if (animationPlayer != null)
-        {
-            animationPlayer.Play("Novak/Idle");
-        }
     }
     public override void _Process(double delta)
     {
@@ -28,9 +31,54 @@ public partial class NovakPlayer : CharacterBody3D
             direction += Transform.Basis.X;
 
         direction = direction.Normalized();
-
-        Velocity = direction * Speed;
-
+        _isRunning = Input.IsActionPressed("RunToggle");
+        var speed = _isRunning ? RunSpeed : Speed;
+        Velocity = direction * speed;
+        if (stateMachine != null)
+        {
+            if (direction == Vector3.Zero)
+            {
+                stateMachine.ChangeState(stateMachine.GetNode<PlayerIdleState>("Idle"));
+            }
+            else if (_isRunning)
+            {
+                stateMachine.ChangeState(stateMachine.GetNode<PlayerRunningState>("Running"));
+            }
+            else
+            {
+                stateMachine.ChangeState(stateMachine.GetNode<PlayerWalkingState>("Walking"));
+            }
+        }
+        HandleAnimation(delta);
         MoveAndSlide();
+    }
+
+    public void HandleAnimation(double delta)
+    {
+        switch (stateMachine.CurrentState)
+        {
+            case PlayerIdleState:
+                _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                break;
+            case PlayerWalkingState:
+                _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 1.0f, (float)(BlendSpeed * delta));
+                _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                break;
+            case PlayerRunningState:
+                _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 1.0f, (float)(BlendSpeed * delta));
+                break;
+        }
+        UpdateAnimationTreeParameters();
+    }
+
+    public void UpdateAnimationTreeParameters()
+    {
+        if (animationTree != null)
+        {
+            animationTree.Set("parameters/Walk/blend_amount", _walkBlendAmount);
+            animationTree.Set("parameters/Run/blend_amount", _runBlendAmount);
+        }
     }
 }
