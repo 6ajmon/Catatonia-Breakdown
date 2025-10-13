@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://drj2sfsixv43o"]
-
-[ext_resource type="Script" uid="uid://bitmnh6dbhkcg" path="res://Source/Interactable/InteractableObject.cs" id="1_uixb3"]
+[gd_scene format=3 uid="uid://drj2sfsixv43o"]
 
 [node name="InteractableObject" type="Area3D"]
-script = ExtResource("1_uixb3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
