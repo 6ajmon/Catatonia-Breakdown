@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices.JavaScript;
 
 public partial class SignalManager : Node
 {
@@ -7,4 +8,5 @@ public partial class SignalManager : Node
     [Signal] public delegate void ChangeCameraEventHandler(int index);
     [Signal] public delegate void SwitchToFirstPersonCameraEventHandler();
     [Signal] public delegate void CutsceneEndedEventHandler();
+    [Signal] public delegate void ObjectInteractionEventHandler(string objectId);
 }
