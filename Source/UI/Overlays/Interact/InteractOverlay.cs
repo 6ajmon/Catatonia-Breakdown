@@ -7,7 +7,6 @@ public partial class InteractOverlay : VBoxContainer
     public override void _Ready()
     {
         actionNameLabel = GetNode<Label>("ActionNameLabel");
-        GD.Print("InteractOverlay ready");
         Visible = false;
         Position = (DisplayServer.WindowGetSize()-Size)/2;
         SignalManager.Instance.ChangeInteractableText += UpdateText;

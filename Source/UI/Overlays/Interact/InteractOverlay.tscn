@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dn71atxesfj1w"]
 
-[ext_resource type="Script" uid="uid://bce3uys1onvr" path="res://Source/UI/Overlays/InteractOverlay.cs" id="1_hjfrm"]
+[ext_resource type="Script" uid="uid://bce3uys1onvr" path="res://Source/UI/Overlays/Interact/InteractOverlay.cs" id="1_hjfrm"]
 
 [node name="InteractOverlay" type="VBoxContainer"]
 offset_right = 70.0

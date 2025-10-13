@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhnpe57oq6tq8"]
 
-[ext_resource type="Script" uid="uid://b8luv4n2gpsp5" path="res://Source/UI/Overlays/SubtitlesOverlay.cs" id="1_3mt3j"]
+[ext_resource type="Script" uid="uid://b8luv4n2gpsp5" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.cs" id="1_3mt3j"]
 [ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="2_2n201"]
 
 [node name="SubtitlesOverlay" type="Control" node_paths=PackedStringArray("personNameLabel", "subtitleLabel")]

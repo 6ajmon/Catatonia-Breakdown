@@ -1,17 +1,25 @@
 using Godot;
 using System;
+
 [GlobalClass] 
 public partial class InteractableObject: Area3D
 {
-    [Export] public String OverlayString;
+    [Export] public string OverlayString;
     [Export] public MeshInstance3D[] OutlinedMeshes;
+    [Export] float OutlineThickness = 0.001f;
     private bool inInteractionRange = false;
 
     public override void _Ready()
     {
-       
+        BodyEntered += OnBodyEntered;
+        BodyExited += OnBodyExited;
     }
 
+    public override void _ExitTree()
+    {
+        BodyEntered -= OnBodyEntered;
+        BodyExited -= OnBodyExited;
+    }
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed("Interact") && inInteractionRange)
@@ -25,7 +33,7 @@ public partial class InteractableObject: Area3D
         
     } 
    
-    public void _on_body_entered(Node3D body)
+    public void OnBodyEntered(Node3D body)
     {
         if (body is NovakPlayer)
         {
@@ -37,14 +45,14 @@ public partial class InteractableObject: Area3D
                 StandardMaterial3D mat = OutMesh.Mesh.SurfaceGetMaterial(0) as StandardMaterial3D;
                 mat.StencilMode = BaseMaterial3D.StencilModeEnum.Outline;
                 mat.StencilColor = Colors.White;
-                mat.StencilOutlineThickness = 0.001f;
+                mat.StencilOutlineThickness = OutlineThickness;
             }
             
         }
        
     }
 
-    public void _on_body_exited(Node3D body)
+    public void OnBodyExited(Node3D body)
     {
         if (body is NovakPlayer)
         {

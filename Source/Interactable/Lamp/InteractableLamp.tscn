@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://dsr41l83753mc"]
 
 [ext_resource type="PackedScene" uid="uid://drj2sfsixv43o" path="res://Source/Interactable/Abstract/InteractableObject.tscn" id="1_1drq4"]
-[ext_resource type="Script" uid="uid://dphx2mtqoxfx4" path="res://Source/Interactable/InteractableLamp.cs" id="2_qdjr6"]
+[ext_resource type="Script" uid="uid://dphx2mtqoxfx4" path="res://Source/Interactable/Lamp/InteractableLamp.cs" id="2_qdjr6"]
 [ext_resource type="Texture2D" uid="uid://dfg8f6upm047n" path="res://Assets/Models/Interior/TableLamp/Lamp.png" id="2_wba7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdjr6"]
@@ -132,8 +132,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o5c12")
 
-[node name="InteractableLamp" node_paths=PackedStringArray("OutlinedMeshes") instance=ExtResource("1_1drq4")]
+[node name="InteractableLamp" node_paths=PackedStringArray("Light", "OutlinedMeshes") instance=ExtResource("1_1drq4")]
 script = ExtResource("2_qdjr6")
+Light = NodePath("TableLamp/OmniLight3D")
+LightEnergyOn = 0.6
 OverlayString = "Turn Off"
 OutlinedMeshes = [NodePath("TableLamp"), NodePath("TableLamp/TableLamp_001")]
 

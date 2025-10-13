@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://cxd2rs8bvmsa7"]
 
 [ext_resource type="PackedScene" uid="uid://drj2sfsixv43o" path="res://Source/Interactable/Abstract/InteractableObject.tscn" id="1_85enx"]
-[ext_resource type="Script" uid="uid://bo3abcnaiyypw" path="res://Source/Interactable/InteractableDoor.cs" id="2_3s2th"]
+[ext_resource type="Script" uid="uid://bo3abcnaiyypw" path="res://Source/Interactable/Door/InteractableDoor.cs" id="2_3s2th"]
 [ext_resource type="Texture2D" uid="uid://18y5ufg32ue" path="res://Assets/Models/Interior/Door/Wooden_Door.png" id="3_iciim"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6tmrh"]

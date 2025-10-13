@@ -5,6 +5,5 @@ public partial class InteractableDoor : InteractableObject
 {
     public override void Interact()
     {
-        GD.Print("Doors interacted");
     }
 }
