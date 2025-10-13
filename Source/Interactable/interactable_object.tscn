@@ -1,27 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://drj2sfsixv43o"]
+[gd_scene load_steps=2 format=3 uid="uid://drj2sfsixv43o"]
 
 [ext_resource type="Script" uid="uid://bitmnh6dbhkcg" path="res://Source/Interactable/InteractableObject.cs" id="1_uixb3"]
-[ext_resource type="Script" uid="uid://bce3uys1onvr" path="res://Source/Interactable/Container.cs" id="2_c755t"]
 
 [node name="InteractableObject" type="Area3D"]
 script = ExtResource("1_uixb3")
-
-[node name="UIContainer" type="VBoxContainer" parent="."]
-offset_right = 70.0
-offset_bottom = 50.0
-alignment = 1
-script = ExtResource("2_c755t")
-
-[node name="InteractLabel" type="Label" parent="UIContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Enter: [E]"
-
-[node name="ObjectNameLabel" type="Label" parent="UIContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Door"
-horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

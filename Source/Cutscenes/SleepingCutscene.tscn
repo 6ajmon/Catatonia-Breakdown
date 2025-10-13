@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkhjaw240tdsv"]
+[gd_scene load_steps=10 format=3 uid="uid://dkhjaw240tdsv"]
 
 [ext_resource type="Script" uid="uid://dfhugt5a41xap" path="res://Source/Cutscenes/SleepingCutscene.cs" id="1_3odj2"]
+[ext_resource type="PackedScene" uid="uid://drj2sfsixv43o" path="res://Source/Interactable/interactable_object.tscn" id="3_oa0yj"]
+[ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/interact_overlay.tscn" id="4_r1oxk"]
 [ext_resource type="PackedScene" uid="uid://cdf81rys0cvt1" path="res://Source/Levels/Apartment/Apartment.tscn" id="8_x15du"]
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="19_pku13"]
 [ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/SubtitlesOverlay.tscn" id="25_3yq8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oa0yj"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3yq8m"]
 exposure_multiplier = 0.3
@@ -46,6 +50,14 @@ omni_range = 3.0
 [node name="Novak" parent="Apartment" index="12"]
 transform = Transform3D(1, 0, 0, 0, 0.19594613, 0.98061466, 0, -0.98061466, 0.19594613, 2.371, 0.534, -1.93)
 
+[node name="InteractableObject" parent="Apartment" node_paths=PackedStringArray("Overlay") instance=ExtResource("3_oa0yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7808104, 0, 0.6778066)
+Overlay = NodePath("../../InteractOverlay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Apartment/InteractableObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6654997, 0)
+shape = SubResource("BoxShape3D_oa0yj")
+
 [node name="Cameras" type="Node3D" parent="."]
 
 [node name="BedCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
@@ -73,6 +85,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="InteractOverlay" parent="." instance=ExtResource("4_r1oxk")]
+offset_right = 139.0
+offset_bottom = 94.0
 
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("25_3yq8m")]
 

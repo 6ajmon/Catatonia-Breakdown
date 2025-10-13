@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=77 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://18y5ufg32ue" path="res://Assets/Models/Interior/Door/Wooden_Door.png" id="12_lgi8l"]
 [ext_resource type="PackedScene" uid="uid://c174jql4rkeu6" path="res://Assets/Models/Interior/Door/Doors.fbx" id="12_ndseh"]
 [ext_resource type="Texture2D" uid="uid://dfg8f6upm047n" path="res://Assets/Models/Interior/TableLamp/Lamp.png" id="13_fyaxn"]
-[ext_resource type="PackedScene" uid="uid://drj2sfsixv43o" path="res://Source/Interactable/interactable_object.tscn" id="21_hj6lc"]
 [ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="21_xs1mg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s847f"]
@@ -542,8 +541,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o5c12")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wrvjg"]
-
 [node name="Apartment" type="Node3D"]
 script = ExtResource("1_5tusi")
 
@@ -852,12 +849,6 @@ light_energy = 0.6
 
 [node name="Novak" parent="." instance=ExtResource("21_xs1mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.043097, 0.6516179, -2.6499362)
-
-[node name="InteractableObject" parent="." instance=ExtResource("21_hj6lc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.391133, 0.9981102, 1.1038477)
-
-[node name="InteractRange2" type="CollisionShape3D" parent="InteractableObject"]
-shape = SubResource("BoxShape3D_wrvjg")
 
 [editable path="Bigfoot"]
 [editable path="Walls/WindowMesh/FirstPersonCameraSwitchArea"]

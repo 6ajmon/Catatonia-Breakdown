@@ -3,14 +3,12 @@ using System;
 
 public partial class InteractableObject : Node3D
 {
-    [Export] public String ObjectId;
-    private Container uiContainer;
+    [Export] public InteractOverlay Overlay;
     private bool inInteractionRange = false;
 
     public override void _Ready()
     {
-        uiContainer = (Container)GetNode("UIContainer");
-        uiContainer.Visible = false;
+       
     }
 
     public override void _Input(InputEvent @event)
@@ -28,13 +26,21 @@ public partial class InteractableObject : Node3D
     }
     public void _on_body_entered(Node3D body)
     {
-        uiContainer.Visible = true;
-        inInteractionRange = true;
+        if (body is NovakPlayer)
+        {
+            Overlay.Visible = true;
+            inInteractionRange = true;
+        }
+       
     }
 
     public void _on_body_exited(Node3D body)
     {
-        uiContainer.Visible = false;
-        inInteractionRange = false;
+        if (body is NovakPlayer)
+        {
+            Overlay.Visible = false;
+            inInteractionRange = false;
+        }
+        
     }
 }
