@@ -32,3 +32,9 @@ https://kkryy.itch.io/streetfurniture
 https://oxycodonee.itch.io/bench
 
 https://sketchfab.com/3d-models/bush-square-c90165bb23744f009f950295c6b384e6
+
+https://sketchfab.com/3d-models/leaf-tree-ps1-low-poly-d799c08100974e1ba352fcd646cb0694
+
+https://ggbot.itch.io/psx-style-cars
+
+https://unsplash.com/photos/cluster-of-stars-in-the-sky-qVotvbsuM_c
