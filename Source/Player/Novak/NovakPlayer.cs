@@ -21,6 +21,7 @@ public partial class NovakPlayer : CharacterBody3D
     private Node3D skeleton;
     private float _walkBlendAmount = 0.0f;
     private float _runBlendAmount = 0.0f;
+    private float _walkBackwardsBlendAmount = 0.0f;
     [Export] public float BlendSpeed = 3.0f;
     public override void _Ready()
     {
@@ -54,14 +55,22 @@ public partial class NovakPlayer : CharacterBody3D
             case PlayerIdleState:
                 _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 0.0f, (float)(BlendSpeed * delta));
                 _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _walkBackwardsBlendAmount = Mathf.MoveToward(_walkBackwardsBlendAmount, 0.0f, (float)(BlendSpeed * delta));
                 break;
             case PlayerWalkingState:
                 _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 1.0f, (float)(BlendSpeed * delta));
                 _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _walkBackwardsBlendAmount = Mathf.MoveToward(_walkBackwardsBlendAmount, 0.0f, (float)(BlendSpeed * delta));
                 break;
             case PlayerRunningState:
                 _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 0.0f, (float)(BlendSpeed * delta));
                 _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 1.0f, (float)(BlendSpeed * delta));
+                _walkBackwardsBlendAmount = Mathf.MoveToward(_walkBackwardsBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                break;
+            case PlayerWalkingBackwardsState:
+                _walkBlendAmount = Mathf.MoveToward(_walkBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _runBlendAmount = Mathf.MoveToward(_runBlendAmount, 0.0f, (float)(BlendSpeed * delta));
+                _walkBackwardsBlendAmount = Mathf.MoveToward(_walkBackwardsBlendAmount, 1.0f, (float)(BlendSpeed * delta));
                 break;
         }
         UpdateAnimationTreeParameters();
@@ -73,6 +82,7 @@ public partial class NovakPlayer : CharacterBody3D
         {
             animationTree.Set("parameters/Walk/blend_amount", _walkBlendAmount);
             animationTree.Set("parameters/Run/blend_amount", _runBlendAmount);
+            animationTree.Set("parameters/WalkBack/blend_amount", _walkBackwardsBlendAmount);
         }
     }
 
@@ -143,6 +153,10 @@ public partial class NovakPlayer : CharacterBody3D
             else if (_isRunning)
             {
                 stateMachine.ChangeState(stateMachine.GetNode<PlayerRunningState>("Running"));
+            }
+            else if (_movingBackwards)
+            {
+                stateMachine.ChangeState(stateMachine.GetNode<PlayerWalkingBackwardsState>("WalkingBackwards"));
             }
             else
             {
