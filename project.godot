@@ -33,6 +33,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="ProjectCamera"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 StaticCameras=""

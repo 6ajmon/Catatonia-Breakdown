@@ -16,3 +16,19 @@ https://mcpato.itch.io/house-interior-psx-assets
 https://sketchfab.com/3d-models/low-poly-psx-hinged-door-4c195ed39f14418ba998eda8c3ce72a6#download
 
 https://sketchfab.com/3d-models/ps1low-poly-human-richard-177c3ebb448c4b91b7d99bb6a6fba157
+
+https://sketchfab.com/3d-models/low-poly-psx-street-lamp-81a8d1861bbd4cef8ab1aed2986bf873
+
+https://sketchfab.com/3d-models/russian-panel-house-eb4cecddb9da494b816090a0ede0efe6
+
+https://cuboy.itch.io/grasspackvol1
+
+https://valsekamerplant.itch.io/psx-style-walls-fences
+
+https://juliovii.itch.io/concretepk01
+
+https://kkryy.itch.io/streetfurniture
+
+https://oxycodonee.itch.io/bench
+
+https://sketchfab.com/3d-models/bush-square-c90165bb23744f009f950295c6b384e6
