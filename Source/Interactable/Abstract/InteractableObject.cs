@@ -1,10 +1,9 @@
 using Godot;
 using System;
-
-public abstract partial class Interactable: Area3D
+[GlobalClass] 
+public partial class InteractableObject: Area3D
 {
     [Export] public String OverlayString;
-    [Export] public InteractOverlay Overlay;
     [Export] public MeshInstance3D[] OutlinedMeshes;
     private bool inInteractionRange = false;
 
@@ -15,20 +14,23 @@ public abstract partial class Interactable: Area3D
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionPressed("Interact") && inInteractionRange)
+        if (Input.IsActionJustPressed("Interact") && inInteractionRange)
         {
             Interact();
         }
     }
 
-    public abstract void Interact(); //abstract
+    public virtual void Interact()
+    {
+        
+    } 
    
     public void _on_body_entered(Node3D body)
     {
         if (body is NovakPlayer)
         {
-            Overlay.Visible = true;
-            Overlay.actionNameLabel.Text = OverlayString;
+            SignalManager.Instance.EmitSignal(nameof(SignalManager.ToggleInteractableOverlay));
+            SignalManager.Instance.EmitSignal(nameof(SignalManager.ChangeInteractableText), OverlayString);
             inInteractionRange = true;
             foreach (var OutMesh in OutlinedMeshes)
             {
@@ -46,7 +48,7 @@ public abstract partial class Interactable: Area3D
     {
         if (body is NovakPlayer)
         {
-            Overlay.Visible = false;
+            SignalManager.Instance.EmitSignal(nameof(SignalManager.ToggleInteractableOverlay));
             inInteractionRange = false;
             foreach (var OutMesh in OutlinedMeshes)
             {

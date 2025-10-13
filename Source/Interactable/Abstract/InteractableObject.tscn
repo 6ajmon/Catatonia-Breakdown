@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://drj2sfsixv43o"]
+
+[ext_resource type="Script" uid="uid://bitmnh6dbhkcg" path="res://Source/Interactable/Abstract/InteractableObject.cs" id="1_uixb3"]
+
+[node name="InteractableObject" type="Area3D" node_paths=PackedStringArray("OutlinedMeshes")]
+script = ExtResource("1_uixb3")
+OutlinedMeshes = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
