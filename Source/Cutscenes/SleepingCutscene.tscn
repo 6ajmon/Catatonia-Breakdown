@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkhjaw240tdsv"]
+[gd_scene load_steps=10 format=3 uid="uid://dkhjaw240tdsv"]
 
 [ext_resource type="Script" uid="uid://dfhugt5a41xap" path="res://Source/Cutscenes/SleepingCutscene.cs" id="1_3odj2"]
+[ext_resource type="PackedScene" uid="uid://cxd2rs8bvmsa7" path="res://Source/Interactable/Door/InteractableDoor.tscn" id="4_2fenq"]
+[ext_resource type="PackedScene" uid="uid://dsr41l83753mc" path="res://Source/Interactable/Lamp/InteractableLamp.tscn" id="4_degfx"]
+[ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="4_r1oxk"]
 [ext_resource type="PackedScene" uid="uid://cdf81rys0cvt1" path="res://Source/Levels/Apartment/Apartment.tscn" id="8_x15du"]
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="19_pku13"]
-[ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/SubtitlesOverlay.tscn" id="25_3yq8m"]
+[ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.tscn" id="25_3yq8m"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3yq8m"]
 exposure_multiplier = 0.3
@@ -39,12 +42,14 @@ subtitlesOverlay = NodePath("SubtitlesOverlay")
 [node name="Ceiling" parent="Apartment" index="7"]
 visible = true
 
-[node name="OmniLight3D" parent="Apartment/TableLamp" index="2"]
-light_energy = 0.6
-omni_range = 3.0
-
-[node name="Novak" parent="Apartment" index="12"]
+[node name="Novak" parent="Apartment" index="11"]
 transform = Transform3D(1, 0, 0, 0, 0.19594613, 0.98061466, 0, -0.98061466, 0.19594613, 2.371, 0.534, -1.93)
+
+[node name="EntranceDoor" parent="Apartment" instance=ExtResource("4_2fenq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7855034, 1, 0.07420972)
+
+[node name="Lamp" parent="Apartment" instance=ExtResource("4_degfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0876019, 0.6244854, -3.2005043)
 
 [node name="Cameras" type="Node3D" parent="."]
 
@@ -73,6 +78,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="InteractOverlay" parent="." instance=ExtResource("4_r1oxk")]
+offset_right = 139.0
+offset_bottom = 94.0
 
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("25_3yq8m")]
 
