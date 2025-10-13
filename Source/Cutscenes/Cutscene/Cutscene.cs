@@ -32,7 +32,14 @@ public partial class Cutscene : Node3D
     {
         if (@event.IsActionPressed("Next"))
         {
-            inputReceived = true;
+            if (subtitlesOverlay != null && subtitlesOverlay.IsTyping())
+            {
+                subtitlesOverlay.CompleteTyping();
+            }
+            else
+            {
+                inputReceived = true;
+            }
         }
     }
     public async Task WaitForSeconds(float seconds)

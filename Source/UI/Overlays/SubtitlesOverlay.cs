@@ -35,6 +35,21 @@ public partial class SubtitlesOverlay : Control
         currentCharIndex = 0;
     }
     
+    public void CompleteTyping()
+    {
+        if (isTyping && currentCharIndex < currentSubtitle.Length)
+        {
+            currentCharIndex = currentSubtitle.Length;
+            subtitleLabel.Text = currentSubtitle;
+            isTyping = false;
+        }
+    }
+    
+    public bool IsTyping()
+    {
+        return isTyping;
+    }
+    
     public override void _Process(double delta)
     {
         if (!isTyping) return;
