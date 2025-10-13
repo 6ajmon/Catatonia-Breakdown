@@ -10,6 +10,12 @@ public partial class NovakPlayer : CharacterBody3D
     [Export] public float MouseSensitivity = 0.16f;
     [Export] public float MaxCameraAngle = 60.0f;
     [Export] public float GravityForce = 9.8f;
+    [Export] public float BobbingAmount = 0.05f;
+    [Export] public float BobbingSpeed = 14.0f;
+    [Export] public float RunBobbingMultiplier = 1.5f;
+    [Export] public float NormalFov = 75.0f;
+    [Export] public float RunFov = 85.0f;
+    [Export] public float FovChangeSpeed = 5.0f;
     Vector3 direction = Vector3.Zero;
     private bool _isRunning = false;
     private bool _movingBackwards = false;
@@ -23,11 +29,16 @@ public partial class NovakPlayer : CharacterBody3D
     private float _runBlendAmount = 0.0f;
     private float _walkBackwardsBlendAmount = 0.0f;
     [Export] public float BlendSpeed = 3.0f;
+    private float _bobbingTime = 0.0f;
+    private Vector3 _cameraOriginalPosition = Vector3.Zero;
+    
     public override void _Ready()
     {
         skeleton = GetNode<Node3D>("Skeleton");
         CameraManager.Instance.GetFirstPersonCamera();
         GameManager.Instance.PlayerInstance = this;
+        _cameraOriginalPosition = firstPersonCamera.Position;
+        firstPersonCamera.Fov = NormalFov;
     }
     public override void _Process(double delta)
     {
@@ -45,6 +56,13 @@ public partial class NovakPlayer : CharacterBody3D
         updateInput(delta);
         updateStateMachine();
         HandleAnimation(delta);
+        
+        if (isFirstPerson)
+        {
+            UpdateCameraBobbing(delta);
+            UpdateCameraFov(delta);
+        }
+        
         skeleton.Visible = !isFirstPerson;
     }
 
@@ -179,6 +197,35 @@ public partial class NovakPlayer : CharacterBody3D
                 firstPersonCamera.RotationDegrees = rot;
             }
             
+        }
+    }
+
+    public void UpdateCameraFov(double delta)
+    {
+        float targetFov = _isRunning && direction.LengthSquared() > 0.01f ? RunFov : NormalFov;
+        firstPersonCamera.Fov = Mathf.Lerp(firstPersonCamera.Fov, targetFov, (float)delta * FovChangeSpeed);
+    }
+
+    public void UpdateCameraBobbing(double delta)
+    {
+        if (direction.LengthSquared() > 0.01f)
+        {
+            float bobbingMultiplier = _isRunning ? RunBobbingMultiplier : 1.0f;
+            _bobbingTime += (float)delta * BobbingSpeed * bobbingMultiplier;
+            
+            float yOffset = Mathf.Sin(_bobbingTime) * BobbingAmount * bobbingMultiplier;
+            float xOffset = Mathf.Cos(_bobbingTime * 0.5f) * BobbingAmount * 0.5f * bobbingMultiplier;
+            
+            firstPersonCamera.Position = new Vector3(
+                _cameraOriginalPosition.X + xOffset,
+                _cameraOriginalPosition.Y + yOffset,
+                _cameraOriginalPosition.Z
+            );
+        }
+        else
+        {
+            _bobbingTime = 0.0f;
+            firstPersonCamera.Position = firstPersonCamera.Position.Lerp(_cameraOriginalPosition, (float)delta * 5.0f);
         }
     }
 }
