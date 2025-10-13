@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn71atxesfj1w"]
+
+[ext_resource type="Script" uid="uid://bce3uys1onvr" path="res://Source/UI/Overlays/Interact/InteractOverlay.cs" id="1_hjfrm"]
+
+[node name="InteractOverlay" type="VBoxContainer"]
+offset_right = 70.0
+offset_bottom = 50.0
+alignment = 1
+script = ExtResource("1_hjfrm")
+
+[node name="InteractLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "[E]"
+horizontal_alignment = 1
+
+[node name="ActionNameLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Example"
+horizontal_alignment = 1
