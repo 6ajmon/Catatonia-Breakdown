@@ -3,7 +3,11 @@ using System;
 
 public partial class InteractableDoor : InteractableObject
 {
+    
+    [Export(PropertyHint.File, "*.tscn")]
+    public string ScenePath { get; set; }
     public override void Interact()
     {
+        SceneManager.Instance.ReplaceScene(ScenePath);
     }
 }
