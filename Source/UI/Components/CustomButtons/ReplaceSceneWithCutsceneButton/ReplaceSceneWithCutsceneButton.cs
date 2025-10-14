@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using ProjectCamera.Source.Cutscenes;
 
 [GlobalClass]
-public partial class ReplaceSceneButton : ButtonUI
+public partial class ReplaceSceneWithCutsceneButton : ButtonUI
 {
+    
     [Export] private Cutscene _cutscene;
     [Export(PropertyHint.File, "*.tscn")]
     
@@ -12,14 +14,11 @@ public partial class ReplaceSceneButton : ButtonUI
     {
         if (_cutscene != null)
         {
-            GD.Print("Run Sequence()");
-           _cutscene.RunSequence();
-           await _cutscene.WaitForSeconds(2.0f);
+           await _cutscene.AwaitAndRunSequence();
         }
         base.OnPressed();
         if (!string.IsNullOrEmpty(ScenePath))
         {
-            GD.Print("Replace Scene");
             SceneManager.Instance.ReplaceScene(ScenePath);
         }
     }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+[GlobalClass]
 public partial class Cutscene : Node3D
 {   
     [Export] public SubtitlesOverlay subtitlesOverlay;
@@ -15,8 +16,19 @@ public partial class Cutscene : Node3D
         dialogue = StringManager.Instance.Dialogue;
         RunSequence();
     }
+
+    public override void _ExitTree()
+    {
+        inputReceived = true;
+    }
+
     public virtual async void RunSequence()
     {
+    }
+
+    public virtual async Task AwaitAndRunSequence()
+    {
+        
     }
     public async Task WaitForPlayerInput()
     {

@@ -10,7 +10,6 @@ public partial class InteractableDoor : InteractableObject
     {
         if (!string.IsNullOrEmpty(ScenePath))
         {
-            GD.Print("Replace Scene");
             SceneManager.Instance.ReplaceScene(ScenePath);
         }
     }

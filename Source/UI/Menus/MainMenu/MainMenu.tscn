@@ -26,8 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://b4pjfhkj5x75q" path="res://Assets/Models/Novak/Texture.png" id="27_64rlb"]
 [ext_resource type="Texture2D" uid="uid://bvf8wr7ykrp7q" path="res://Assets/Models/Outside/BrickFence/brick_wall_brick_wall.jpg" id="27_2064o"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_e7g8c"]
-[ext_resource type="Script" uid="uid://0ev7ifp7jvh5" path="res://Source/CustomButtons/ReplaceSceneButton.cs" id="28_ux2df"]
-[ext_resource type="Script" uid="uid://chpeqsdrk2s2" path="res://Source/Cutscenes/PlayCutscene.cs" id="29_64rlb"]
+[ext_resource type="Script" uid="uid://btlit6tntx6m3" path="res://Source/UI/Components/CustomButtons/ReplaceSceneWithCutsceneButton/ReplaceSceneWithCutsceneButton.cs" id="28_xiobc"]
+[ext_resource type="Script" uid="uid://lsemmqjiqht7" path="res://Source/Cutscenes/MainMenuCutscene.cs" id="29_ixj2m"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
@@ -736,6 +736,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0.0, -200.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayButton:Cutscene")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_81kv2"]
 length = 0.001
@@ -762,6 +774,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayButton:Cutscene")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uaua6"]
@@ -1449,13 +1473,12 @@ offset_right = 1039.0
 offset_bottom = 423.0
 theme_override_font_sizes/font_size = 64
 text = "Play"
-script = ExtResource("28_ux2df")
+script = ExtResource("28_xiobc")
 _cutscene = NodePath("../PlayCutscene")
 ScenePath = "uid://dkhjaw240tdsv"
-metadata/_custom_type_script = "uid://0ev7ifp7jvh5"
 
 [node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer")]
-script = ExtResource("29_64rlb")
+script = ExtResource("29_ixj2m")
 _animationPlayer = NodePath("OpenGatePlayer")
 
 [node name="OpenGatePlayer" type="AnimationPlayer" parent="PlayCutscene"]

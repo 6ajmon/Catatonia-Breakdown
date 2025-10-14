@@ -32,7 +32,6 @@ public partial class SleepingCutscene : Cutscene
         await WaitForSeconds(3.0f);
         subtitlesOverlay.ShowSubtitle(names.Novak, dialogue.ImGonnaCheckItOut, 5.0f);
         await WaitForPlayerInput();
-        GD.Print("Test123");
         subtitlesOverlay.HideSubtitle();
     }
 }

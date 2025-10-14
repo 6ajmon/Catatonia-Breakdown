@@ -90,6 +90,7 @@ shadow_mesh = SubResource("ArrayMesh_ojokh")
 
 [node name="InteractableDoor" node_paths=PackedStringArray("OutlinedMeshes") instance=ExtResource("1_85enx")]
 script = ExtResource("2_3s2th")
+ScenePath = ""
 OverlayString = "OpenDoor"
 OutlinedMeshes = [NodePath("EntranceDoor/Cube")]
 
