@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://qfvryhu7jugv"]
+[gd_scene load_steps=105 format=4 uid="uid://qfvryhu7jugv"]
 
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="2_ng1rk"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="4_81kv2"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bvf8wr7ykrp7q" path="res://Assets/Models/Outside/BrickFence/brick_wall_brick_wall.jpg" id="27_2064o"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_e7g8c"]
 [ext_resource type="Script" uid="uid://0ev7ifp7jvh5" path="res://Source/CustomButtons/ReplaceSceneButton.cs" id="28_ux2df"]
+[ext_resource type="Script" uid="uid://chpeqsdrk2s2" path="res://Source/Cutscenes/PlayCutscene.cs" id="29_64rlb"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
@@ -708,6 +709,67 @@ _data = {
 &"RESET": SubResource("Animation_ux2df")
 }
 
+[sub_resource type="Animation" id="Animation_wdgc4"]
+resource_name = "OpenGate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Outside/GarbageEnclosure/Walls/gate2:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 3.2490098),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Window:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -200.0]
+}
+
+[sub_resource type="Animation" id="Animation_81kv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Outside/GarbageEnclosure/Walls/gate2:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Window:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uaua6"]
+_data = {
+&"OpenGate": SubResource("Animation_wdgc4"),
+&"RESET": SubResource("Animation_81kv2")
+}
+
 [node name="MainMenuScene" type="Node3D"]
 
 [node name="Outside" type="Node3D" parent="."]
@@ -1380,7 +1442,7 @@ libraries = {
 }
 autoplay = "Gate"
 
-[node name="ReplaceSceneButton" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="." node_paths=PackedStringArray("_cutscene")]
 offset_left = 902.0
 offset_top = 327.0
 offset_right = 1039.0
@@ -1388,7 +1450,17 @@ offset_bottom = 423.0
 theme_override_font_sizes/font_size = 64
 text = "Play"
 script = ExtResource("28_ux2df")
+_cutscene = NodePath("../PlayCutscene")
 ScenePath = "uid://dkhjaw240tdsv"
 metadata/_custom_type_script = "uid://0ev7ifp7jvh5"
 
-[connection signal="pressed" from="ReplaceSceneButton" to="ReplaceSceneButton" method="OnPressed"]
+[node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer")]
+script = ExtResource("29_64rlb")
+_animationPlayer = NodePath("OpenGatePlayer")
+
+[node name="OpenGatePlayer" type="AnimationPlayer" parent="PlayCutscene"]
+libraries = {
+&"": SubResource("AnimationLibrary_uaua6")
+}
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="OnPressed"]
