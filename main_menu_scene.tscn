@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://qfvryhu7jugv"]
+[gd_scene load_steps=101 format=4 uid="uid://qfvryhu7jugv"]
 
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="2_ng1rk"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="4_81kv2"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b4pjfhkj5x75q" path="res://Assets/Models/Novak/Texture.png" id="27_64rlb"]
 [ext_resource type="Texture2D" uid="uid://bvf8wr7ykrp7q" path="res://Assets/Models/Outside/BrickFence/brick_wall_brick_wall.jpg" id="27_2064o"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_e7g8c"]
+[ext_resource type="Script" uid="uid://0ev7ifp7jvh5" path="res://Source/CustomButtons/ReplaceSceneButton.cs" id="28_ux2df"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
@@ -1378,3 +1379,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_64rlb")
 }
 autoplay = "Gate"
+
+[node name="ReplaceSceneButton" type="Button" parent="."]
+offset_left = 902.0
+offset_top = 327.0
+offset_right = 1039.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 64
+text = "Play"
+script = ExtResource("28_ux2df")
+ScenePath = "uid://dkhjaw240tdsv"
+metadata/_custom_type_script = "uid://0ev7ifp7jvh5"
+
+[connection signal="pressed" from="ReplaceSceneButton" to="ReplaceSceneButton" method="OnPressed"]

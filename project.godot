@@ -21,6 +21,7 @@ SignalManager="*res://Source/Managers/SignalManager/SignalManager.tscn"
 GameManager="*res://Source/Managers/GameManager/GameManager.tscn"
 CameraManager="*res://Source/Managers/CameraManager/CameraManager.tscn"
 StringManager="*res://Source/Managers/StringManager/StringManager.tscn"
+SceneManager="*res://Source/Managers/SceneManager/SceneManager.cs"
 
 [display]
 
