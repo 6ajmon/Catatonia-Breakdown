@@ -20,16 +20,24 @@ public partial class CameraManager : Node
     public void GetStaticCameras()
     {
         Cameras.Clear();
-        foreach (Camera3D cam in GetTree().GetNodesInGroup("StaticCameras"))
+        if (GetTree() != null)
         {
-            Cameras.Add(cam);
+            foreach (Camera3D cam in GetTree().GetNodesInGroup("StaticCameras"))
+            {
+                Cameras.Add(cam);
+            }
         }
+       
     }
     public void GetFirstPersonCamera()
     {
-        var nodesInFirstPersonGroup = GetTree().GetNodesInGroup("FirstPersonCamera");
-        if (nodesInFirstPersonGroup.Count == 0) return;
-        FirstPersonCamera = nodesInFirstPersonGroup.FirstOrDefault() as Camera3D;
+        if (GetTree() != null)
+        {
+            var nodesInFirstPersonGroup = GetTree().GetNodesInGroup("FirstPersonCamera");
+            if (nodesInFirstPersonGroup.Count == 0) return;
+            FirstPersonCamera = nodesInFirstPersonGroup.FirstOrDefault() as Camera3D;
+        }
+        
     }
 
     public override void _Process(double delta)
