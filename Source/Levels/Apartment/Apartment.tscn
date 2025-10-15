@@ -265,8 +265,15 @@ size = Vector3(0.1, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs1mg"]
 transparency = 1
+cull_mode = 2
 albedo_color = Color(1.1280806, 3.2944162, 3.2944162, 0.27450982)
 albedo_texture = ExtResource("12_lgi8l")
+albedo_texture_msdf = true
+metallic = 1.0
+metallic_texture = ExtResource("12_lgi8l")
+metallic_texture_channel = 3
+roughness = 0.0
+stencil_flags = 2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5tusi"]
 exposure_multiplier = 0.5
