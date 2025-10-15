@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5fogaj2mp4ny"
-path.s3tc="res://.godot/imported/Conditioner.png-5a88568ba87f7819b633bbfdadbe05b4.s3tc.ctex"
-path.etc2="res://.godot/imported/Conditioner.png-5a88568ba87f7819b633bbfdadbe05b4.etc2.ctex"
+uid="uid://cxe5ut58upou"
+path.s3tc="res://.godot/imported/asphat-road-texture-gray-color.jpg-34bac5d9af6508db236bfc114cccb562.s3tc.ctex"
+path.etc2="res://.godot/imported/asphat-road-texture-gray-color.jpg-34bac5d9af6508db236bfc114cccb562.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Items/Conditioner/Conditioner.png"
-dest_files=["res://.godot/imported/Conditioner.png-5a88568ba87f7819b633bbfdadbe05b4.s3tc.ctex", "res://.godot/imported/Conditioner.png-5a88568ba87f7819b633bbfdadbe05b4.etc2.ctex"]
+source_file="res://Assets/Textures/Floor/asphat-road-texture-gray-color.jpg"
+dest_files=["res://.godot/imported/asphat-road-texture-gray-color.jpg-34bac5d9af6508db236bfc114cccb562.s3tc.ctex", "res://.godot/imported/asphat-road-texture-gray-color.jpg-34bac5d9af6508db236bfc114cccb562.etc2.ctex"]
 
 [params]
 
