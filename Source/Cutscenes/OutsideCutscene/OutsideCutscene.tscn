@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmd4heeu7d464"]
+[gd_scene load_steps=12 format=3 uid="uid://bmd4heeu7d464"]
 
 [ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
@@ -18,6 +18,9 @@ size = Vector3(8, 5, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_surbq"]
 size = Vector3(5.499634, 3.2055664, 5.524231)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30rg1"]
+size = Vector3(3.8839111, 5.6517334, 5.3952637)
 
 [node name="OutsideCutscene" type="Node3D"]
 script = ExtResource("1_6y8wg")
@@ -63,9 +66,6 @@ fov = 75.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2529297, 2, 0.21264648)
 shape = SubResource("BoxShape3D_wy8fa")
 
-[node name="Novak" parent="." instance=ExtResource("4_7lefy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -57.010746)
-
 [node name="FirstPersonCameras" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.368248, 0, -36.122974)
 
@@ -75,6 +75,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.368248, 0, -36.122974)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32781982, 1.0080566, 4.00193)
 shape = SubResource("BoxShape3D_surbq")
 
+[node name="FirstPersonCameraSwitchArea2" parent="FirstPersonCameras" instance=ExtResource("6_wy8fa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.758591, 2.0189688, -24.061481)
+
+[node name="CollisionShape3D" parent="FirstPersonCameras/FirstPersonCameraSwitchArea2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023498535, -0.4718628, 0.03845215)
+shape = SubResource("BoxShape3D_30rg1")
+
+[node name="Novak" parent="." instance=ExtResource("4_7lefy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -56.524265)
+
+[node name="Camera3D" parent="Novak" index="1"]
+environment = ExtResource("4_ry8wh")
+
+[node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
+bones/0/position = Vector3(-0.0043900535, 1.0888677, 0.008963724)
+bones/0/rotation = Quaternion(-0.03212598, -0.047611766, -0.024851352, 0.99803984)
+bones/1/rotation = Quaternion(0.005891105, 0.013192876, 0.02377693, 0.99961287)
+bones/2/rotation = Quaternion(0.0102168415, 0.0030491976, 0.014368199, 0.99983996)
+bones/3/rotation = Quaternion(0.009744542, 0.0027897703, 0.014267529, 0.99984694)
+bones/4/rotation = Quaternion(0.07273527, -0.0015470507, 0.004415371, 0.9973403)
+bones/5/rotation = Quaternion(-0.07018341, 0.010134851, -0.00045657062, 0.99748254)
+bones/7/rotation = Quaternion(-0.7077532, -0.28912142, 0.53156906, -0.36459365)
+bones/8/rotation = Quaternion(0.41503158, 0.15358417, 0.084973924, 0.8927151)
+bones/9/rotation = Quaternion(0.00038868721, 0.00081541075, 0.014028039, 0.9999012)
+bones/10/rotation = Quaternion(0.04721098, -0.26953214, 0.026026502, 0.9614813)
+bones/19/rotation = Quaternion(0.70813346, -0.2823025, 0.54994184, 0.34119838)
+bones/20/rotation = Quaternion(0.33778432, -0.24834526, -0.093288206, 0.90306354)
+bones/21/rotation = Quaternion(0.0017613161, -0.00078519096, -0.058155175, 0.99830574)
+bones/22/rotation = Quaternion(0.055544827, 0.16239466, -0.003709547, 0.9851544)
+bones/31/rotation = Quaternion(0.13791141, 0.056850404, 0.98622715, -0.07144643)
+bones/32/rotation = Quaternion(-0.107016094, -0.013662363, 0.039828222, 0.9933653)
+bones/33/rotation = Quaternion(0.46596146, -0.0972502, -0.02018265, 0.8792127)
+bones/36/rotation = Quaternion(-0.09215663, -0.02909461, 0.99484324, -0.030783609)
+bones/37/rotation = Quaternion(-0.0558259, 0.08394386, -0.034487072, 0.9943076)
+bones/38/rotation = Quaternion(0.4950043, 0.0897235, -0.014049616, 0.86413145)
+bones/39/rotation = Quaternion(0.3568546, 0.0026699014, 0.004128687, 0.9341471)
+
 [editable path="StaticCameras/CameraArea"]
 [editable path="StaticCameras/CameraArea/StaticCamera3D"]
 [editable path="StaticCameras/CameraArea2"]
@@ -82,3 +119,7 @@ shape = SubResource("BoxShape3D_surbq")
 [editable path="StaticCameras/CameraArea3"]
 [editable path="StaticCameras/CameraArea3/StaticCamera3D"]
 [editable path="FirstPersonCameras/FirstPersonCameraSwitchArea"]
+[editable path="FirstPersonCameras/FirstPersonCameraSwitchArea2"]
+[editable path="Novak"]
+[editable path="Novak/Camera3D"]
+[editable path="Novak/StateMachine"]
