@@ -40,13 +40,13 @@ subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Apartment" parent="." instance=ExtResource("8_x15du")]
 
-[node name="Bigfoot" parent="Apartment" index="2"]
+[node name="Bigfoot" parent="Apartment" index="1"]
 visible = false
 
-[node name="Ceiling" parent="Apartment" index="7"]
+[node name="Ceiling" parent="Apartment" index="6"]
 visible = true
 
-[node name="Novak" parent="Apartment" index="11"]
+[node name="Novak" parent="Apartment" index="10"]
 transform = Transform3D(1, 0, 0, 0, 0.19594613, 0.98061466, 0, -0.98061466, 0.19594613, 2.371, 0.534, -1.93)
 
 [node name="EntranceDoor" parent="Apartment" instance=ExtResource("4_2fenq")]
@@ -60,6 +60,30 @@ transform = Transform3D(-1.172251e-07, 0, -1, 0, 1, 0, 1, 0, -1.172251e-07, -57.
 
 [node name="MainHouse" parent="Outside/Buildings" index="1"]
 visible = false
+
+[node name="Skeleton3D" parent="Outside/Novak/Skeleton" index="0"]
+bones/0/position = Vector3(-0.0051391316, 1.0879583, 0.009516118)
+bones/0/rotation = Quaternion(-0.036752094, -0.045950796, -0.02608795, 0.9979265)
+bones/1/rotation = Quaternion(0.0110831605, 0.017480958, 0.025634432, 0.9994571)
+bones/2/rotation = Quaternion(0.0113454, 0.004135217, 0.0147303315, 0.99981856)
+bones/3/rotation = Quaternion(0.011244335, 0.0043766154, 0.014764979, 0.99981827)
+bones/4/rotation = Quaternion(0.07722681, -0.0018903152, 0.0026578757, 0.9970083)
+bones/5/rotation = Quaternion(-0.07245249, 0.008639547, -0.0013562634, 0.9973335)
+bones/7/rotation = Quaternion(-0.7119103, -0.28370386, 0.529799, -0.36333033)
+bones/8/rotation = Quaternion(0.4110246, 0.15183324, 0.08722348, 0.8946494)
+bones/9/rotation = Quaternion(0.00043544732, 0.00081526086, 0.015711112, 0.99987614)
+bones/10/rotation = Quaternion(0.04182026, -0.27584532, 0.032041725, 0.95975715)
+bones/19/rotation = Quaternion(0.71066403, -0.2794812, 0.5476174, 0.34199715)
+bones/20/rotation = Quaternion(0.33745718, -0.2452749, -0.090375654, 0.9043203)
+bones/21/rotation = Quaternion(0.0017625282, -0.0007852057, -0.05819562, 0.9983034)
+bones/22/rotation = Quaternion(0.052347634, 0.16558786, -0.0038473574, 0.98479724)
+bones/31/rotation = Quaternion(0.1420597, 0.05721545, 0.9853868, -0.07455481)
+bones/32/rotation = Quaternion(-0.1156188, -0.0070993826, 0.038852073, 0.9925082)
+bones/33/rotation = Quaternion(0.47095928, -0.0973773, -0.01995487, 0.8765369)
+bones/36/rotation = Quaternion(-0.09245531, -0.030132245, 0.99475795, -0.0316348)
+bones/37/rotation = Quaternion(-0.06554509, 0.08364109, -0.03580589, 0.9936932)
+bones/38/rotation = Quaternion(0.49979198, 0.091192015, -0.013105568, 0.86123186)
+bones/39/rotation = Quaternion(0.35725546, 0.0027322148, 0.004144198, 0.9339935)
 
 [node name="Cameras" type="Node3D" parent="."]
 
@@ -100,3 +124,5 @@ offset_bottom = 94.0
 [editable path="Apartment/Walls/WindowMesh/FirstPersonCameraSwitchArea"]
 [editable path="Apartment/CameraArea"]
 [editable path="Outside"]
+[editable path="Outside/Novak"]
+[editable path="Outside/Novak/StateMachine"]

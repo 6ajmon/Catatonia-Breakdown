@@ -1,5 +1,6 @@
-[gd_scene load_steps=90 format=4 uid="uid://b7h27xkea0igj"]
+[gd_scene load_steps=98 format=4 uid="uid://b7h27xkea0igj"]
 
+[ext_resource type="Texture2D" uid="uid://b4ryyvc7ieknn" path="res://Assets/Textures/Sky/nightsky.jpg" id="1_nw6w4"]
 [ext_resource type="PackedScene" uid="uid://di7j8pmry6aq4" path="res://Assets/Models/Outside/Fence/metalfence_both_sides_no_topbar.glb" id="4_62who"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="5_lnlwo"]
 [ext_resource type="PackedScene" uid="uid://ct75nrw5j7tl" path="res://Assets/Models/Outside/Fence/gate.glb" id="6_s4k1y"]
@@ -25,8 +26,27 @@
 [ext_resource type="ArrayMesh" uid="uid://b4kfsruuqrvse" path="res://Assets/Models/Outside/Cars/Car 06/Car6.obj" id="26_86p2e"]
 [ext_resource type="Texture2D" uid="uid://bvf8wr7ykrp7q" path="res://Assets/Models/Outside/BrickFence/brick_wall_brick_wall.jpg" id="27_t4lm6"]
 [ext_resource type="ArrayMesh" uid="uid://nk5dceuf0h0w" path="res://Assets/Models/Outside/Cars/Car 08/Car8.obj" id="27_vfm8d"]
+[ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="28_hrksf"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_s70gk"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_7t72s"]
+[ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="30_k0ijc"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k0ijc"]
+panorama = ExtResource("1_nw6w4")
+
+[sub_resource type="Sky" id="Sky_nw6w4"]
+sky_material = SubResource("PanoramaSkyMaterial_k0ijc")
+
+[sub_resource type="Environment" id="Environment_k0ijc"]
+background_mode = 2
+sky = SubResource("Sky_nw6w4")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.06
+volumetric_fog_length = 32.0
+volumetric_fog_ambient_inject = 1.0
+adjustment_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
 albedo_texture = ExtResource("5_lnlwo")
@@ -528,7 +548,40 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dcke0")
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_nw6w4"]
+exposure_multiplier = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_136dx"]
+shader = ExtResource("30_k0ijc")
+shader_parameter/exposure = 1.20000005048023
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.8
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.000000095
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 8.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.014000000665
+shader_parameter/vignette_strength = 1.2
+shader_parameter/grain_strength = 0.0510000024225
+shader_parameter/tint_strength = 0.25
+shader_parameter/scanline_density = 240.0
+shader_parameter/scanline_strength = 0.15
+shader_parameter/glitch_strength = 0.06000000285
+shader_parameter/glitch_speed = 1.0000000475
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
 [node name="Outside" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
+light_energy = 0.2
+light_volumetric_fog_energy = 0.1
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k0ijc")
 
 [node name="FenceSequence" type="Node3D" parent="."]
 
@@ -920,3 +973,50 @@ transform = Transform3D(0.75, 0, 0, 0, 0.5, -2.1855694e-08, 0, 3.278354e-08, 0.7
 material_override = SubResource("StandardMaterial3D_nw6w4")
 mesh = SubResource("ArrayMesh_l1og1")
 skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LampPost_2"]
+transform = Transform3D(1, 0, 0, 0, -0.0027667687, 0.9999962, 0, -0.9999962, -0.0027667687, 0, 9.769722, 0)
+light_energy = 6.0
+spot_range = 12.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="LampPost_2"]
+transform = Transform3D(1, 0, 0, 0, 0.0027668003, -0.9999962, 0, 0.9999962, 0.0027668003, 0, 8.405608, 0)
+light_energy = 36.0
+spot_range = 1.0
+spot_angle = 50.0
+
+[node name="Novak" parent="." instance=ExtResource("28_hrksf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.41709, 0.4123702, -35.752224)
+
+[node name="Camera3D" parent="Novak" index="1"]
+attributes = SubResource("CameraAttributesPractical_nw6w4")
+
+[node name="ColorRect" parent="Novak/Camera3D" index="0"]
+material = SubResource("ShaderMaterial_136dx")
+
+[node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
+bones/0/position = Vector3(-0.006296344, 1.0882089, 0.0077668778)
+bones/0/rotation = Quaternion(-0.038001, -0.041522622, -0.024444325, 0.9981154)
+bones/1/rotation = Quaternion(0.006855378, 0.015401805, 0.024880707, 0.9995484)
+bones/2/rotation = Quaternion(0.010216812, 0.0034222563, 0.014604529, 0.9998354)
+bones/3/rotation = Quaternion(0.009941338, 0.00352207, 0.014625494, 0.99983746)
+bones/4/rotation = Quaternion(0.07398537, -0.002421511, 0.004633971, 0.9972457)
+bones/5/rotation = Quaternion(-0.07047181, 0.007941839, -0.0012840607, 0.99748135)
+bones/7/rotation = Quaternion(-0.707792, -0.2892877, 0.530909, -0.3653477)
+bones/8/rotation = Quaternion(0.4177394, 0.15376228, 0.0835425, 0.8915557)
+bones/9/rotation = Quaternion(0.00037526124, 0.000815334, 0.013543079, 0.9999079)
+bones/10/rotation = Quaternion(0.0491791, -0.27106446, 0.025733083, 0.96095955)
+bones/19/rotation = Quaternion(0.70897126, -0.28190148, 0.54787415, 0.34311122)
+bones/20/rotation = Quaternion(0.338668, -0.24715117, -0.0915892, 0.9032341)
+bones/21/rotation = Quaternion(0.0017276477, -0.0007852699, -0.05704004, 0.9983701)
+bones/22/rotation = Quaternion(0.05513314, 0.16338147, -0.0035622003, 0.9850148)
+bones/31/rotation = Quaternion(0.1390615, 0.053597655, 0.98616356, -0.07259937)
+bones/32/rotation = Quaternion(-0.108693294, -0.006371964, 0.03937447, 0.99327487)
+bones/33/rotation = Quaternion(0.46655795, -0.09713546, -0.019919122, 0.878915)
+bones/36/rotation = Quaternion(-0.093469515, -0.030353041, 0.994682, -0.030822145)
+bones/37/rotation = Quaternion(-0.06586596, 0.08370691, -0.035612855, 0.9936733)
+bones/38/rotation = Quaternion(0.50028574, 0.095005475, -0.01582136, 0.86048704)
+bones/39/rotation = Quaternion(0.35651347, 0.0026168877, 0.004115559, 0.9342775)
+
+[editable path="Novak"]
+[editable path="Novak/StateMachine"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=62 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
@@ -18,19 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://drh48ykqfnymr" path="res://Assets/Models/Interior/SmallTable/Table.png" id="12_8b48c"]
 [ext_resource type="PackedScene" uid="uid://c174jql4rkeu6" path="res://Assets/Models/Interior/Door/Doors.fbx" id="12_ndseh"]
 [ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="21_xs1mg"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s847f"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_nhmvm"]
-sky_material = SubResource("ProceduralSkyMaterial_s847f")
-
-[sub_resource type="Environment" id="Environment_bewf3"]
-background_mode = 2
-sky = SubResource("Sky_nhmvm")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqis0"]
 albedo_texture = ExtResource("1_s4evh")
@@ -398,9 +385,6 @@ size = Vector3(0.7902832, 0.5506592, 0.87805176)
 
 [node name="Apartment" type="Node3D"]
 script = ExtResource("1_5tusi")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bewf3")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
