@@ -132,10 +132,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o5c12")
 
-[node name="InteractableLamp" node_paths=PackedStringArray("Light", "OutlinedMeshes") instance=ExtResource("1_1drq4")]
+[node name="InteractableLamp" node_paths=PackedStringArray("Light", "ShiningMesh", "OutlinedMeshes") instance=ExtResource("1_1drq4")]
 script = ExtResource("2_qdjr6")
 Light = NodePath("TableLamp/OmniLight3D")
 LightEnergyOn = 0.6
+ShiningMesh = NodePath("TableLamp/TableLamp_001")
+brightAlbedo = Color(4.415934, 4.415934, 4.415934, 1)
 OverlayString = "Turn Off"
 OutlinedMeshes = [NodePath("TableLamp/TableLamp_001"), NodePath("TableLamp/TableLamp_005")]
 
