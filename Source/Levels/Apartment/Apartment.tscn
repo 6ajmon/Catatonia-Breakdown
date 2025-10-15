@@ -1,38 +1,27 @@
-[gd_scene load_steps=65 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=63 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
 [ext_resource type="Texture2D" uid="uid://dbd58lrtvnmoy" path="res://Assets/Models/Interior/Bed/MattressWood.png" id="1_yvjt0"]
 [ext_resource type="Texture2D" uid="uid://wd1kf6on2d8u" path="res://Assets/Models/Interior/Bed/Mattress.png" id="2_03vwg"]
+[ext_resource type="Environment" uid="uid://baovmqpb3bjs3" path="res://Assets/Environments/ApartmentEnvironment.tres" id="2_rladt"]
 [ext_resource type="Texture2D" uid="uid://b1qj7rortt7gv" path="res://Assets/Models/Interior/Bed/Blanket.png" id="3_3kpmy"]
-[ext_resource type="Texture2D" uid="uid://d22he5gfcpsyi" path="res://Assets/Models/Bigfoot/BigfootTexture.png" id="3_bewf3"]
 [ext_resource type="Texture2D" uid="uid://cp4k646t344x6" path="res://Assets/Models/Interior/Bed/Pillow.png" id="4_s4evh"]
-[ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="5_03vwg"]
 [ext_resource type="Texture2D" uid="uid://de0atk42il3bf" path="res://Assets/Models/Interior/Bookshelf/Bookshelf.png" id="7_483uy"]
 [ext_resource type="Material" uid="uid://ca2eiwu21gjvv" path="res://Assets/Textures/Walls/WallMaterial.tres" id="8_483uy"]
 [ext_resource type="PackedScene" uid="uid://bhj21u4bkuleu" path="res://Source/Areas/CameraArea/CameraArea.tscn" id="9_qqis0"]
 [ext_resource type="Texture2D" uid="uid://diprnlmrgou2n" path="res://Assets/Models/Interior/Rug/PersianCarpetTexture.png" id="10_0j5y3"]
 [ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="10_rladt"]
-[ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="10_s847f"]
 [ext_resource type="Texture2D" uid="uid://djfist86w85yd" path="res://Assets/Models/Interior/Rug/Rug.png" id="10_si3id"]
 [ext_resource type="Texture2D" uid="uid://drh48ykqfnymr" path="res://Assets/Models/Interior/SmallTable/Table.png" id="12_8b48c"]
+[ext_resource type="Texture2D" uid="uid://bduyxws1wjpm5" path="res://Assets/Textures/Glass/Screenshot_20211023_214329_com.discord (1).jpg" id="12_lgi8l"]
 [ext_resource type="PackedScene" uid="uid://c174jql4rkeu6" path="res://Assets/Models/Interior/Door/Doors.fbx" id="12_ndseh"]
+[ext_resource type="PackedScene" uid="uid://cxd2rs8bvmsa7" path="res://Source/Interactable/Door/InteractableDoor.tscn" id="17_5tusi"]
+[ext_resource type="PackedScene" uid="uid://dsr41l83753mc" path="res://Source/Interactable/Lamp/InteractableLamp.tscn" id="18_ndseh"]
 [ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="21_xs1mg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s847f"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_nhmvm"]
-sky_material = SubResource("ProceduralSkyMaterial_s847f")
-
-[sub_resource type="Environment" id="Environment_bewf3"]
-background_mode = 2
-sky = SubResource("Sky_nhmvm")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqis0"]
+albedo_color = Color(0.38857287, 0.38857287, 0.38857287, 1)
 albedo_texture = ExtResource("1_s4evh")
 uv1_scale = Vector3(16, 16, 16)
 
@@ -47,10 +36,6 @@ size = Vector3(6, 0.1, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7tfwf"]
 size = Vector3(6, 0.1, 4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rladt"]
-albedo_color = Color(4.415934, 4.415934, 4.415934, 1)
-albedo_texture = ExtResource("3_bewf3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gr83f"]
 resource_name = "MattressWood"
@@ -204,7 +189,7 @@ size = Vector3(1.1871338, 0.60331726, 2.3551025)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptd1n"]
 resource_name = "Bookshelf"
 vertex_color_use_as_albedo = true
-albedo_color = Color(2.454227, 2.454227, 2.454227, 1)
+albedo_color = Color(4.415934, 4.415934, 4.415934, 1)
 albedo_texture = ExtResource("7_483uy")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -275,28 +260,23 @@ albedo_color = Color(0.8250984, 0.9125614, 0.9991085, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tusi"]
 size = Vector3(1.6, 3, 2.2)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_s847f"]
-exposure_multiplier = 0.275
+[sub_resource type="BoxMesh" id="BoxMesh_lgi8l"]
+size = Vector3(0.1, 2, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhmvm"]
-shader = ExtResource("10_s847f")
-shader_parameter/exposure = 1.20000005048023
-shader_parameter/contrast = 1.05
-shader_parameter/saturation = 0.8
-shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 4.0
-shader_parameter/enable_posterize = true
-shader_parameter/color_levels = 8.0
-shader_parameter/dither_strength = 0.35
-shader_parameter/chrom_aberration = 0.014000000665
-shader_parameter/vignette_strength = 1.2
-shader_parameter/grain_strength = 0.0510000024225
-shader_parameter/tint_strength = 0.25
-shader_parameter/scanline_density = 240.0
-shader_parameter/scanline_strength = 0.15
-shader_parameter/glitch_strength = 0.06000000285
-shader_parameter/glitch_speed = 1.0000000475
-shader_parameter/viewport_size_override = Vector2(0, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs1mg"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1.1280806, 3.2944162, 3.2944162, 0.27450982)
+albedo_texture = ExtResource("12_lgi8l")
+albedo_texture_msdf = true
+metallic = 1.0
+metallic_texture = ExtResource("12_lgi8l")
+metallic_texture_channel = 3
+roughness = 0.0
+stencil_flags = 2
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5tusi"]
+exposure_multiplier = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8b48c"]
 size = Vector3(12, 3, 8)
@@ -400,7 +380,7 @@ size = Vector3(0.7902832, 0.5506592, 0.87805176)
 script = ExtResource("1_5tusi")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bewf3")
+environment = ExtResource("2_rladt")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -419,51 +399,6 @@ shape = SubResource("BoxShape3D_hj6lc")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
 shape = SubResource("BoxShape3D_7tfwf")
-
-[node name="Bigfoot" parent="." instance=ExtResource("5_03vwg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0805008, 0, 1.2507598)
-
-[node name="foot_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="0"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="foot_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="1"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="hand_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="2"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="hand_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="3"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="head" parent="Bigfoot/BigfootMesh/Skeleton3D" index="4"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="lower_arm_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="5"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="lower_arm_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="6"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="lower_leg_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="7"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="lower_leg_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="8"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="torso" parent="Bigfoot/BigfootMesh/Skeleton3D" index="9"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="upper_arm_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="10"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="upper_arm_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="11"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="upper_leg_L" parent="Bigfoot/BigfootMesh/Skeleton3D" index="12"]
-material_override = SubResource("StandardMaterial3D_rladt")
-
-[node name="upper_leg_R" parent="Bigfoot/BigfootMesh/Skeleton3D" index="13"]
-material_override = SubResource("StandardMaterial3D_rladt")
 
 [node name="Bed" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8962102, 0, -1.6256595)
@@ -582,21 +517,18 @@ shape = SubResource("BoxShape3D_5tusi")
 [node name="BathroomDoor" parent="Walls" instance=ExtResource("12_ndseh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.972735, 1, 2.0742097)
 
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.6, 1)
+mesh = SubResource("BoxMesh_lgi8l")
+surface_material_override/0 = SubResource("StandardMaterial3D_xs1mg")
+
 [node name="CameraArea" parent="." instance=ExtResource("9_qqis0")]
 ShouldLookAtPlayer = true
 
 [node name="StaticCamera3D" parent="CameraArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.8425088, 0.5386826, 0, -0.5386826, 0.8425088, 0, 2.6339774, 3.711105)
-attributes = SubResource("CameraAttributesPractical_s847f")
-fov = 65.0
-
-[node name="ColorRect" type="ColorRect" parent="CameraArea/StaticCamera3D" index="0"]
-material = SubResource("ShaderMaterial_nhmvm")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+transform = Transform3D(1, 0, 1.7484555e-07, -6.3478744e-08, 0.9317673, 0.3630561, -1.6291537e-07, -0.3630561, 0.9317673, 0, 2.175642, 3.669556)
+environment = ExtResource("2_rladt")
+attributes = SubResource("CameraAttributesPractical_5tusi")
 
 [node name="AreaCollisionShape3D" parent="CameraArea" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0)
@@ -604,7 +536,6 @@ visible = false
 shape = SubResource("BoxShape3D_8b48c")
 
 [node name="Ceiling" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ceiling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -648,6 +579,20 @@ light_energy = 0.6
 [node name="Novak" parent="." instance=ExtResource("21_xs1mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.043097, 0.6516179, -2.6499362)
 
-[editable path="Bigfoot"]
+[node name="EntranceDoor" parent="." instance=ExtResource("17_5tusi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7855034, 1, 0.07420972)
+ScenePath = "uid://b7h27xkea0igj"
+OverlayString = "Open Door"
+
+[node name="Lamp" parent="." instance=ExtResource("18_ndseh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0876019, 0.6244854, -3.2005043)
+brightAlbedo = Color(5, 5, 5, 1)
+
+[node name="OmniLight3D" parent="Lamp/TableLamp" index="2"]
+omni_range = 5.0
+
 [editable path="Walls/WindowMesh/FirstPersonCameraSwitchArea"]
 [editable path="CameraArea"]
+[editable path="CameraArea/StaticCamera3D"]
+[editable path="EntranceDoor"]
+[editable path="Lamp"]

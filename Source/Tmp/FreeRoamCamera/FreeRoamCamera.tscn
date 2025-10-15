@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://uxmftm7hvxgq"]
+
+[ext_resource type="PackedScene" uid="uid://ba23yf3qln6nm" path="res://Source/Components/CameraWithShader/CameraWithShader.tscn" id="1_7awvw"]
+[ext_resource type="Script" uid="uid://dja4r550ilk50" path="res://Source/Tmp/FreeRoamCamera/FreeRoamCamera.cs" id="2_p7vwc"]
+
+[node name="FreeRoamCamera" instance=ExtResource("1_7awvw")]
+script = ExtResource("2_p7vwc")

@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://c2l1jfgadpa0j"]
+
+[ext_resource type="Texture2D" uid="uid://b4ryyvc7ieknn" path="res://Assets/Textures/Sky/nightsky.jpg" id="1_87uli"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k0ijc"]
+panorama = ExtResource("1_87uli")
+
+[sub_resource type="Sky" id="Sky_nw6w4"]
+sky_material = SubResource("PanoramaSkyMaterial_k0ijc")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_nw6w4")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.06
+volumetric_fog_length = 32.0
+volumetric_fog_ambient_inject = 1.0
+adjustment_enabled = true
