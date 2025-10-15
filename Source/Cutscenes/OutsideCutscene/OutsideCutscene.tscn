@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmd4heeu7d464"]
+
+[ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
+[ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
+
+[node name="OutsideCutscene" type="Node3D"]
+script = ExtResource("1_6y8wg")
+
+[node name="Outside" parent="." instance=ExtResource("2_ysy3x")]
