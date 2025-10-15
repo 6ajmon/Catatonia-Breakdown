@@ -137,7 +137,7 @@ script = ExtResource("2_qdjr6")
 Light = NodePath("TableLamp/OmniLight3D")
 LightEnergyOn = 0.6
 OverlayString = "Turn Off"
-OutlinedMeshes = [NodePath("TableLamp"), NodePath("TableLamp/TableLamp_001")]
+OutlinedMeshes = [NodePath("TableLamp/TableLamp_001"), NodePath("TableLamp/TableLamp_005")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596, 0.5)

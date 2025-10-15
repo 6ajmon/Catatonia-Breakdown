@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://dkhjaw240tdsv"]
 
 [ext_resource type="Script" uid="uid://dfhugt5a41xap" path="res://Source/Cutscenes/SleepingCutscene.cs" id="1_3odj2"]
-[ext_resource type="PackedScene" uid="uid://cxd2rs8bvmsa7" path="res://Source/Interactable/Door/InteractableDoor.tscn" id="4_2fenq"]
-[ext_resource type="PackedScene" uid="uid://dsr41l83753mc" path="res://Source/Interactable/Lamp/InteractableLamp.tscn" id="4_degfx"]
+[ext_resource type="Environment" uid="uid://baovmqpb3bjs3" path="res://Assets/Environments/ApartmentEnvironment.tres" id="4_degfx"]
 [ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="4_r1oxk"]
+[ext_resource type="PackedScene" uid="uid://ba23yf3qln6nm" path="res://Source/Components/CameraWithShader/CameraWithShader.tscn" id="7_b5mpt"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="8_degfx"]
 [ext_resource type="PackedScene" uid="uid://cdf81rys0cvt1" path="res://Source/Levels/Apartment/Apartment.tscn" id="8_x15du"]
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="19_pku13"]
@@ -40,57 +40,44 @@ subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Apartment" parent="." instance=ExtResource("8_x15du")]
 
-[node name="Bigfoot" parent="Apartment" index="1"]
-visible = false
-
-[node name="Ceiling" parent="Apartment" index="6"]
-visible = true
-
 [node name="Novak" parent="Apartment" index="10"]
-transform = Transform3D(1, 0, 0, 0, 0.19594613, 0.98061466, 0, -0.98061466, 0.19594613, 2.371, 0.534, -1.93)
-
-[node name="EntranceDoor" parent="Apartment" instance=ExtResource("4_2fenq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7855034, 1, 0.07420972)
-ScenePath = "uid://b7h27xkea0igj"
-OverlayString = "Open Door"
-
-[node name="Lamp" parent="Apartment" instance=ExtResource("4_degfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0876019, 0.6244854, -3.2005043)
+transform = Transform3D(1, 0, 0, 0, 0.077676155, 0.99697864, 0, -0.99697864, 0.077676155, 2.3785274, 0.6516179, -1.8339236)
 
 [node name="Outside" parent="." instance=ExtResource("8_degfx")]
 transform = Transform3D(-1.172251e-07, 0, -1, 0, 1, 0, 1, 0, -1.172251e-07, -57.379738, -11.411476, -56.719738)
 
-[node name="MainHouse" parent="Outside/Buildings" index="1"]
+[node name="MainHouse" parent="Outside/Buildings" index="19"]
 visible = false
 
 [node name="Skeleton3D" parent="Outside/Novak/Skeleton" index="0"]
-bones/0/position = Vector3(-0.0051391316, 1.0879583, 0.009516118)
-bones/0/rotation = Quaternion(-0.036752094, -0.045950796, -0.02608795, 0.9979265)
-bones/1/rotation = Quaternion(0.0110831605, 0.017480958, 0.025634432, 0.9994571)
-bones/2/rotation = Quaternion(0.0113454, 0.004135217, 0.0147303315, 0.99981856)
-bones/3/rotation = Quaternion(0.011244335, 0.0043766154, 0.014764979, 0.99981827)
-bones/4/rotation = Quaternion(0.07722681, -0.0018903152, 0.0026578757, 0.9970083)
-bones/5/rotation = Quaternion(-0.07245249, 0.008639547, -0.0013562634, 0.9973335)
-bones/7/rotation = Quaternion(-0.7119103, -0.28370386, 0.529799, -0.36333033)
-bones/8/rotation = Quaternion(0.4110246, 0.15183324, 0.08722348, 0.8946494)
-bones/9/rotation = Quaternion(0.00043544732, 0.00081526086, 0.015711112, 0.99987614)
-bones/10/rotation = Quaternion(0.04182026, -0.27584532, 0.032041725, 0.95975715)
-bones/19/rotation = Quaternion(0.71066403, -0.2794812, 0.5476174, 0.34199715)
-bones/20/rotation = Quaternion(0.33745718, -0.2452749, -0.090375654, 0.9043203)
-bones/21/rotation = Quaternion(0.0017625282, -0.0007852057, -0.05819562, 0.9983034)
-bones/22/rotation = Quaternion(0.052347634, 0.16558786, -0.0038473574, 0.98479724)
-bones/31/rotation = Quaternion(0.1420597, 0.05721545, 0.9853868, -0.07455481)
-bones/32/rotation = Quaternion(-0.1156188, -0.0070993826, 0.038852073, 0.9925082)
-bones/33/rotation = Quaternion(0.47095928, -0.0973773, -0.01995487, 0.8765369)
-bones/36/rotation = Quaternion(-0.09245531, -0.030132245, 0.99475795, -0.0316348)
-bones/37/rotation = Quaternion(-0.06554509, 0.08364109, -0.03580589, 0.9936932)
-bones/38/rotation = Quaternion(0.49979198, 0.091192015, -0.013105568, 0.86123186)
-bones/39/rotation = Quaternion(0.35725546, 0.0027322148, 0.004144198, 0.9339935)
+bones/0/position = Vector3(0.00310381, 1.08855, -0.0023965957)
+bones/0/rotation = Quaternion(-0.032000396, -0.04604542, -0.028785642, 0.9980117)
+bones/1/rotation = Quaternion(0.0056738877, 0.012255413, 0.022270227, 0.99966085)
+bones/2/rotation = Quaternion(0.010161673, 0.00222414, 0.013759227, 0.9998512)
+bones/3/rotation = Quaternion(0.00992899, 0.0024143856, 0.013791684, 0.9998528)
+bones/4/rotation = Quaternion(0.072474174, -0.0010552878, 0.004019855, 0.99736166)
+bones/5/rotation = Quaternion(-0.06600396, 0.011869742, -0.0014823636, 0.99774766)
+bones/7/rotation = Quaternion(-0.7099257, -0.28652224, 0.5299654, -0.36475652)
+bones/8/rotation = Quaternion(0.4125982, 0.15659387, 0.08057865, 0.8937272)
+bones/9/rotation = Quaternion(0.00035360616, 0.0008153627, 0.012754753, 0.99991834)
+bones/10/rotation = Quaternion(0.048886348, -0.27267256, 0.026201496, 0.96050674)
+bones/19/rotation = Quaternion(0.70651037, -0.28491026, 0.5494081, 0.3432494)
+bones/20/rotation = Quaternion(0.33922666, -0.2468567, -0.096288756, 0.902616)
+bones/21/rotation = Quaternion(0.0017669776, -0.0007852601, -0.058343794, 0.9982947)
+bones/22/rotation = Quaternion(0.05885758, 0.16239819, -0.004885893, 0.98495626)
+bones/31/rotation = Quaternion(0.13632654, 0.06675828, 0.98576117, -0.07234208)
+bones/32/rotation = Quaternion(-0.11349714, -0.01407825, 0.039067063, 0.9926701)
+bones/33/rotation = Quaternion(0.46710142, -0.09572168, -0.017767128, 0.8788277)
+bones/36/rotation = Quaternion(-0.09053177, -0.022962796, 0.9951045, -0.03230803)
+bones/37/rotation = Quaternion(-0.056338076, 0.083813496, -0.0341598, 0.99430096)
+bones/38/rotation = Quaternion(0.4890231, 0.092870496, -0.015388068, 0.8671763)
+bones/39/rotation = Quaternion(0.3588248, 0.0029761672, 0.0042051557, 0.93339074)
 
 [node name="Cameras" type="Node3D" parent="."]
 
 [node name="BedCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
 transform = Transform3D(1, 0, 0, 0, 0.42302957, 0.90611595, 0, -0.90611595, 0.42302957, 2.358228, 1.8972723, -2.834449)
+environment = ExtResource("4_degfx")
 attributes = SubResource("CameraAttributesPractical_3yq8m")
 fov = 35.0
 
@@ -103,9 +90,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="WindowCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
-transform = Transform3D(0.40799123, -0.3247101, 0.8532916, 0.019399472, 0.93748873, 0.3474746, -0.91277975, -0.12521315, 0.3887863, -1.8024377, 2.3198814, 1.7348639)
+transform = Transform3D(0.2848236, -0.4267381, 0.8583532, 0.056347355, 0.9013475, 0.4294156, -0.9569224, -0.07394177, 0.2807706, -1.8024377, 2.3198814, 1.6712842)
+environment = ExtResource("4_degfx")
 attributes = SubResource("CameraAttributesPractical_3yq8m")
-fov = 45.0
+current = true
+fov = 35.0
 
 [node name="ColorRect" type="ColorRect" parent="Cameras/WindowCamera"]
 material = SubResource("ShaderMaterial_rh146")
@@ -115,6 +104,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BedWithShader" parent="Cameras" instance=ExtResource("7_b5mpt")]
+transform = Transform3D(1, 0, 0, 0, 0.4230295, 0.9061159, 0, -0.9061159, 0.4230295, 2.358228, 1.8972723, -2.834449)
+fov = 35.0
+
+[node name="CameraWithShader2" parent="Cameras" instance=ExtResource("7_b5mpt")]
+
 [node name="InteractOverlay" parent="." instance=ExtResource("4_r1oxk")]
 offset_right = 139.0
 offset_bottom = 94.0
@@ -122,9 +117,12 @@ offset_bottom = 94.0
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("25_3yq8m")]
 
 [editable path="Apartment"]
-[editable path="Apartment/Bigfoot"]
 [editable path="Apartment/Walls/WindowMesh/FirstPersonCameraSwitchArea"]
 [editable path="Apartment/CameraArea"]
+[editable path="Apartment/CameraArea/StaticCamera3D"]
+[editable path="Apartment/EntranceDoor"]
+[editable path="Apartment/Lamp"]
 [editable path="Outside"]
 [editable path="Outside/Novak"]
+[editable path="Outside/Novak/Camera3D"]
 [editable path="Outside/Novak/StateMachine"]

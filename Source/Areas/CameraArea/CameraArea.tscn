@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhj21u4bkuleu"]
+[gd_scene load_steps=3 format=3 uid="uid://bhj21u4bkuleu"]
 
 [ext_resource type="Script" uid="uid://c1es1d5v36iqm" path="res://Source/Areas/CameraArea/CameraArea.cs" id="1_331uv"]
+[ext_resource type="PackedScene" uid="uid://ba23yf3qln6nm" path="res://Source/Components/CameraWithShader/CameraWithShader.tscn" id="2_10u31"]
 
 [node name="CameraArea" type="Area3D"]
 script = ExtResource("1_331uv")
 
-[node name="StaticCamera3D" type="Camera3D" parent="." groups=["StaticCameras"]]
+[node name="StaticCamera3D" parent="." groups=["StaticCameras"] instance=ExtResource("2_10u31")]
 
 [node name="AreaCollisionShape3D" type="CollisionShape3D" parent="."]
+
+[editable path="StaticCamera3D"]
