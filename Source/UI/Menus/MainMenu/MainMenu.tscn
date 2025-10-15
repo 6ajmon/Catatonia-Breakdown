@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bvf8wr7ykrp7q" path="res://Assets/Models/Outside/BrickFence/brick_wall_brick_wall.jpg" id="27_2064o"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_e7g8c"]
 [ext_resource type="Script" uid="uid://btlit6tntx6m3" path="res://Source/UI/Components/CustomButtons/ReplaceSceneWithCutsceneButton/ReplaceSceneWithCutsceneButton.cs" id="28_xiobc"]
-[ext_resource type="Script" uid="uid://lsemmqjiqht7" path="res://Source/Cutscenes/MainMenuCutscene.cs" id="29_ixj2m"]
+[ext_resource type="Script" uid="uid://lsemmqjiqht7" path="res://Source/Cutscenes/MainMenuCutscene/MainMenuCutscene.cs" id="29_ixj2m"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
@@ -646,10 +646,9 @@ size = Vector3(1, 1.6, 1)
 material = SubResource("StandardMaterial3D_kxo8s")
 size = Vector3(1, 3, 1)
 
-[sub_resource type="Environment" id="Environment_hrksf"]
+[sub_resource type="Environment" id="Environment_ixj2m"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_hrksf"]
-exposure_multiplier = 0.625
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nw6w4"]
 shader = ExtResource("2_ng1rk")
@@ -795,6 +794,10 @@ _data = {
 }
 
 [node name="MainMenuScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+sky_mode = 1
 
 [node name="Outside" type="Node3D" parent="."]
 
@@ -1449,7 +1452,7 @@ omni_range = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.83070976, -0.1315471, -0.5409406, -0.0011211097, 0.971284, -0.23792061, 0.55670464, 0.19824943, 0.8067076, 53.46554, 0.7851964, -29.869535)
-environment = SubResource("Environment_hrksf")
+environment = SubResource("Environment_ixj2m")
 attributes = SubResource("CameraAttributesPhysical_hrksf")
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]

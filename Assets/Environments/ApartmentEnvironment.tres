@@ -1,15 +1,6 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://baovmqpb3bjs3"]
-
-[ext_resource type="Texture2D" uid="uid://b4ryyvc7ieknn" path="res://Assets/Textures/Sky/nightsky.jpg" id="1_btfik"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k0ijc"]
-panorama = ExtResource("1_btfik")
-
-[sub_resource type="Sky" id="Sky_ig7qi"]
-sky_material = SubResource("PanoramaSkyMaterial_k0ijc")
+[gd_resource type="Environment" format=3 uid="uid://baovmqpb3bjs3"]
 
 [resource]
 background_mode = 2
-sky = SubResource("Sky_ig7qi")
 tonemap_mode = 2
 glow_enabled = true
