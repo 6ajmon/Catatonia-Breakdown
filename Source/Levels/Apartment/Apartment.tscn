@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://cdf81rys0cvt1"]
+[gd_scene load_steps=63 format=4 uid="uid://cdf81rys0cvt1"]
 
 [ext_resource type="Script" uid="uid://cdrjac36j1k37" path="res://Source/Levels/Apartment/Apartment.cs" id="1_5tusi"]
 [ext_resource type="Texture2D" uid="uid://dieu1ne3nyydo" path="res://Assets/Textures/Wood/Wood_01-256x256.png" id="1_s4evh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="10_rladt"]
 [ext_resource type="Texture2D" uid="uid://djfist86w85yd" path="res://Assets/Models/Interior/Rug/Rug.png" id="10_si3id"]
 [ext_resource type="Texture2D" uid="uid://drh48ykqfnymr" path="res://Assets/Models/Interior/SmallTable/Table.png" id="12_8b48c"]
+[ext_resource type="Texture2D" uid="uid://bduyxws1wjpm5" path="res://Assets/Textures/Glass/Screenshot_20211023_214329_com.discord (1).jpg" id="12_lgi8l"]
 [ext_resource type="PackedScene" uid="uid://c174jql4rkeu6" path="res://Assets/Models/Interior/Door/Doors.fbx" id="12_ndseh"]
 [ext_resource type="PackedScene" uid="uid://cxd2rs8bvmsa7" path="res://Source/Interactable/Door/InteractableDoor.tscn" id="17_5tusi"]
 [ext_resource type="PackedScene" uid="uid://dsr41l83753mc" path="res://Source/Interactable/Lamp/InteractableLamp.tscn" id="18_ndseh"]
@@ -259,6 +260,14 @@ albedo_color = Color(0.8250984, 0.9125614, 0.9991085, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tusi"]
 size = Vector3(1.6, 3, 2.2)
 
+[sub_resource type="BoxMesh" id="BoxMesh_lgi8l"]
+size = Vector3(0.1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs1mg"]
+transparency = 1
+albedo_color = Color(1.1280806, 3.2944162, 3.2944162, 0.27450982)
+albedo_texture = ExtResource("12_lgi8l")
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5tusi"]
 exposure_multiplier = 0.5
 
@@ -500,6 +509,11 @@ shape = SubResource("BoxShape3D_5tusi")
 
 [node name="BathroomDoor" parent="Walls" instance=ExtResource("12_ndseh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.972735, 1, 2.0742097)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.6, 1)
+mesh = SubResource("BoxMesh_lgi8l")
+surface_material_override/0 = SubResource("StandardMaterial3D_xs1mg")
 
 [node name="CameraArea" parent="." instance=ExtResource("9_qqis0")]
 ShouldLookAtPlayer = true
