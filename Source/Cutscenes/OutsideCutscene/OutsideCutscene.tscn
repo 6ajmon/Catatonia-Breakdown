@@ -1,9 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmd4heeu7d464"]
+[gd_scene load_steps=11 format=3 uid="uid://bmd4heeu7d464"]
 
 [ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
+[ext_resource type="PackedScene" uid="uid://bhj21u4bkuleu" path="res://Source/Areas/CameraArea/CameraArea.tscn" id="3_ysy3x"]
+[ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="4_7lefy"]
+[ext_resource type="Environment" uid="uid://c2l1jfgadpa0j" path="res://Assets/Environments/OutsideEnvironment.tres" id="4_ry8wh"]
+[ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="6_wy8fa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lefy"]
+size = Vector3(4.5408936, 4.2597656, 15.52346)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysy3x"]
+size = Vector3(17.65561, 4.1026, 4.8550415)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy8fa"]
+size = Vector3(8, 5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_surbq"]
+size = Vector3(5.499634, 3.2055664, 5.524231)
 
 [node name="OutsideCutscene" type="Node3D"]
 script = ExtResource("1_6y8wg")
 
 [node name="Outside" parent="." instance=ExtResource("2_ysy3x")]
+
+[node name="StaticCameras" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.59189, 0, -46.222584)
+
+[node name="CameraArea" parent="StaticCameras" instance=ExtResource("3_ysy3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9177017, 3.6251016, -9.084702)
+
+[node name="StaticCamera3D" parent="StaticCameras/CameraArea" index="0"]
+transform = Transform3D(-0.9135455, -0.1121118, 0.3909803, 0, 0.9612617, 0.27563736, -0.40673658, 0.25180727, -0.8781563, 1.5597382, -0.265316, 1.8308334)
+environment = ExtResource("4_ry8wh")
+fov = 50.0
+
+[node name="AreaCollisionShape3D" parent="StaticCameras/CameraArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7704468, -1.8523395, 14.6875305)
+shape = SubResource("BoxShape3D_7lefy")
+
+[node name="CameraArea2" parent="StaticCameras" instance=ExtResource("3_ysy3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1758614, 1.8921704, 10.570412)
+ShouldLookAtPlayer = true
+
+[node name="StaticCamera3D" parent="StaticCameras/CameraArea2" index="0"]
+transform = Transform3D(-0.25881895, 0.4829629, -0.8365164, -6.5567086e-08, 0.8660254, 0.50000006, 0.9659259, 0.12940954, -0.22414376, -6.6669044, 2.8029914, -0.907856)
+environment = ExtResource("4_ry8wh")
+fov = 55.0
+
+[node name="AreaCollisionShape3D" parent="StaticCameras/CameraArea2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1204987, 0.17733765, 0.337677)
+shape = SubResource("BoxShape3D_ysy3x")
+
+[node name="CameraArea3" parent="StaticCameras" instance=ExtResource("3_ysy3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.486618, 0, -9.79081)
+
+[node name="StaticCamera3D" parent="StaticCameras/CameraArea3" index="0"]
+transform = Transform3D(1.1356551e-07, 0.5, -0.8660254, -6.556708e-08, 0.8660254, 0.5, 1, 0, 1.3113416e-07, -3.7127075, 4.5451994, 2.7483864)
+fov = 75.0
+
+[node name="AreaCollisionShape3D" parent="StaticCameras/CameraArea3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2529297, 2, 0.21264648)
+shape = SubResource("BoxShape3D_wy8fa")
+
+[node name="Novak" parent="." instance=ExtResource("4_7lefy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -57.010746)
+
+[node name="FirstPersonCameras" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.368248, 0, -36.122974)
+
+[node name="FirstPersonCameraSwitchArea" parent="FirstPersonCameras" instance=ExtResource("6_wy8fa")]
+
+[node name="CollisionShape3D" parent="FirstPersonCameras/FirstPersonCameraSwitchArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32781982, 1.0080566, 4.00193)
+shape = SubResource("BoxShape3D_surbq")
+
+[editable path="StaticCameras/CameraArea"]
+[editable path="StaticCameras/CameraArea/StaticCamera3D"]
+[editable path="StaticCameras/CameraArea2"]
+[editable path="StaticCameras/CameraArea2/StaticCamera3D"]
+[editable path="StaticCameras/CameraArea3"]
+[editable path="StaticCameras/CameraArea3/StaticCamera3D"]
+[editable path="FirstPersonCameras/FirstPersonCameraSwitchArea"]

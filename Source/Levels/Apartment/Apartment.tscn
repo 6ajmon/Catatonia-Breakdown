@@ -560,7 +560,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.043097, 0.6516179, -2.64993
 
 [node name="EntranceDoor" parent="." instance=ExtResource("17_5tusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7855034, 1, 0.07420972)
-ScenePath = "uid://b7h27xkea0igj"
+ScenePath = "uid://bmd4heeu7d464"
 OverlayString = "Open Door"
 
 [node name="Lamp" parent="." instance=ExtResource("18_ndseh")]

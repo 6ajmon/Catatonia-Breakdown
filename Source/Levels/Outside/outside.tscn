@@ -993,5 +993,5 @@ transform = Transform3D(0.75, 0, 0, 0, 0.5, -4.917531e-08, 0, 3.278354e-08, 0.75
 EnableFlicker = false
 
 [node name="FreeRoamCamera" parent="." instance=ExtResource("29_nw6w4")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 40.138214, 2.5545902, -34.791046)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 64.13711, 2.5545902, -57.432938)
 environment = ExtResource("2_136dx")
