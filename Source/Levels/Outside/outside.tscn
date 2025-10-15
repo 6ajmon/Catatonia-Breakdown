@@ -1,10 +1,9 @@
-[gd_scene load_steps=105 format=4 uid="uid://b7h27xkea0igj"]
+[gd_scene load_steps=106 format=4 uid="uid://b7h27xkea0igj"]
 
 [ext_resource type="Script" uid="uid://nune8gtinwk3" path="res://Source/Levels/Outside/Outside.cs" id="1_136dx"]
 [ext_resource type="Environment" uid="uid://c2l1jfgadpa0j" path="res://Assets/Environments/OutsideEnvironment.tres" id="2_136dx"]
 [ext_resource type="PackedScene" uid="uid://di7j8pmry6aq4" path="res://Assets/Models/Outside/Fence/metalfence_both_sides_no_topbar.glb" id="4_62who"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="5_lnlwo"]
-[ext_resource type="PackedScene" uid="uid://ct75nrw5j7tl" path="res://Assets/Models/Outside/Fence/gate.glb" id="6_s4k1y"]
 [ext_resource type="PackedScene" uid="uid://b8hopl3p2pff2" path="res://Assets/Models/Outside/BrickFence/brick_wall.glb" id="7_sfqax"]
 [ext_resource type="Texture2D" uid="uid://dywafsil7lm7w" path="res://Assets/Models/Items/GarbageBag/GarbageBag.png" id="8_6p7j0"]
 [ext_resource type="Texture2D" uid="uid://chsou6puh7kvj" path="res://Assets/Models/Items/Box/Box.png" id="9_64s7c"]
@@ -30,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cb55dorrls1d" path="res://Source/Components/LampPost/LampPost.tscn" id="28_136dx"]
 [ext_resource type="PackedScene" uid="uid://bk8cp1kbkik7k" path="res://Assets/Models/Outside/PanelHouse/Soviet_Panel_House.fbx" id="28_s70gk"]
 [ext_resource type="PackedScene" uid="uid://uxmftm7hvxgq" path="res://Source/Tmp/FreeRoamCamera/FreeRoamCamera.tscn" id="29_nw6w4"]
+[ext_resource type="PackedScene" uid="uid://cxd2rs8bvmsa7" path="res://Source/Interactable/Door/InteractableDoor.tscn" id="31_136dx"]
+[ext_resource type="PackedScene" uid="uid://cw1hi8wwv7e1d" path="res://Source/Interactable/GarbageEnclosureDoor/GarbageEnclosureGate.tscn" id="31_ng1fc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
 albedo_texture = ExtResource("5_lnlwo")
@@ -611,9 +612,6 @@ skeleton = NodePath("")
 
 [node name="Walls" type="Node3D" parent="GarbageEnclosure"]
 
-[node name="gate2" parent="GarbageEnclosure/Walls" instance=ExtResource("6_s4k1y")]
-transform = Transform3D(1.0471648, 0, -1.4745547, 0, 1.75, 0, 1.1427798, 0, 1.3511804, 53.52258, 1.3886125, -33.263836)
-
 [node name="Wall" parent="GarbageEnclosure/Walls" instance=ExtResource("7_sfqax")]
 transform = Transform3D(-4.371139e-08, 0, 1.5, 0, 1.25, 0, -1, 0, -6.556708e-08, 53.28924, 0, -29.388931)
 
@@ -1096,6 +1094,7 @@ environment = ExtResource("2_136dx")
 
 [node name="Collisions" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.53759, 0, -48.24417)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3660278, 1.4533691, -1.8035889)
@@ -1197,4 +1196,19 @@ shape = SubResource("BoxShape3D_62pp2")
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 5.5481415, 0.5374241, -9.86557)
 shape = SubResource("BoxShape3D_hvg1v")
 
-[editable path="GarbageEnclosure/Walls/gate2"]
+[node name="Interactable" type="Node3D" parent="."]
+
+[node name="InteractableDoor" parent="Interactable" instance=ExtResource("31_136dx")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 65.22423, 2.6771, -62.72828)
+OverlayString = "Open Door"
+
+[node name="GarbageEnclosureGate" parent="Interactable" instance=ExtResource("31_ng1fc")]
+transform = Transform3D(-0.01488696, 0, 0.9998892, 0, 1, 0, -0.9998892, 0, -0.01488696, 53.19142, 0.5, -34.330475)
+startsClosed = false
+
+[node name="gate" parent="Interactable/GarbageEnclosureGate/gate2" index="0"]
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 0, 0, 0)
+
+[editable path="Interactable/InteractableDoor"]
+[editable path="Interactable/GarbageEnclosureGate"]
+[editable path="Interactable/GarbageEnclosureGate/gate2"]

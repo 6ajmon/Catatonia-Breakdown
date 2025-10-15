@@ -23,6 +23,8 @@ public partial class StringManager : Node
     {
         public string LampOn = "Turn off";
         public string LampOff = "Turn on";
+        public string DoorOpen = "Open";
+        public string DoorClose = "Close";
     }
 
 }
