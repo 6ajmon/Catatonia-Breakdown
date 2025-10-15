@@ -14,7 +14,7 @@ public partial class ReplaceSceneWithCutsceneButton : ButtonUI
     {
         if (_cutscene != null)
         {
-           await _cutscene.AwaitAndRunSequence();
+           await _cutscene.RunSequence();
         }
         base.OnPressed();
         if (!string.IsNullOrEmpty(ScenePath))

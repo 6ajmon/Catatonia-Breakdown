@@ -11,7 +11,7 @@ public partial class MainMenuCutscene : Cutscene
         
     }
 
-    public override async Task AwaitAndRunSequence()
+    public override async Task RunSequence()
     {
         GameManager.Instance.IsCutscenePlaying = true;
         if (_animationPlayer != null)

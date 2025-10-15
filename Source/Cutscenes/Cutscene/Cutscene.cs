@@ -10,11 +10,11 @@ public partial class Cutscene : Node3D
     public StringManager.NamesClass names;
     public StringManager.DialogueClass dialogue;
     public bool inputReceived = false;
-    public override void _Ready()
+    public override async void _Ready()
     {
         names = StringManager.Instance.Names;
         dialogue = StringManager.Instance.Dialogue;
-        RunSequence();
+        await RunSequence();
     }
 
     public override void _ExitTree()
@@ -22,14 +22,11 @@ public partial class Cutscene : Node3D
         inputReceived = true;
     }
 
-    public virtual async void RunSequence()
+    public virtual async Task RunSequence()
     {
+        await Task.CompletedTask;
     }
 
-    public virtual async Task AwaitAndRunSequence()
-    {
-        
-    }
     public async Task WaitForPlayerInput()
     {
         inputReceived = false;
