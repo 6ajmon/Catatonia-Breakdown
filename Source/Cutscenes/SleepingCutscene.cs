@@ -11,7 +11,7 @@ public partial class SleepingCutscene : Cutscene
         base._Ready();
         GameManager.Instance.IsCutscenePlaying = true;
     }
-    public override async void RunSequence()
+    public override async Task RunSequence()
     {
         CameraManager.Instance.TransitionToCamera(bedCamera);
         subtitlesOverlay.ShowSubtitle(names.Novak, dialogue.WhatsThatNoise);

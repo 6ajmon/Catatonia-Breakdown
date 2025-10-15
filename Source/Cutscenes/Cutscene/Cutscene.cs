@@ -3,21 +3,30 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+[GlobalClass]
 public partial class Cutscene : Node3D
 {   
     [Export] public SubtitlesOverlay subtitlesOverlay;
     public StringManager.NamesClass names;
     public StringManager.DialogueClass dialogue;
     public bool inputReceived = false;
-    public override void _Ready()
+    public override async void _Ready()
     {
         names = StringManager.Instance.Names;
         dialogue = StringManager.Instance.Dialogue;
-        RunSequence();
+        await RunSequence();
     }
-    public virtual async void RunSequence()
+
+    public override void _ExitTree()
     {
+        inputReceived = true;
     }
+
+    public virtual async Task RunSequence()
+    {
+        await Task.CompletedTask;
+    }
+
     public async Task WaitForPlayerInput()
     {
         inputReceived = false;
