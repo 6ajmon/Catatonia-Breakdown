@@ -15,7 +15,7 @@ public partial class InteractableLamp : InteractableObject
     {
         base._Ready();
 
-        if (ShiningMesh != null)
+        if (ShiningMesh != null && ShiningMesh.Mesh != null)
         {
             shiningMaterial = ShiningMesh.Mesh.SurfaceGetMaterial(0) as StandardMaterial3D;
             if (shiningMaterial != null)
