@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bmd4heeu7d464"]
+[gd_scene load_steps=19 format=4 uid="uid://bmd4heeu7d464"]
 
 [ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="6_wy8fa"]
 [ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.tscn" id="7_30rg1"]
 [ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="8_c45it"]
+[ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="10_x72sw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x72sw"]
 resource_name = "Material"
@@ -67,8 +68,11 @@ size = Vector3(7.592842, 3.2055664, 6.8060074)
 [sub_resource type="BoxShape3D" id="BoxShape3D_30rg1"]
 size = Vector3(3.8839111, 5.6517334, 5.3952637)
 
-[node name="OutsideCutscene" type="Node3D" node_paths=PackedStringArray("subtitlesOverlay")]
+[node name="OutsideCutscene" type="Node3D" node_paths=PackedStringArray("BigfootNode", "subtitlesOverlay")]
 script = ExtResource("1_6y8wg")
+BigfootNode = NodePath("Marker3D/Bigfoot")
+bigfootGateNoiseSoundPath = "uid://2b3ac2w4qh0e"
+bigfootJumpscareNoiseSoundPath = "uid://dwy0s7npea5yh"
 subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Outside" parent="." instance=ExtResource("2_ysy3x")]
@@ -142,32 +146,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -56.524265)
 environment = ExtResource("4_ry8wh")
 
 [node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
-bones/0/position = Vector3(0.0018395765, 1.0886271, 0.0005009044)
-bones/0/rotation = Quaternion(-0.029547915, -0.050777093, -0.029538635, 0.99783576)
-bones/1/rotation = Quaternion(0.005692328, 0.011314174, 0.02140762, 0.9996906)
-bones/2/rotation = Quaternion(0.010218441, 0.0026599816, 0.0137759885, 0.99984944)
-bones/3/rotation = Quaternion(0.009984576, 0.0028335003, 0.013797093, 0.999851)
-bones/4/rotation = Quaternion(0.07158997, -0.001163011, 0.0044244085, 0.99742377)
-bones/5/rotation = Quaternion(-0.06697685, 0.010827696, -0.0011845892, 0.99769515)
-bones/7/rotation = Quaternion(-0.7096936, -0.28690618, 0.5298166, -0.36512205)
-bones/8/rotation = Quaternion(0.4128546, 0.1595587, 0.08015575, 0.89312226)
-bones/9/rotation = Quaternion(0.00035677737, 0.0008152278, 0.012875533, 0.9999168)
-bones/10/rotation = Quaternion(0.049563628, -0.27116862, 0.024073094, 0.9609535)
-bones/19/rotation = Quaternion(0.7058358, -0.2857433, 0.5497954, 0.3433243)
-bones/20/rotation = Quaternion(0.33791474, -0.24815188, -0.096085146, 0.9027747)
-bones/21/rotation = Quaternion(0.0017602004, -0.00078526506, -0.05811918, 0.9983078)
-bones/22/rotation = Quaternion(0.05966602, 0.1618532, -0.0048081726, 0.9849977)
-bones/31/rotation = Quaternion(0.13764764, 0.06817301, 0.98533887, -0.07424953)
-bones/32/rotation = Quaternion(-0.11610689, -0.017028723, 0.039267916, 0.9923141)
-bones/33/rotation = Quaternion(0.46849227, -0.09631313, -0.018636845, 0.87800425)
-bones/36/rotation = Quaternion(-0.089837775, -0.024086861, 0.9950938, -0.0337258)
-bones/37/rotation = Quaternion(-0.051071763, 0.084307514, -0.03358197, 0.99456334)
-bones/38/rotation = Quaternion(0.48799837, 0.08889332, -0.01429127, 0.86818856)
-bones/39/rotation = Quaternion(0.35805246, 0.0028560236, 0.004175308, 0.93368787)
+bones/0/position = Vector3(0.0014454941, 1.088624, 0.00092984224)
+bones/0/rotation = Quaternion(-0.028799439, -0.05086402, -0.029673737, 0.9978492)
+bones/1/rotation = Quaternion(0.005895906, 0.011283201, 0.021267904, 0.9996928)
+bones/2/rotation = Quaternion(0.010246004, 0.002762544, 0.013793137, 0.99984866)
+bones/3/rotation = Quaternion(0.010009811, 0.0029316284, 0.013810731, 0.99985033)
+bones/4/rotation = Quaternion(0.07171595, -0.0012982681, 0.004412678, 0.9974146)
+bones/5/rotation = Quaternion(-0.0672398, 0.011248193, -0.0016010755, 0.99767214)
+bones/7/rotation = Quaternion(-0.7095908, -0.28700763, 0.52996063, -0.36503318)
+bones/8/rotation = Quaternion(0.41209054, 0.15857345, 0.080833495, 0.8935893)
+bones/9/rotation = Quaternion(0.0003576491, 0.0008152329, 0.012906963, 0.9999164)
+bones/10/rotation = Quaternion(0.049117215, -0.27122828, 0.024335941, 0.960953)
+bones/19/rotation = Quaternion(0.70608735, -0.28533244, 0.5499016, 0.34297884)
+bones/20/rotation = Quaternion(0.3380025, -0.2480949, -0.095759004, 0.90279204)
+bones/21/rotation = Quaternion(0.0017586676, -0.0007852653, -0.058068376, 0.99831074)
+bones/22/rotation = Quaternion(0.0597412, 0.16198559, -0.0047748727, 0.9849715)
+bones/31/rotation = Quaternion(0.13792154, 0.06865604, 0.9852451, -0.074539065)
+bones/32/rotation = Quaternion(-0.11598457, -0.016773578, 0.039201073, 0.99233544)
+bones/33/rotation = Quaternion(0.46839067, -0.096342355, -0.01868422, 0.87805426)
+bones/36/rotation = Quaternion(-0.089793645, -0.024249816, 0.99508923, -0.033862054)
+bones/37/rotation = Quaternion(-0.050429627, 0.08438583, -0.03346562, 0.99459344)
+bones/38/rotation = Quaternion(0.4881225, 0.08871269, -0.0142557435, 0.86813784)
+bones/39/rotation = Quaternion(0.35791194, 0.002834174, 0.004169871, 0.93374175)
 
 [node name="InteractOverlay" parent="." instance=ExtResource("8_c45it")]
 
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("7_30rg1")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 68.36987, 0, -51.04413)
+
+[node name="Bigfoot" parent="Marker3D" instance=ExtResource("10_x72sw")]
+visible = false
 
 [connection signal="body_entered" from="StaticCameras/CameraArea3" to="." method="OnReturningPlayerEntered"]
 

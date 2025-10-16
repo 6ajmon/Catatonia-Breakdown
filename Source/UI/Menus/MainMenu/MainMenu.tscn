@@ -1525,9 +1525,11 @@ script = ExtResource("28_xiobc")
 _cutscene = NodePath("../PlayCutscene")
 ScenePath = "uid://dkhjaw240tdsv"
 
-[node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer")]
+[node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer", "soundPositionNode")]
 script = ExtResource("29_ixj2m")
 _animationPlayer = NodePath("OpenGatePlayer")
+soundPath = "uid://b1psfphehsll5"
+soundPositionNode = NodePath("../Outside/GarbageEnclosure/Walls/gate2")
 
 [node name="OpenGatePlayer" type="AnimationPlayer" parent="PlayCutscene"]
 libraries = {
