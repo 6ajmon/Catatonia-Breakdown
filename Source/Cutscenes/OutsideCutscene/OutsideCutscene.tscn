@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bmd4heeu7d464"]
+[gd_scene load_steps=19 format=4 uid="uid://bmd4heeu7d464"]
 
 [ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="6_wy8fa"]
 [ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.tscn" id="7_30rg1"]
 [ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="8_c45it"]
+[ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="10_x72sw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x72sw"]
 resource_name = "Material"
@@ -67,14 +68,22 @@ size = Vector3(7.592842, 3.2055664, 6.8060074)
 [sub_resource type="BoxShape3D" id="BoxShape3D_30rg1"]
 size = Vector3(3.8839111, 5.6517334, 5.3952637)
 
-[node name="OutsideCutscene" type="Node3D" node_paths=PackedStringArray("subtitlesOverlay")]
+[node name="OutsideCutscene" type="Node3D" node_paths=PackedStringArray("BigfootNode", "InteractableDoorNode", "subtitlesOverlay")]
 script = ExtResource("1_6y8wg")
+BigfootNode = NodePath("Marker3D/Bigfoot")
+bigfootGateNoiseSoundPath = "uid://2b3ac2w4qh0e"
+bigfootJumpscareNoiseSoundPath = "uid://dwy0s7npea5yh"
+InteractableDoorNode = NodePath("Outside/Interactable/InteractableDoor")
 subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Outside" parent="." instance=ExtResource("2_ysy3x")]
 
 [node name="Concrete2" parent="Outside/Floor/PavementConcreteSequence" index="2"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.40736, 1.9073486e-06, 22.25333)
+
+[node name="InteractableDoor" parent="Outside/Interactable" index="0"]
+ScenePath = "uid://njbgwpwqkgmp"
+interactionEnabled = false
 
 [node name="Cube" parent="Outside/Interactable/InteractableDoor/EntranceDoor" index="0"]
 mesh = SubResource("ArrayMesh_xdo08")
@@ -142,32 +151,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -56.524265)
 environment = ExtResource("4_ry8wh")
 
 [node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
-bones/0/position = Vector3(0.0018395765, 1.0886271, 0.0005009044)
-bones/0/rotation = Quaternion(-0.029547915, -0.050777093, -0.029538635, 0.99783576)
-bones/1/rotation = Quaternion(0.005692328, 0.011314174, 0.02140762, 0.9996906)
-bones/2/rotation = Quaternion(0.010218441, 0.0026599816, 0.0137759885, 0.99984944)
-bones/3/rotation = Quaternion(0.009984576, 0.0028335003, 0.013797093, 0.999851)
-bones/4/rotation = Quaternion(0.07158997, -0.001163011, 0.0044244085, 0.99742377)
-bones/5/rotation = Quaternion(-0.06697685, 0.010827696, -0.0011845892, 0.99769515)
-bones/7/rotation = Quaternion(-0.7096936, -0.28690618, 0.5298166, -0.36512205)
-bones/8/rotation = Quaternion(0.4128546, 0.1595587, 0.08015575, 0.89312226)
-bones/9/rotation = Quaternion(0.00035677737, 0.0008152278, 0.012875533, 0.9999168)
-bones/10/rotation = Quaternion(0.049563628, -0.27116862, 0.024073094, 0.9609535)
-bones/19/rotation = Quaternion(0.7058358, -0.2857433, 0.5497954, 0.3433243)
-bones/20/rotation = Quaternion(0.33791474, -0.24815188, -0.096085146, 0.9027747)
-bones/21/rotation = Quaternion(0.0017602004, -0.00078526506, -0.05811918, 0.9983078)
-bones/22/rotation = Quaternion(0.05966602, 0.1618532, -0.0048081726, 0.9849977)
-bones/31/rotation = Quaternion(0.13764764, 0.06817301, 0.98533887, -0.07424953)
-bones/32/rotation = Quaternion(-0.11610689, -0.017028723, 0.039267916, 0.9923141)
-bones/33/rotation = Quaternion(0.46849227, -0.09631313, -0.018636845, 0.87800425)
-bones/36/rotation = Quaternion(-0.089837775, -0.024086861, 0.9950938, -0.0337258)
-bones/37/rotation = Quaternion(-0.051071763, 0.084307514, -0.03358197, 0.99456334)
-bones/38/rotation = Quaternion(0.48799837, 0.08889332, -0.01429127, 0.86818856)
-bones/39/rotation = Quaternion(0.35805246, 0.0028560236, 0.004175308, 0.93368787)
+bones/0/position = Vector3(0.0012629033, 1.088685, -0.0015634308)
+bones/0/rotation = Quaternion(-0.032777432, -0.047804344, -0.027449723, 0.99794143)
+bones/1/rotation = Quaternion(0.0078073004, 0.013070515, 0.023624543, 0.99960494)
+bones/2/rotation = Quaternion(0.01083687, 0.00254116, 0.014186975, 0.9998375)
+bones/3/rotation = Quaternion(0.010623359, 0.0027411764, 0.014222328, 0.9998387)
+bones/4/rotation = Quaternion(0.07263985, -0.001507605, 0.004618463, 0.99734646)
+bones/5/rotation = Quaternion(-0.06880442, 0.010796917, -0.0009951951, 0.99757123)
+bones/7/rotation = Quaternion(-0.7097424, -0.2871167, 0.5290054, -0.36603707)
+bones/8/rotation = Quaternion(0.41493496, 0.15563959, 0.08211625, 0.8926714)
+bones/9/rotation = Quaternion(0.0003691989, 0.00081531506, 0.01331221, 0.99991107)
+bones/10/rotation = Quaternion(0.04907611, -0.27357918, 0.02734474, 0.96020746)
+bones/19/rotation = Quaternion(0.707516, -0.28406534, 0.5478037, 0.34444034)
+bones/20/rotation = Quaternion(0.33947065, -0.24621171, -0.09672855, 0.90265334)
+bones/21/rotation = Quaternion(0.0017653892, -0.00078524055, -0.0582909, 0.9982978)
+bones/22/rotation = Quaternion(0.05474063, 0.16242176, -0.004152123, 0.9851932)
+bones/31/rotation = Quaternion(0.13696545, 0.0630758, 0.98597205, -0.07156195)
+bones/32/rotation = Quaternion(-0.10916584, -0.01552361, 0.039594688, 0.9931134)
+bones/33/rotation = Quaternion(0.46523765, -0.09603348, -0.018352125, 0.8797698)
+bones/36/rotation = Quaternion(-0.09134084, -0.022644766, 0.99506724, -0.031390257)
+bones/37/rotation = Quaternion(-0.058487713, 0.08358419, -0.03450303, 0.9941844)
+bones/38/rotation = Quaternion(0.49049044, 0.09028471, -0.014495008, 0.8666359)
+bones/39/rotation = Quaternion(0.35845274, 0.002918336, 0.004190664, 0.93353397)
 
 [node name="InteractOverlay" parent="." instance=ExtResource("8_c45it")]
 
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("7_30rg1")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 68.36987, 0, -51.04413)
+
+[node name="Bigfoot" parent="Marker3D" instance=ExtResource("10_x72sw")]
+visible = false
 
 [connection signal="body_entered" from="StaticCameras/CameraArea3" to="." method="OnReturningPlayerEntered"]
 

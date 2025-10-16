@@ -6,6 +6,7 @@ public partial class GarbageEnclosureGate : InteractableObject
     [Export] public AnimationPlayer AnimationPlayer;
     private bool closed = false;
     [Export] public bool startsClosed = true;
+    private bool closedFirstTime = false;
 
     public override void _Ready()
     {
@@ -35,7 +36,8 @@ public partial class GarbageEnclosureGate : InteractableObject
         {
             AnimationPlayer.Play("Close");
             AnimationPlayer.AnimationFinished += OnCloseAnimationFinished;
-            SignalManager.Instance.EmitSignal(nameof(SignalManager.GateClosed));
+            if (!closedFirstTime) SignalManager.Instance.EmitSignal(nameof(SignalManager.GateClosed));
+            closedFirstTime = true;
         }
     }
     
