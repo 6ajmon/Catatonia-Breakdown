@@ -711,7 +711,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_wdgc4"]
 resource_name = "OpenGate"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -719,10 +719,10 @@ tracks/0/path = NodePath("../Outside/GarbageEnclosure/Walls/gate2:rotation:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 3.2490098),
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 2.8284278, 3.2490098),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [0.0, 1.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
