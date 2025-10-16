@@ -8,9 +8,15 @@ public partial class InteractOverlay : VBoxContainer
     {
         actionNameLabel = GetNode<Label>("ActionNameLabel");
         Visible = false;
-        Position = (DisplayServer.WindowGetSize()-Size)/2;
+        Position = (DisplayServer.WindowGetSize() - Size) / 2;
         SignalManager.Instance.ChangeInteractableText += UpdateText;
         SignalManager.Instance.ToggleInteractableOverlay += ToggleOverlay;
+    }
+    
+    public override void _ExitTree()
+    {
+        SignalManager.Instance.ChangeInteractableText -= UpdateText;
+        SignalManager.Instance.ToggleInteractableOverlay -= ToggleOverlay;
     }
 
     public void UpdateText(string text)

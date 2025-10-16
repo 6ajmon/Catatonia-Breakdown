@@ -10,4 +10,5 @@ public partial class SignalManager : Node
     [Signal] public delegate void CutsceneEndedEventHandler();
     [Signal] public delegate void ChangeInteractableTextEventHandler(string text);
     [Signal] public delegate void ToggleInteractableOverlayEventHandler();
+    [Signal] public delegate void GateClosedEventHandler();
 }

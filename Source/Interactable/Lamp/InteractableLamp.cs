@@ -17,9 +17,12 @@ public partial class InteractableLamp : InteractableObject
 
         if (ShiningMesh != null && ShiningMesh.Mesh != null)
         {
-            shiningMaterial = ShiningMesh.Mesh.SurfaceGetMaterial(0) as StandardMaterial3D;
-            if (shiningMaterial != null)
+            var baseMat = ShiningMesh.Mesh.SurfaceGetMaterial(0) as StandardMaterial3D;  
+
+            if (baseMat != null)
             {
+                shiningMaterial = baseMat.Duplicate() as StandardMaterial3D;  
+                ShiningMesh.SetSurfaceOverrideMaterial(0, shiningMaterial); 
                 originalAlbedo = shiningMaterial.AlbedoColor;
             }
         }
