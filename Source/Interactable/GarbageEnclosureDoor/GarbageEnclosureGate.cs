@@ -35,6 +35,7 @@ public partial class GarbageEnclosureGate : InteractableObject
         {
             AnimationPlayer.Play("Close");
             AnimationPlayer.AnimationFinished += OnCloseAnimationFinished;
+            SignalManager.Instance.EmitSignal(nameof(SignalManager.GateClosed));
         }
     }
     

@@ -7,7 +7,7 @@ public partial class InteractableObject: Area3D
     [Export] public string OverlayString;
     [Export] public MeshInstance3D[] OutlinedMeshes;
     [Export] float OutlineThickness = 0.001f;
-    public bool inInteractionRange = false;
+    private bool inInteractionRange = false;
 
     public override void _Ready()
     {

@@ -1,13 +1,56 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmd4heeu7d464"]
+[gd_scene load_steps=18 format=4 uid="uid://bmd4heeu7d464"]
 
 [ext_resource type="Script" uid="uid://dpfutkrtppyh6" path="res://Source/Cutscenes/OutsideCutscene/OutsideCutscene.cs" id="1_6y8wg"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="2_ysy3x"]
+[ext_resource type="Texture2D" uid="uid://18y5ufg32ue" path="res://Assets/Models/Interior/Door/Wooden_Door.png" id="3_c45it"]
 [ext_resource type="PackedScene" uid="uid://bhj21u4bkuleu" path="res://Source/Areas/CameraArea/CameraArea.tscn" id="3_ysy3x"]
 [ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="4_7lefy"]
 [ext_resource type="Environment" uid="uid://c2l1jfgadpa0j" path="res://Assets/Environments/OutsideEnvironment.tres" id="4_ry8wh"]
 [ext_resource type="PackedScene" uid="uid://bj3ka656a8osp" path="res://Source/Areas/FirstPersonCameraSwitchArea/FirstPersonCameraSwitchArea.tscn" id="6_wy8fa"]
 [ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.tscn" id="7_30rg1"]
 [ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="8_c45it"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x72sw"]
+resource_name = "Material"
+vertex_color_use_as_albedo = true
+albedo_color = Color(2.454227, 2.454227, 2.454227, 1)
+albedo_texture = ExtResource("3_c45it")
+emission_enabled = true
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+stencil_outline_thickness = 0.001
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8l7u4"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.0072282087, -0.01, 0.02, 0.014456417, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvJza7DsK1yM8CtcjvJza7LsK1yM8CtcjvJza7LsK1yO8CtcjvJza7DsK1yO8CtcjPJza7DsK1yM8CtcjPJza7LsK1yO8CtcjPJza7LsK1yM8CtcjPJza7DsK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xdo08"]
+resource_name = "Cube_021"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.0072282087, -0.01, 0.02, 0.014456417, 0.02),
+"attribute_data": PackedByteArray("kK1eP0Dfrz3w4FA/QN+vPfDgUD9+gV0/kK1eP36BXT+1HwI+AGZoPdz7Yz8AZmg93PtjPy7lej+1HwI+LuV6P/DgUD9A3689kK1eP0Dfrz2QrV4/foFdP/DgUD9+gV0/3PtjPwBmaD21HwI+AGZoPbUfAj4u5Xo/3PtjPy7lej8I0CA/ukbxPgjQID/Equo+D+DFPsSq6j4P4MU+ukbxPg/gxT66RvE+D+DFPsSq6j4I0CA/xKrqPgjQID+6RvE+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_x72sw"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvJza7DsK1yM8CtcjvJza7LsK1yM8CtcjvJza7LsK1yO8CtcjvJza7DsK1yO8CtcjPJza7DsK1yM8CtcjvJza7DsK1yM8CtcjvJza7DsK1yO8CtcjPJza7DsK1yO8CtcjPJza7LsK1yM8CtcjPJza7DsK1yM8CtcjPJza7DsK1yO8CtcjPJza7LsK1yO8CtcjvJza7LsK1yM8CtcjPJza7LsK1yM8CtcjPJza7LsK1yO8CtcjvJza7LsK1yO8CtcjPJza7LsK1yO8CtcjPJza7DsK1yO8CtcjvJza7DsK1yO8CtcjvJza7LsK1yO8CtcjvJza7LsK1yM8CtcjvJza7DsK1yM8CtcjPJza7DsK1yM8CtcjPJza7LsK1yM8AAD/f/9/AAAAAP9//38AAAAA/3//fwAAAAD/f/9/AAD/f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v////3//f///////f/9///////9//3///////3//f////38AAAAA/z//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//////////P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8l7u4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7lefy"]
 size = Vector3(4.5408936, 4.2597656, 15.52346)
@@ -24,13 +67,17 @@ size = Vector3(7.592842, 3.2055664, 6.8060074)
 [sub_resource type="BoxShape3D" id="BoxShape3D_30rg1"]
 size = Vector3(3.8839111, 5.6517334, 5.3952637)
 
-[node name="OutsideCutscene" type="Node3D"]
+[node name="OutsideCutscene" type="Node3D" node_paths=PackedStringArray("subtitlesOverlay")]
 script = ExtResource("1_6y8wg")
+subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Outside" parent="." instance=ExtResource("2_ysy3x")]
 
 [node name="Concrete2" parent="Outside/Floor/PavementConcreteSequence" index="2"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.40736, 1.9073486e-06, 22.25333)
+
+[node name="Cube" parent="Outside/Interactable/InteractableDoor/EntranceDoor" index="0"]
+mesh = SubResource("ArrayMesh_xdo08")
 
 [node name="StaticCameras" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.59189, 0, -46.222584)
@@ -95,33 +142,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5357, 0, -56.524265)
 environment = ExtResource("4_ry8wh")
 
 [node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
-bones/0/position = Vector3(-0.004005838, 1.0888493, 0.0063790707)
-bones/0/rotation = Quaternion(-0.035100304, -0.043748748, -0.02361598, 0.9981465)
-bones/1/rotation = Quaternion(0.0027938916, 0.014502835, 0.02436394, 0.99959403)
-bones/2/rotation = Quaternion(0.009214349, 0.0031264294, 0.014461418, 0.9998482)
-bones/3/rotation = Quaternion(0.008938481, 0.003319779, 0.014484554, 0.99984974)
-bones/4/rotation = Quaternion(0.06936831, -0.0023773445, 0.005595439, 0.9975726)
-bones/5/rotation = Quaternion(-0.06782805, 0.009071403, -0.0014682285, 0.9976548)
-bones/7/rotation = Quaternion(-0.70516676, -0.29278702, 0.53166765, -0.3665314)
-bones/8/rotation = Quaternion(0.421719, 0.1556133, 0.081578754, 0.8895406)
-bones/9/rotation = Quaternion(0.000378697, 0.0008153537, 0.013667161, 0.99990624)
-bones/10/rotation = Quaternion(0.053183585, -0.26703367, 0.025053335, 0.9618924)
-bones/19/rotation = Quaternion(0.70605534, -0.28543895, 0.5497592, 0.34318417)
-bones/20/rotation = Quaternion(0.33671272, -0.24848635, -0.09534683, 0.90320987)
-bones/21/rotation = Quaternion(0.0017321811, -0.00078525516, -0.057190124, 0.9983615)
-bones/22/rotation = Quaternion(0.054461345, 0.16133738, -0.0031287025, 0.9853905)
-bones/31/rotation = Quaternion(0.1365176, 0.053713538, 0.98672336, -0.06967782)
-bones/32/rotation = Quaternion(-0.102504805, -0.0119801015, 0.039556846, 0.9938735)
-bones/33/rotation = Quaternion(0.46392733, -0.09671617, -0.019456083, 0.88036305)
-bones/36/rotation = Quaternion(-0.09331722, -0.028505782, 0.9948055, -0.029006839)
-bones/37/rotation = Quaternion(-0.061764084, 0.08377256, -0.03493779, 0.9939551)
-bones/38/rotation = Quaternion(0.49661806, 0.093121156, -0.015156582, 0.86282635)
-bones/39/rotation = Quaternion(0.3562406, 0.0025745025, 0.004104965, 0.9343818)
-
-[node name="SubtitlesOverlay" parent="." instance=ExtResource("7_30rg1")]
-visible = false
+bones/0/position = Vector3(0.0018395765, 1.0886271, 0.0005009044)
+bones/0/rotation = Quaternion(-0.029547915, -0.050777093, -0.029538635, 0.99783576)
+bones/1/rotation = Quaternion(0.005692328, 0.011314174, 0.02140762, 0.9996906)
+bones/2/rotation = Quaternion(0.010218441, 0.0026599816, 0.0137759885, 0.99984944)
+bones/3/rotation = Quaternion(0.009984576, 0.0028335003, 0.013797093, 0.999851)
+bones/4/rotation = Quaternion(0.07158997, -0.001163011, 0.0044244085, 0.99742377)
+bones/5/rotation = Quaternion(-0.06697685, 0.010827696, -0.0011845892, 0.99769515)
+bones/7/rotation = Quaternion(-0.7096936, -0.28690618, 0.5298166, -0.36512205)
+bones/8/rotation = Quaternion(0.4128546, 0.1595587, 0.08015575, 0.89312226)
+bones/9/rotation = Quaternion(0.00035677737, 0.0008152278, 0.012875533, 0.9999168)
+bones/10/rotation = Quaternion(0.049563628, -0.27116862, 0.024073094, 0.9609535)
+bones/19/rotation = Quaternion(0.7058358, -0.2857433, 0.5497954, 0.3433243)
+bones/20/rotation = Quaternion(0.33791474, -0.24815188, -0.096085146, 0.9027747)
+bones/21/rotation = Quaternion(0.0017602004, -0.00078526506, -0.05811918, 0.9983078)
+bones/22/rotation = Quaternion(0.05966602, 0.1618532, -0.0048081726, 0.9849977)
+bones/31/rotation = Quaternion(0.13764764, 0.06817301, 0.98533887, -0.07424953)
+bones/32/rotation = Quaternion(-0.11610689, -0.017028723, 0.039267916, 0.9923141)
+bones/33/rotation = Quaternion(0.46849227, -0.09631313, -0.018636845, 0.87800425)
+bones/36/rotation = Quaternion(-0.089837775, -0.024086861, 0.9950938, -0.0337258)
+bones/37/rotation = Quaternion(-0.051071763, 0.084307514, -0.03358197, 0.99456334)
+bones/38/rotation = Quaternion(0.48799837, 0.08889332, -0.01429127, 0.86818856)
+bones/39/rotation = Quaternion(0.35805246, 0.0028560236, 0.004175308, 0.93368787)
 
 [node name="InteractOverlay" parent="." instance=ExtResource("8_c45it")]
+
+[node name="SubtitlesOverlay" parent="." instance=ExtResource("7_30rg1")]
+
+[connection signal="body_entered" from="StaticCameras/CameraArea3" to="." method="OnReturningPlayerEntered"]
 
 [editable path="Outside"]
 [editable path="Outside/Interactable/InteractableDoor"]

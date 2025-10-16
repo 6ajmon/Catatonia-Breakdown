@@ -50,6 +50,10 @@ public partial class Cutscene : Node3D
                 inputReceived = true;
             }
         }
+        else if (subtitlesOverlay != null && subtitlesOverlay.HasActiveDurationTimerEnded())
+        {
+            inputReceived = true;
+        }
     }
     public async Task WaitForSeconds(float seconds)
     {
