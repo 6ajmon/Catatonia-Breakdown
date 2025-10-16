@@ -18,6 +18,7 @@ public partial class StringManager : Node
         public string ItsProbablyTrashDoor = "Hmm... It's probably just the garbage enclosure gate.";
         public string FuckICantSleep = "Fuck! I can't sleep.";
         public string ImGonnaCheckItOut = "I'll see what's making that noise from the window.";
+        public string TheGateIsOpen = "The gate is open, I should go and close it.";
 
         // outside
         public string ItsSoCold = "Brrr... It's so cold. I'd better get this done quickly and go to sleep.";

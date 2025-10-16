@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://dkhjaw240tdsv"]
+[gd_scene load_steps=12 format=4 uid="uid://dkhjaw240tdsv"]
 
 [ext_resource type="Script" uid="uid://dfhugt5a41xap" path="res://Source/Cutscenes/SleepingCutscene/SleepingCutscene.cs" id="1_gao1f"]
 [ext_resource type="PackedScene" uid="uid://cdf81rys0cvt1" path="res://Source/Levels/Apartment/Apartment.tscn" id="2_6m5mq"]
 [ext_resource type="Texture2D" uid="uid://dfg8f6upm047n" path="res://Assets/Models/Interior/TableLamp/Lamp.png" id="3_xt40w"]
 [ext_resource type="PackedScene" uid="uid://b7h27xkea0igj" path="res://Source/Levels/Outside/outside.tscn" id="4_0l3pc"]
 [ext_resource type="Environment" uid="uid://baovmqpb3bjs3" path="res://Assets/Environments/ApartmentEnvironment.tres" id="5_6lkiy"]
-[ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="6_weqpm"]
 [ext_resource type="PackedScene" uid="uid://ba23yf3qln6nm" path="res://Source/Components/CameraWithShader/CameraWithShader.tscn" id="7_054w3"]
 [ext_resource type="PackedScene" uid="uid://dn71atxesfj1w" path="res://Source/UI/Overlays/Interact/InteractOverlay.tscn" id="8_mostk"]
 [ext_resource type="PackedScene" uid="uid://bhnpe57oq6tq8" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.tscn" id="9_b1i6b"]
@@ -53,29 +52,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rvnml")
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3yq8m"]
-exposure_multiplier = 0.3
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rh146"]
-shader = ExtResource("6_weqpm")
-shader_parameter/exposure = 1.20000005048023
-shader_parameter/contrast = 1.05
-shader_parameter/saturation = 0.8
-shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 5.00000019
-shader_parameter/enable_posterize = true
-shader_parameter/color_levels = 8.0
-shader_parameter/dither_strength = 0.35
-shader_parameter/chrom_aberration = 0.014000000665
-shader_parameter/vignette_strength = 1.2
-shader_parameter/grain_strength = 0.0510000024225
-shader_parameter/tint_strength = 0.25
-shader_parameter/scanline_density = 240.0
-shader_parameter/scanline_strength = 0.15
-shader_parameter/glitch_strength = 0.06000000285
-shader_parameter/glitch_speed = 1.0000000475
-shader_parameter/viewport_size_override = Vector2(0, 0)
-
 [node name="SleepingCutscene" type="Node3D" node_paths=PackedStringArray("bedCamera", "windowCamera", "subtitlesOverlay")]
 script = ExtResource("1_gao1f")
 bedCamera = NodePath("Cameras/BedCamera")
@@ -98,46 +74,23 @@ visible = false
 
 [node name="Cameras" type="Node3D" parent="."]
 
-[node name="BedCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
-transform = Transform3D(1, 0, 0, 0, 0.42302957, 0.90611595, 0, -0.90611595, 0.42302957, 2.358228, 1.8972723, -2.834449)
-environment = ExtResource("5_6lkiy")
-attributes = SubResource("CameraAttributesPractical_3yq8m")
-fov = 35.0
-
-[node name="ColorRect" type="ColorRect" parent="Cameras/BedCamera"]
-material = SubResource("ShaderMaterial_rh146")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="WindowCamera" type="Camera3D" parent="Cameras" groups=["StaticCameras"]]
-transform = Transform3D(0.2848236, -0.4267381, 0.8583532, 0.056347355, 0.9013475, 0.4294156, -0.9569224, -0.07394177, 0.2807706, -1.8024377, 2.3198814, 1.6712842)
-environment = ExtResource("5_6lkiy")
-attributes = SubResource("CameraAttributesPractical_3yq8m")
-current = true
-fov = 35.0
-
-[node name="ColorRect" type="ColorRect" parent="Cameras/WindowCamera"]
-material = SubResource("ShaderMaterial_rh146")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BedWithShader" parent="Cameras" instance=ExtResource("7_054w3")]
+[node name="BedCamera" parent="Cameras" groups=["StaticCameras"] instance=ExtResource("7_054w3")]
 transform = Transform3D(1, 0, 0, 0, 0.4230295, 0.9061159, 0, -0.9061159, 0.4230295, 2.358228, 1.8972723, -2.834449)
+environment = ExtResource("5_6lkiy")
 fov = 35.0
 
-[node name="CameraWithShader2" parent="Cameras" instance=ExtResource("7_054w3")]
+[node name="WindowCamera" parent="Cameras" groups=["StaticCameras"] instance=ExtResource("7_054w3")]
+transform = Transform3D(0.28482363, -0.42673814, 0.85835314, 0.056347348, 0.9013474, 0.42941564, -0.9569224, -0.0739418, 0.2807706, -1.8024377, 2.3198814, 1.6712842)
+environment = ExtResource("5_6lkiy")
+fov = 35.0
 
 [node name="InteractOverlay" parent="." instance=ExtResource("8_mostk")]
 offset_right = 139.0
 offset_bottom = 94.0
 
 [node name="SubtitlesOverlay" parent="." instance=ExtResource("9_b1i6b")]
+
+[connection signal="body_entered" from="Apartment/Walls/WindowMesh/FirstPersonCameraSwitchArea" to="." method="OnPlayerEnteredWindowArea"]
 
 [editable path="Apartment"]
 [editable path="Apartment/Walls/WindowMesh/FirstPersonCameraSwitchArea"]
@@ -146,3 +99,6 @@ offset_bottom = 94.0
 [editable path="Apartment/EntranceDoor"]
 [editable path="Apartment/Lamp"]
 [editable path="Outside"]
+[editable path="Outside/Interactable/InteractableDoor"]
+[editable path="Outside/Interactable/GarbageEnclosureGate"]
+[editable path="Outside/Interactable/GarbageEnclosureGate/gate2"]

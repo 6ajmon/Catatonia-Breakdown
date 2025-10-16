@@ -34,4 +34,14 @@ public partial class SleepingCutscene : Cutscene
         await WaitForPlayerInput();
         subtitlesOverlay.HideSubtitle();
     }
+
+    private async void OnPlayerEnteredWindowArea(Node body)
+    {
+        if (body is NovakPlayer)
+        {
+            subtitlesOverlay.ShowSubtitle(names.Novak, dialogue.TheGateIsOpen, 5.0f);
+            await WaitForPlayerInput();
+            subtitlesOverlay.HideSubtitle();
+        }
+    }
 }
