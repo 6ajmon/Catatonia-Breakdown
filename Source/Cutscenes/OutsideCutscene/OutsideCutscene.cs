@@ -7,6 +7,7 @@ public partial class OutsideCutscene : Cutscene
     [Export] private Node3D BigfootNode;
     [Export(PropertyHint.File, "*.wav")] private string bigfootGateNoiseSoundPath;
     [Export(PropertyHint.File, "*.wav")] private string bigfootJumpscareNoiseSoundPath;
+    [Export] private InteractableDoor InteractableDoorNode;
     private AudioStreamWav bigfootNoiseSound;
     private AudioStreamWav bigfootJumpscareNoiseSound;
     private bool gateClosed = false;
@@ -45,10 +46,11 @@ public partial class OutsideCutscene : Cutscene
         if (body is NovakPlayer)
         {
             BigfootNode.Visible = true;
-            AudioManager.Instance.CreateAudioOneShotAtPosition(bigfootJumpscareNoiseSound, BigfootNode.GlobalPosition, lifespan: 0.33f);
-            await WaitForSeconds(0.3f);
+            AudioManager.Instance.CreateAudioOneShotAtPosition(bigfootJumpscareNoiseSound, BigfootNode.GlobalPosition, lifespan: 0.43f);
+            await WaitForSeconds(0.4f);
             BigfootNode.QueueFree();
             subtitlesOverlay.ShowSubtitle(StringManager.Instance.Names.Novak, StringManager.Instance.Dialogue.WasThatAGorilla, 9.0f);
+            InteractableDoorNode.interactionEnabled = true;
             await WaitForPlayerInput();
             subtitlesOverlay.HideSubtitle();
         }

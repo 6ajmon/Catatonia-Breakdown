@@ -7,6 +7,7 @@ public partial class InteractableObject: Area3D
     [Export] public string OverlayString;
     [Export] public MeshInstance3D[] OutlinedMeshes;
     [Export] float OutlineThickness = 0.001f;
+    [Export] public bool interactionEnabled = true;
     private bool inInteractionRange = false;
 
     public override void _Ready()
@@ -35,6 +36,7 @@ public partial class InteractableObject: Area3D
    
     public void OnBodyEntered(Node3D body)
     {
+        if (!interactionEnabled) return;
         if (body is NovakPlayer)
         {
             SignalManager.Instance.EmitSignal(nameof(SignalManager.ToggleInteractableOverlay));
@@ -54,6 +56,7 @@ public partial class InteractableObject: Area3D
 
     public void OnBodyExited(Node3D body)
     {
+        if (!interactionEnabled) return;
         if (body is NovakPlayer)
         {
             SignalManager.Instance.EmitSignal(nameof(SignalManager.ToggleInteractableOverlay));
