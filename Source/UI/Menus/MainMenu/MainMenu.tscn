@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://qfvryhu7jugv"]
+[gd_scene load_steps=112 format=4 uid="uid://qfvryhu7jugv"]
 
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="2_ng1rk"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="4_81kv2"]
@@ -30,6 +30,8 @@
 [ext_resource type="Script" uid="uid://lsemmqjiqht7" path="res://Source/Cutscenes/MainMenuCutscene/MainMenuCutscene.cs" id="29_ixj2m"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 [ext_resource type="PackedScene" uid="uid://cb55dorrls1d" path="res://Source/Components/LampPost/LampPost.tscn" id="30_6rg0c"]
+[ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="30_gsx2l"]
+[ext_resource type="Script" uid="uid://dnqe5cltr2up2" path="res://Source/UI/Components/CustomButtons/ButtonUi/ButtonUI.cs" id="32_myqec"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
 albedo_texture = ExtResource("4_81kv2")
@@ -739,7 +741,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayButton:Cutscene")
+tracks/2/path = NodePath("../UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PlayButton:Cutscene")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -778,7 +780,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayButton:Cutscene")
+tracks/2/path = NodePath("../UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PlayButton:Cutscene")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1514,17 +1516,6 @@ libraries = {
 }
 autoplay = "Gate"
 
-[node name="PlayButton" type="Button" parent="." node_paths=PackedStringArray("_cutscene")]
-offset_left = 902.0
-offset_top = 327.0
-offset_right = 1039.0
-offset_bottom = 423.0
-theme_override_font_sizes/font_size = 64
-text = "Play"
-script = ExtResource("28_xiobc")
-_cutscene = NodePath("../PlayCutscene")
-ScenePath = "uid://dkhjaw240tdsv"
-
 [node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer", "soundPositionNode")]
 script = ExtResource("29_ixj2m")
 _animationPlayer = NodePath("OpenGatePlayer")
@@ -1571,4 +1562,72 @@ material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="OnPressed"]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("30_gsx2l")
+theme_override_font_sizes/font_size = 64
+text = "Catatonia: Breakdown"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("_cutscene")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("30_gsx2l")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+script = ExtResource("28_xiobc")
+_cutscene = NodePath("../../../../../../PlayCutscene")
+ScenePath = "uid://dkhjaw240tdsv"
+
+[node name="SourceButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("30_gsx2l")
+theme_override_font_sizes/font_size = 64
+text = "Source"
+script = ExtResource("32_myqec")
+metadata/_custom_type_script = "uid://dnqe5cltr2up2"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PlayButton" to="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PlayButton" method="OnPressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/SourceButton" to="PlayCutscene" method="OnSourceButtonPressed"]

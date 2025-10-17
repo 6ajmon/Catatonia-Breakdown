@@ -10,6 +10,7 @@ public partial class CameraManager : Node
     public List<Camera3D> Cameras = new();
     public Camera3D FirstPersonCamera;
     public int PreviousCameraIndex = -1;
+    public bool debugControlsEnabled = false;
 
     public override void _Ready()
     {
@@ -42,6 +43,7 @@ public partial class CameraManager : Node
 
     public override void _Process(double delta)
     {
+        if (!debugControlsEnabled) return;
         if (Input.IsActionJustPressed("NextCamera"))
         {
             OnNextCamera();

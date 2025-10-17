@@ -27,6 +27,10 @@ public partial class MainMenuCutscene : Cutscene
             await WaitForSeconds(2.5f);
             SignalManager.Instance.EmitSignal(nameof(SignalManager.CutsceneEnded));
         }
-        
+
+    }
+    private void OnSourceButtonPressed()
+    {
+        OS.ShellOpen("https://github.com/6ajmon/Catatonia-Breakdown");
     }
 }
