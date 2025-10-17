@@ -1,9 +1,8 @@
-[gd_scene load_steps=249 format=4 uid="uid://njbgwpwqkgmp"]
+[gd_scene load_steps=248 format=4 uid="uid://njbgwpwqkgmp"]
 
 [ext_resource type="PackedScene" uid="uid://ctog0jnfwead2" path="res://Source/Player/Novak/Novak.tscn" id="1_m6jcv"]
 [ext_resource type="PackedScene" uid="uid://cic0ggxqfeush" path="res://Source/Bigfoot/Bigfoot.tscn" id="1_vjh10"]
 [ext_resource type="Texture2D" uid="uid://cxe5ut58upou" path="res://Assets/Textures/Floor/asphat-road-texture-gray-color.jpg" id="3_645wr"]
-[ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="3_kvbwc"]
 [ext_resource type="Texture2D" uid="uid://20n6fqvgh4wf" path="res://Assets/Models/Outside/BrickFence/brick_wall_0.png" id="4_f7yom"]
 [ext_resource type="Texture2D" uid="uid://5fogaj2mp4ny" path="res://Assets/Models/Items/Conditioner/Conditioner.png" id="5_4vnmt"]
 [ext_resource type="Texture2D" uid="uid://chsou6puh7kvj" path="res://Assets/Models/Items/Box/Box.png" id="6_kvbwc"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://djfist86w85yd" path="res://Assets/Models/Interior/Rug/Rug.png" id="11_fl1m4"]
 [ext_resource type="Texture2D" uid="uid://18y5ufg32ue" path="res://Assets/Models/Interior/Door/Wooden_Door.png" id="12_xtala"]
 [ext_resource type="Texture2D" uid="uid://drh48ykqfnymr" path="res://Assets/Models/Interior/SmallTable/Table.png" id="13_4ybqy"]
+[ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="13_ha1m0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjh10"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,26 +36,6 @@ fog_mode = 1
 fog_light_energy = 0.76
 fog_density = 1.0
 volumetric_fog_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3qd6"]
-shader = ExtResource("3_kvbwc")
-shader_parameter/exposure = 1.20000005048023
-shader_parameter/contrast = 1.05
-shader_parameter/saturation = 0.8
-shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 4.0
-shader_parameter/enable_posterize = true
-shader_parameter/color_levels = 8.0
-shader_parameter/dither_strength = 0.35
-shader_parameter/chrom_aberration = 0.014000000665
-shader_parameter/vignette_strength = 1.2
-shader_parameter/grain_strength = 0.0510000024225
-shader_parameter/tint_strength = 0.25
-shader_parameter/scanline_density = 240.0
-shader_parameter/scanline_strength = 0.15
-shader_parameter/glitch_strength = 0.06000000285
-shader_parameter/glitch_speed = 1.0000000475
-shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7yom"]
 size = Vector3(35, 0.1, 3)
@@ -1130,37 +1110,29 @@ RunSpeed = 5.0
 [node name="Camera3D" parent="Novak" index="1"]
 environment = SubResource("Environment_c3qd6")
 
-[node name="ColorRect2" type="ColorRect" parent="Novak/Camera3D" index="0"]
-material = SubResource("ShaderMaterial_c3qd6")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Skeleton3D" parent="Novak/Skeleton" index="0"]
-bones/0/position = Vector3(0.0012446649, 1.0886853, -0.0015535727)
-bones/0/rotation = Quaternion(-0.03277184, -0.04780632, -0.027445162, 0.9979416)
-bones/1/rotation = Quaternion(0.007823867, 0.013075812, 0.023631644, 0.9996046)
-bones/2/rotation = Quaternion(0.010842017, 0.0025433407, 0.014189331, 0.9998374)
-bones/3/rotation = Quaternion(0.010628086, 0.002743218, 0.014224578, 0.9998386)
-bones/4/rotation = Quaternion(0.072647154, -0.0015106415, 0.00462068, 0.9973459)
-bones/5/rotation = Quaternion(-0.06883127, 0.010788958, -0.0009906754, 0.99756956)
-bones/7/rotation = Quaternion(-0.70974785, -0.28711143, 0.5289975, -0.3660419)
-bones/8/rotation = Quaternion(0.4149388, 0.1556368, 0.08212588, 0.89266926)
-bones/9/rotation = Quaternion(0.00036925127, 0.0008153148, 0.01331408, 0.999911)
-bones/10/rotation = Quaternion(0.049063772, -0.2735949, 0.027358284, 0.9602032)
-bones/19/rotation = Quaternion(0.7075261, -0.28405407, 0.5477944, 0.34444365)
-bones/20/rotation = Quaternion(0.33947146, -0.24620953, -0.096729994, 0.90265346)
-bones/21/rotation = Quaternion(0.0017653843, -0.0007852403, -0.058290713, 0.99829775)
-bones/22/rotation = Quaternion(0.05472464, 0.16242358, -0.0041522626, 0.98519367)
-bones/31/rotation = Quaternion(0.13697235, 0.063076966, 0.98597085, -0.07156508)
-bones/32/rotation = Quaternion(-0.10915449, -0.015519723, 0.03959606, 0.9931146)
-bones/33/rotation = Quaternion(0.46523392, -0.09603687, -0.018357748, 0.8797712)
-bones/36/rotation = Quaternion(-0.09134091, -0.022639168, 0.9950672, -0.031395845)
-bones/37/rotation = Quaternion(-0.058505286, 0.08358423, -0.03450694, 0.9941831)
-bones/38/rotation = Quaternion(0.4905088, 0.0902775, -0.014493073, 0.8666263)
-bones/39/rotation = Quaternion(0.35845155, 0.0029181438, 0.0041906154, 0.9335344)
+bones/0/position = Vector3(-0.0045237103, 1.088714, 0.0066483505)
+bones/0/rotation = Quaternion(-0.03548475, -0.04326958, -0.023692844, 0.998152)
+bones/1/rotation = Quaternion(0.0036841533, 0.014483884, 0.024536531, 0.99958724)
+bones/2/rotation = Quaternion(0.009360496, 0.0031725063, 0.01448714, 0.9998462)
+bones/3/rotation = Quaternion(0.009158374, 0.0033576246, 0.014523058, 0.999847)
+bones/4/rotation = Quaternion(0.070152126, -0.0024053433, 0.0056568584, 0.99751747)
+bones/5/rotation = Quaternion(-0.06787067, 0.008826871, -0.0012574708, 0.9976543)
+bones/7/rotation = Quaternion(-0.7054441, -0.29248264, 0.53139436, -0.36663693)
+bones/8/rotation = Quaternion(0.4214447, 0.15520965, 0.08192161, 0.8897096)
+bones/9/rotation = Quaternion(0.0003780794, 0.0008153501, 0.013644922, 0.9999066)
+bones/10/rotation = Quaternion(0.052572485, -0.26791322, 0.025494823, 0.96166974)
+bones/19/rotation = Quaternion(0.7066647, -0.2846831, 0.54941374, 0.34311107)
+bones/20/rotation = Quaternion(0.33678967, -0.24794033, -0.09486689, 0.9033818)
+bones/21/rotation = Quaternion(0.001730293, -0.00078525936, -0.057127595, 0.9983651)
+bones/22/rotation = Quaternion(0.05439996, 0.16151424, -0.0033634773, 0.9853642)
+bones/31/rotation = Quaternion(0.13690086, 0.054261833, 0.98660177, -0.07021975)
+bones/32/rotation = Quaternion(-0.103924684, -0.010920528, 0.039507017, 0.99374026)
+bones/33/rotation = Quaternion(0.46407813, -0.09673683, -0.01947913, 0.8802807)
+bones/36/rotation = Quaternion(-0.09330668, -0.028401129, 0.9948004, -0.029316511)
+bones/37/rotation = Quaternion(-0.063858986, 0.08373671, -0.035207227, 0.99381626)
+bones/38/rotation = Quaternion(0.49763802, 0.09383846, -0.015445411, 0.8621556)
+bones/39/rotation = Quaternion(0.3562895, 0.002582099, 0.004106863, 0.93436307)
 
 [node name="TopFloor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
@@ -2923,6 +2895,63 @@ transform = Transform3D(100, -8.742279e-06, 0, 0, 0, 100, -8.742279e-06, -100, 0
 material_override = SubResource("StandardMaterial3D_diu0n")
 mesh = SubResource("ArrayMesh_s5w7j")
 skeleton = NodePath("")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer4/Panel"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -51.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("13_ha1m0")
+theme_override_font_sizes/font_size = 32
+text = "That's all for now! 
+Thanks for playing and follow the project on GitHub/itch.io!"
+autowrap_mode = 3
 
 [editable path="Bigfoot"]
 [editable path="Novak"]
