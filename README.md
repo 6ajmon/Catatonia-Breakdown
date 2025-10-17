@@ -1,4 +1,4 @@
-# ProjectCamera
+# Catatonia: Breakdown
 Game made for SCREAM JAM 2025
 
 
