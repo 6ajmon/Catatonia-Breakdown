@@ -15,6 +15,7 @@ build/
 releases/
 dist/
 out/
+Exports/
 
 # IDE/Editor
 .vs/
