@@ -2,8 +2,9 @@
 <img width="1915" height="1074" alt="image" src="https://github.com/user-attachments/assets/8d9b8537-d745-4cbf-bc03-0acaa2ab50f2" />
 
 ### Game made for SCREAM JAM 2025
-
-
+---
+### WIP
+---
 # Assets
 https://elegantcrow.itch.io/retro-rigged-bigfoot
 
