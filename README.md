@@ -23,7 +23,7 @@
 
 # Features
 - Interactable objects
-- Dynamic camera system with static cameras and first person camera
+- Dynamic camera system with static cameras and a first person camera
 - PSX styled graphics - low poly models and PSX shader
 
 
