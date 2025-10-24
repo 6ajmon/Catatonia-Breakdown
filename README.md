@@ -1,11 +1,36 @@
-# Catatonia: Breakdown
 <img width="1915" height="1074" alt="image" src="https://github.com/user-attachments/assets/8d9b8537-d745-4cbf-bc03-0acaa2ab50f2" />
 
-### Game made for SCREAM JAM 2025
+# Game made for SCREAM JAM 2025
+<img width="625" height="250" alt="BgvdRE" src="https://github.com/user-attachments/assets/1c5a237d-4406-4a18-be45-fc744c6b1fe1" />
+
 ---
-### WIP
+# WIP
 ---
-# Assets
+# Controls
+- **W** - walk forward
+
+- **S** - walk backwards
+
+- **A** - walk left (in first person) / rotate left
+
+- **D** - walk right (in first person) / rotate right
+
+- **Shift** - press to run
+
+- **Space** - Skip / Next dialogue
+
+- **E** - interact
+
+# Features
+- Interactable objects
+- Dynamic camera system with static cameras and first person camera
+- PSX styled graphics - low poly models and PSX shader
+
+
+# Credits
+## Inspiration
+https://youtu.be/5TnaxtfpmM4?si=hK2nAAaigxPQPV0w
+## Assets
 https://elegantcrow.itch.io/retro-rigged-bigfoot
 
 https://swickster.itch.io/retro-furniture-psx-style-asset-pack
