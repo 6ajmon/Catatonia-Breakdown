@@ -52,10 +52,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rvnml")
 
-[node name="SleepingCutscene" type="Node3D" node_paths=PackedStringArray("bedCamera", "windowCamera", "subtitlesOverlay")]
+[node name="SleepingCutscene" type="Node3D" node_paths=PackedStringArray("bedCamera", "windowCamera", "interactableDoor", "subtitlesOverlay")]
 script = ExtResource("1_gao1f")
 bedCamera = NodePath("Cameras/BedCamera")
 windowCamera = NodePath("Cameras/WindowCamera")
+interactableDoor = NodePath("Apartment/EntranceDoor")
 subtitlesOverlay = NodePath("SubtitlesOverlay")
 
 [node name="Apartment" parent="." instance=ExtResource("2_6m5mq")]

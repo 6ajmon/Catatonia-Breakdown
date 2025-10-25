@@ -6,6 +6,7 @@ public partial class SleepingCutscene : Cutscene
 {
     [Export] public Camera3D bedCamera;
     [Export] public Camera3D windowCamera;
+    [Export] private InteractableDoor interactableDoor;
     public override void _Ready()
     {
         base._Ready();
@@ -13,6 +14,7 @@ public partial class SleepingCutscene : Cutscene
     }
     public override async Task RunSequence()
     {
+        interactableDoor.interactionEnabled = false;
         CameraManager.Instance.TransitionToCamera(bedCamera);
         subtitlesOverlay.ShowSubtitle(names.Novak, dialogue.WhatsThatNoise);
         await WaitForPlayerInput();
@@ -39,6 +41,7 @@ public partial class SleepingCutscene : Cutscene
     {
         if (body is NovakPlayer)
         {
+            interactableDoor.interactionEnabled = true;
             subtitlesOverlay.ShowSubtitle(names.Novak, dialogue.TheGateIsOpen, 5.0f);
             await WaitForPlayerInput();
             subtitlesOverlay.HideSubtitle();
