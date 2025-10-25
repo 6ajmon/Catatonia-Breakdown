@@ -13,7 +13,7 @@ config_version=5
 config/name="Catatonia: Breakdown"
 run/main_scene="uid://qfvryhu7jugv"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-config/icon="uid://pkt80fwl6cst"
+config/icon="uid://fdlu6r64lhot"
 
 [audio]
 

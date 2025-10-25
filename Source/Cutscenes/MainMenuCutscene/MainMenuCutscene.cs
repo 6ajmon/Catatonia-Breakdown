@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using Godot;
 
-namespace ProjectCamera.Source.Cutscenes;
-
 public partial class MainMenuCutscene : Cutscene
 {
     [Export] private AnimationPlayer _animationPlayer;

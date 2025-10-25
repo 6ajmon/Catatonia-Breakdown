@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using ProjectCamera.Source.Cutscenes;
 
 [GlobalClass]
 public partial class ReplaceSceneWithCutsceneButton : ButtonUI
