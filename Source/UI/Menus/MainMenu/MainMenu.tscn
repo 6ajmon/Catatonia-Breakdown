@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://qfvryhu7jugv"]
+[gd_scene format=4 uid="uid://qfvryhu7jugv"]
 
 [ext_resource type="Shader" uid="uid://dcagafjin1r8f" path="res://Source/Shaders/CCTVOldCamera/CCTVOldCamera.gdshader" id="2_ng1rk"]
 [ext_resource type="Texture2D" uid="uid://ytcubnmbwel1" path="res://Assets/Models/Items/TrashCan/TrashCan.png" id="4_81kv2"]
@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://lsemmqjiqht7" path="res://Source/Cutscenes/MainMenuCutscene/MainMenuCutscene.cs" id="29_ixj2m"]
 [ext_resource type="Texture2D" uid="uid://bd8b44hfjsqo2" path="res://Assets/Models/Outside/StreetLamp/StreetLight_Base Color.png" id="29_u42ju"]
 [ext_resource type="PackedScene" uid="uid://cb55dorrls1d" path="res://Source/Components/LampPost/LampPost.tscn" id="30_6rg0c"]
-[ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="30_gsx2l"]
+[ext_resource type="Theme" uid="uid://b5nn07uukqhv4" path="res://Assets/Themes/MainTheme.tres" id="30_sgl1c"]
 [ext_resource type="Script" uid="uid://dnqe5cltr2up2" path="res://Source/UI/Components/CustomButtons/ButtonUi/ButtonUI.cs" id="32_myqec"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5wj"]
@@ -840,339 +840,337 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_myqec")
 
-[node name="MainMenuScene" type="Node3D"]
+[node name="MainMenuScene" type="Node3D" unique_id=801810061]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1647258616]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 sky_mode = 1
 
-[node name="Outside" type="Node3D" parent="."]
+[node name="Outside" type="Node3D" parent="." unique_id=1647563675]
 
-[node name="GarbageEnclosure" type="Node3D" parent="Outside"]
+[node name="GarbageEnclosure" type="Node3D" parent="Outside" unique_id=596924478]
 
-[node name="TrashCan2" type="MeshInstance3D" parent="Outside/GarbageEnclosure"]
+[node name="TrashCan2" type="MeshInstance3D" parent="Outside/GarbageEnclosure" unique_id=626754630]
 transform = Transform3D(0.116256416, 0, -0.33012795, 0, 0.35, 0, 0.33012795, 0, 0.116256416, 58.31889, 0.005000256, -30.794601)
 material_override = SubResource("StandardMaterial3D_ao5wj")
 mesh = SubResource("ArrayMesh_ul6tu")
 skeleton = NodePath("")
 
-[node name="Cube_001" type="MeshInstance3D" parent="Outside/GarbageEnclosure/TrashCan2"]
+[node name="Cube_001" type="MeshInstance3D" parent="Outside/GarbageEnclosure/TrashCan2" unique_id=1723722885]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 1.903525, 3.3615398, 1.6146299)
 material_override = SubResource("StandardMaterial3D_h16hh")
 mesh = SubResource("ArrayMesh_es0pb")
 skeleton = NodePath("")
 
-[node name="Walls" type="Node3D" parent="Outside/GarbageEnclosure"]
+[node name="Walls" type="Node3D" parent="Outside/GarbageEnclosure" unique_id=925905481]
 
-[node name="gate2" parent="Outside/GarbageEnclosure/Walls" instance=ExtResource("5_uaua6")]
+[node name="gate2" parent="Outside/GarbageEnclosure/Walls" unique_id=481741675 instance=ExtResource("5_uaua6")]
 transform = Transform3D(1.55, 0, 0, 0, 1.75, 0, 0, 0, 2, 53.52258, 1.3886125, -33.263836)
 
-[node name="Wall" parent="Outside/GarbageEnclosure/Walls" instance=ExtResource("6_wybxj")]
+[node name="Wall" parent="Outside/GarbageEnclosure/Walls" unique_id=1319977550 instance=ExtResource("6_wybxj")]
 transform = Transform3D(-4.371139e-08, 0, 1.5, 0, 1.25, 0, -1, 0, -6.556708e-08, 53.28924, 0, -29.388931)
 
-[node name="Wall2" parent="Outside/GarbageEnclosure/Walls" instance=ExtResource("6_wybxj")]
+[node name="Wall2" parent="Outside/GarbageEnclosure/Walls" unique_id=610565908 instance=ExtResource("6_wybxj")]
 transform = Transform3D(-4.371139e-08, 0, 1.5, 0, 1.25, 0, -1, 0, -6.556708e-08, 60.08794, 0, -29.366415)
 
-[node name="Wall3" parent="Outside/GarbageEnclosure/Walls" instance=ExtResource("6_wybxj")]
+[node name="Wall3" parent="Outside/GarbageEnclosure/Walls" unique_id=1003749974 instance=ExtResource("6_wybxj")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.5, 55.238422, 0, -33.231)
 
-[node name="GarbageBags" type="Node3D" parent="Outside/GarbageEnclosure"]
+[node name="GarbageBags" type="Node3D" parent="Outside/GarbageEnclosure" unique_id=1444811982]
 transform = Transform3D(1.775, 0, 0, 0, 1.25, 0, 0, 0, 1.5, 53.13752, 0, -29.51406)
 
-[node name="GarbageBag" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=2083566714]
 transform = Transform3D(-18.610159, 0, 6.5171876, 0, 28, 0, -7.712005, 0, -22.022022, 3.4488163, 0.10818186, -1.8800621)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="GarbageBag2" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag2" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=85967793]
 transform = Transform3D(14.924874, -11.457334, -5.8982525, 18.082891, 20.583326, 5.7737174, 2.3351486, -8.14934, 21.7389, 3.0483303, 0.10818186, -2.1532555)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="GarbageBag3" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag3" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=2077539570]
 transform = Transform3D(15.758895, -8.915956, -13.623364, 13.787862, 24.369959, -2.7105088e-07, 12.533451, -7.0910854, 14.575741, 2.0619183, 0.10818186, -1.7217789)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="GarbageBag4" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag4" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=1609130562]
 transform = Transform3D(-9.559627, 3.5562024, -16.87539, 0, 27.398252, 5.7737174, 20.407795, 2.3326278, -11.069113, 0.8662262, 0.10818186, 0.35123825)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="GarbageBag5" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag5" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=592441098]
 transform = Transform3D(-15.20832, 0, -16.797033, 0, 28, 0, 13.210606, 0, -15.662153, 1.7893028, 0.10818186, -2.0704098)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="GarbageBag6" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags"]
+[node name="GarbageBag6" type="MeshInstance3D" parent="Outside/GarbageEnclosure/GarbageBags" unique_id=1966872924]
 transform = Transform3D(-15.20832, -11.173896, -12.541304, 0, 20.905869, -18.62645, 13.210606, -10.418936, -11.69396, 2.1706333, 0.5575208, -1.9796715)
 material_override = SubResource("StandardMaterial3D_uycgf")
 mesh = SubResource("ArrayMesh_x20m4")
 skeleton = NodePath("")
 
-[node name="DrinkingSpot" type="Node3D" parent="Outside/GarbageEnclosure"]
+[node name="DrinkingSpot" type="Node3D" parent="Outside/GarbageEnclosure" unique_id=1032910224]
 transform = Transform3D(44.753487, 4.703781, 2.0560879e-07, 0, -1.9670124e-06, 45, 4.703781, -44.753487, -1.9562372e-06, 58.350567, 0.0050002337, -33.884247)
 
-[node name="Box" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot"]
+[node name="Box" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot" unique_id=78587016]
 transform = Transform3D(1, -7.450581e-09, -4.440892e-16, 7.450581e-09, 1, -7.1054274e-15, 4.440892e-16, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_vsjn0")
 mesh = SubResource("ArrayMesh_61nek")
 skeleton = NodePath("")
 
-[node name="Bottles" type="Node3D" parent="Outside/GarbageEnclosure/DrinkingSpot"]
+[node name="Bottles" type="Node3D" parent="Outside/GarbageEnclosure/DrinkingSpot" unique_id=1235334888]
 transform = Transform3D(0.011050243, 9.980737e-18, 0.0011614275, 0.0011614275, -4.8568216e-10, -0.011050243, 5.0767605e-11, 0.011111111, -4.8302146e-10, -0.0032105446, 0.0019550323, 0.02027579)
 
-[node name="Cylinder" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles"]
+[node name="Cylinder" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles" unique_id=1842381867]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 0.0014050413, -0.0040791035, 2.0274449e-11)
 material_override = SubResource("StandardMaterial3D_0ci6h")
 mesh = SubResource("ArrayMesh_tt1td")
 skeleton = NodePath("")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles"]
+[node name="Cylinder_001" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles" unique_id=1975954085]
 transform = Transform3D(13.205301, 0, 0, 0, -1.5741946e-06, 13.2053, 0, -13.2053, -1.5741946e-06, 0.0014050413, 0.14482169, 0.5215621)
 material_override = SubResource("StandardMaterial3D_g7r4e")
 mesh = SubResource("ArrayMesh_i8nwb")
 skeleton = NodePath("")
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles"]
+[node name="Cylinder_002" type="MeshInstance3D" parent="Outside/GarbageEnclosure/DrinkingSpot/Bottles" unique_id=355957179]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 0.27095723, -0.008163996, 0.17395219)
 material_override = SubResource("StandardMaterial3D_a1fbf")
 mesh = SubResource("ArrayMesh_pky7w")
 skeleton = NodePath("")
 
-[node name="Cardboards" type="Node3D" parent="Outside/GarbageEnclosure"]
+[node name="Cardboards" type="Node3D" parent="Outside/GarbageEnclosure" unique_id=1152870564]
 transform = Transform3D(1, 0, 0, 0, -1.1920929e-07, 0.99999994, 0, -0.99999994, -1.1920929e-07, 61.168434, 0.0050002383, -35.154446)
 
-[node name="Сardboard" parent="Outside/GarbageEnclosure/Cardboards" instance=ExtResource("10_24phc")]
+[node name="Сardboard" parent="Outside/GarbageEnclosure/Cardboards" unique_id=2122187831 instance=ExtResource("10_24phc")]
 transform = Transform3D(-0.8452618, 0, 0.53435236, 0.53435236, -1.192093e-07, 0.8452618, 6.369977e-08, 1, 1.00763074e-07, -3.368435, -3.5554447, 0.10499934)
 
-[node name="Сardboard2" parent="Outside/GarbageEnclosure/Cardboards" instance=ExtResource("10_24phc")]
+[node name="Сardboard2" parent="Outside/GarbageEnclosure/Cardboards" unique_id=488464886 instance=ExtResource("10_24phc")]
 transform = Transform3D(0.49090376, 0, -0.8712138, -0.8712138, -1.192093e-07, -0.49090376, -1.0385679e-07, 1, -5.8520296e-08, -6.661434, -4.228445, 0.10499926)
 
-[node name="Сardboard3" parent="Outside/GarbageEnclosure/Cardboards" instance=ExtResource("10_24phc")]
+[node name="Сardboard3" parent="Outside/GarbageEnclosure/Cardboards" unique_id=954816595 instance=ExtResource("10_24phc")]
 transform = Transform3D(-0.88047737, 0, -0.47408813, -0.47408813, -1.192093e-07, 0.88047737, -5.6515717e-08, 1, 1.04961096e-07, -5.323597, -3.941862, 0.09499929)
 
-[node name="Barrel" type="MeshInstance3D" parent="Outside/GarbageEnclosure"]
+[node name="Barrel" type="MeshInstance3D" parent="Outside/GarbageEnclosure" unique_id=2011883470]
 transform = Transform3D(0.65, 0, 0, 0, -2.8412401e-08, 0.65, 0, -0.65, -2.8412401e-08, 52.82671, 0.0050002383, -33.61431)
 material_override = SubResource("StandardMaterial3D_0gl6x")
 mesh = SubResource("ArrayMesh_ekqg5")
 skeleton = NodePath("")
 
-[node name="Floor" type="StaticBody3D" parent="Outside"]
+[node name="Floor" type="StaticBody3D" parent="Outside" unique_id=330956066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.526, 0, -43.717)
 
-[node name="MainFloor" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="MainFloor" type="MeshInstance3D" parent="Outside/Floor" unique_id=1073861607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429, 0, -1.158)
 material_override = SubResource("StandardMaterial3D_muc5y")
 mesh = SubResource("PlaneMesh_1kljc")
 skeleton = NodePath("../..")
 
-[node name="TreeStructure" type="Node3D" parent="Outside/Floor/MainFloor"]
+[node name="TreeStructure" type="Node3D" parent="Outside/Floor/MainFloor" unique_id=173221972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74897, 0, 5.271904)
 
-[node name="Tree" parent="Outside/Floor/MainFloor/TreeStructure" instance=ExtResource("15_466qp")]
+[node name="Tree" parent="Outside/Floor/MainFloor/TreeStructure" unique_id=625194229 instance=ExtResource("15_466qp")]
 transform = Transform3D(0.4056043, 0, -0.9140488, 0, 1, 0, 0.9140488, 0, 0.4056043, -2.2696304, 0, -0.21775818)
 
-[node name="Dirt" type="MeshInstance3D" parent="Outside/Floor/MainFloor/TreeStructure"]
+[node name="Dirt" type="MeshInstance3D" parent="Outside/Floor/MainFloor/TreeStructure" unique_id=1700291282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2343216, 0, 0.034446716)
 material_override = SubResource("StandardMaterial3D_gvx2h")
 mesh = SubResource("CylinderMesh_uusf4")
 skeleton = NodePath("../..")
 
-[node name="CurbAroundDirt" type="MeshInstance3D" parent="Outside/Floor/MainFloor/TreeStructure"]
+[node name="CurbAroundDirt" type="MeshInstance3D" parent="Outside/Floor/MainFloor/TreeStructure" unique_id=1014162027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2343216, 0, 0.034446716)
 material_override = SubResource("StandardMaterial3D_1d4cl")
 mesh = SubResource("TorusMesh_e1y38")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Floor" unique_id=197039763]
 shape = SubResource("BoxShape3D_3wgb0")
 
-[node name="PavementConcreteSequence" type="Node3D" parent="Outside/Floor"]
+[node name="PavementConcreteSequence" type="Node3D" parent="Outside/Floor" unique_id=2073533947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3059998, 0, -13.8689995)
 
-[node name="Concrete" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence"]
+[node name="Concrete" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence" unique_id=1346918966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0003204, 0, 11.769966)
 material_override = SubResource("StandardMaterial3D_62sn5")
 mesh = SubResource("BoxMesh_tpt3l")
 skeleton = NodePath("../../..")
 
-[node name="Concrete4" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence"]
+[node name="Concrete4" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence" unique_id=1507821582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4973602, 0, 6.6551933)
 material_override = SubResource("StandardMaterial3D_62sn5")
 mesh = SubResource("BoxMesh_6wyrf")
 skeleton = NodePath("../../..")
 
-[node name="Concrete2" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence"]
+[node name="Concrete2" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence" unique_id=567186224]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.43111, 0, 22.274643)
 material_override = SubResource("StandardMaterial3D_vt4e2")
 mesh = SubResource("BoxMesh_vsjn0")
 skeleton = NodePath("../../..")
 
-[node name="Concrete3" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence"]
+[node name="Concrete3" type="MeshInstance3D" parent="Outside/Floor/PavementConcreteSequence" unique_id=2026447765]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.554169, 0, 26.217976)
 material_override = SubResource("StandardMaterial3D_vt4e2")
 mesh = SubResource("BoxMesh_7pp32")
 skeleton = NodePath("../../..")
 
-[node name="TreeStructure" type="Node3D" parent="Outside/Floor"]
+[node name="TreeStructure" type="Node3D" parent="Outside/Floor" unique_id=680088621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.993927, 0, -9.257984)
 
-[node name="Tree" parent="Outside/Floor/TreeStructure" instance=ExtResource("15_466qp")]
+[node name="Tree" parent="Outside/Floor/TreeStructure" unique_id=273903690 instance=ExtResource("15_466qp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06731415, 0, -0.4001007)
 
-[node name="Dirt" type="MeshInstance3D" parent="Outside/Floor/TreeStructure"]
+[node name="Dirt" type="MeshInstance3D" parent="Outside/Floor/TreeStructure" unique_id=1047628366]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2343216, 0, 0.034446716)
 material_override = SubResource("StandardMaterial3D_gvx2h")
 mesh = SubResource("CylinderMesh_uusf4")
 skeleton = NodePath("../..")
 
-[node name="CurbAroundDirt" type="MeshInstance3D" parent="Outside/Floor/TreeStructure"]
+[node name="CurbAroundDirt" type="MeshInstance3D" parent="Outside/Floor/TreeStructure" unique_id=1866070445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2343216, 0, 0.034446716)
 material_override = SubResource("StandardMaterial3D_1d4cl")
 mesh = SubResource("TorusMesh_e1y38")
 skeleton = NodePath("../..")
 
-[node name="Cars" type="Node3D" parent="Outside/Floor"]
+[node name="Cars" type="Node3D" parent="Outside/Floor" unique_id=1773512881]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.526, 0, 43.717)
 
-[node name="Car" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=43025864]
 transform = Transform3D(0.9945219, 0, 0.104528464, 0, 1, 0, -0.104528464, 0, 0.9945219, 58.69623, 0, -42.683647)
 mesh = ExtResource("18_th44y")
 skeleton = NodePath("../..")
 
-[node name="Car2" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car2" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=1601075858]
 transform = Transform3D(0.52991927, 0, -0.8480481, 0, 1, 0, 0.8480481, 0, 0.52991927, 35.51071, 0.044128116, -41.737015)
-visible = false
 material_override = SubResource("StandardMaterial3D_jeebq")
 mesh = ExtResource("18_th44y")
 
-[node name="Car3" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car3" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=564300721]
 transform = Transform3D(-0.19080901, 0, 0.9816271, 0, 1, 0, -0.9816271, 0, -0.19080901, 34.997337, 0, -50.338966)
-visible = false
 material_override = SubResource("StandardMaterial3D_h35xf")
 mesh = ExtResource("21_wbbd5")
 
-[node name="Car4" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car4" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=1850283826]
 transform = Transform3D(0.978509, 0, 0.20620419, 0, 1, 0, -0.20620419, 0, 0.978509, 43.532448, 0, -41.949116)
 material_override = SubResource("StandardMaterial3D_xhuh0")
 mesh = ExtResource("23_hbqta")
 
-[node name="Car5" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car5" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=1549294099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.22268, 0, -42.33359)
 mesh = ExtResource("23_hbqta")
 
-[node name="Car6" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car6" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=1797828141]
 transform = Transform3D(-0.6547408, 0, 0.7558535, 0, 1, 0, -0.7558535, 0, -0.6547408, 56.06901, 0, -56.52316)
 mesh = ExtResource("24_ihuf4")
 
-[node name="Car7" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car7" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=39115971]
 transform = Transform3D(-0.034899462, 0, 0.99939084, 0, 1, 0, -0.99939084, 0, -0.034899462, 64.03849, 0, -28.999987)
 mesh = ExtResource("25_tgkjy")
 
-[node name="Car8" type="MeshInstance3D" parent="Outside/Floor/Cars"]
+[node name="Car8" type="MeshInstance3D" parent="Outside/Floor/Cars" unique_id=333936007]
 transform = Transform3D(-0.9598053, 0, 0.28066665, 0, 1, 0, -0.28066665, 0, -0.9598053, 53.338192, 0, -43.367664)
 mesh = ExtResource("26_54nv2")
 skeleton = NodePath("../../..")
 
-[node name="ParkingFloor" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ParkingFloor" type="MeshInstance3D" parent="Outside/Floor" unique_id=646565175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.290802, 0, -18.571072)
 material_override = SubResource("StandardMaterial3D_7q4qp")
 mesh = SubResource("BoxMesh_s7y5i")
 
-[node name="ConcreteFence" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence" type="MeshInstance3D" parent="Outside/Floor" unique_id=337141762]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.466881, 0, -6.625515)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_jpeef")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence2" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence2" type="MeshInstance3D" parent="Outside/Floor" unique_id=1107918088]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.29, 0, 6.294)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_jpeef")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence4" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence4" type="MeshInstance3D" parent="Outside/Floor" unique_id=422998656]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.779167, 0, 10.513077)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_lnlwo")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence5" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence5" type="MeshInstance3D" parent="Outside/Floor" unique_id=801040301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2952194, 0, 2.6949844)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_s4k1y")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence6" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence6" type="MeshInstance3D" parent="Outside/Floor" unique_id=393770369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2952194, 0, -14.158871)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_sfqax")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence7" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence7" type="MeshInstance3D" parent="Outside/Floor" unique_id=780284948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4685822, 0, -7.2124634)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_6p7j0")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence8" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence8" type="MeshInstance3D" parent="Outside/Floor" unique_id=637936107]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.8379974, 0, -5.3817787)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_6p7j0")
 skeleton = NodePath("../..")
 
-[node name="ConcreteFence9" type="MeshInstance3D" parent="Outside/Floor"]
+[node name="ConcreteFence9" type="MeshInstance3D" parent="Outside/Floor" unique_id=1096391991]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.8379974, 0, -9.053841)
 material_override = SubResource("StandardMaterial3D_fx6n3")
 mesh = SubResource("BoxMesh_6p7j0")
 skeleton = NodePath("../..")
 
-[node name="Buildings" type="Node3D" parent="Outside"]
+[node name="Buildings" type="Node3D" parent="Outside" unique_id=50014237]
 
-[node name="OtherHouse" parent="Outside/Buildings" instance=ExtResource("28_e7g8c")]
+[node name="OtherHouse" parent="Outside/Buildings" unique_id=131743984 instance=ExtResource("28_e7g8c")]
 transform = Transform3D(-6.5567076e-07, 0, 14.999999, 0, 14.999999, 0, -14.999999, 0, -6.5567076e-07, 18.342155, 0, -39.804016)
 visible = false
 
-[node name="MainHouse" parent="Outside/Buildings" instance=ExtResource("28_e7g8c")]
+[node name="MainHouse" parent="Outside/Buildings" unique_id=152435449 instance=ExtResource("28_e7g8c")]
 transform = Transform3D(14.999999, 0, -5.684342e-14, 0, 14.999999, 0, 5.684342e-14, 0, 14.999999, 69.714, 0, -70.506744)
 
-[node name="LampPost_2" type="MeshInstance3D" parent="Outside"]
+[node name="LampPost_2" type="MeshInstance3D" parent="Outside" unique_id=407175414]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, -2.1855694e-08, 0, 3.278354e-08, 0.75, 55.908493, 0, -33.80695)
 material_override = SubResource("StandardMaterial3D_nw6w4")
 mesh = SubResource("ArrayMesh_l1og1")
 skeleton = NodePath("")
 
-[node name="Window" type="Node3D" parent="."]
+[node name="Window" type="Node3D" parent="." unique_id=14783310]
 
-[node name="RoomLight" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight" type="MeshInstance3D" parent="Window" unique_id=1262599898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3308, 13.854558, -63.220703)
 mesh = SubResource("BoxMesh_6usr7")
 skeleton = NodePath("../..")
 
-[node name="RoomLight2" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight2" type="MeshInstance3D" parent="Window" unique_id=908750239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.95925, 13.854558, -63.220703)
 mesh = SubResource("BoxMesh_6usr7")
 skeleton = NodePath("../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Window"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Window" unique_id=1310779327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.82091, 14.479532, -62.61139)
 light_color = Color(1, 1, 0.95686275, 1)
 light_energy = 2.0
 omni_range = 2.0
 
-[node name="Novak" type="CharacterBody3D" parent="Window"]
+[node name="Novak" type="CharacterBody3D" parent="Window" unique_id=2006332309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.01198, 12.630995, -63.08763)
 
-[node name="Skeleton" type="Node3D" parent="Window/Novak"]
+[node name="Skeleton" type="Node3D" parent="Window/Novak" unique_id=1933282866]
 transform = Transform3D(0.86, 0, 0, 0, 0.86, 0, 0, 0, 0.86, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Window/Novak/Skeleton"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Window/Novak/Skeleton" unique_id=1631152892]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0949626, 0.005455558)
@@ -1461,48 +1459,49 @@ bones/40/position = Vector3(0, 0.07133991, 5.551115e-19)
 bones/40/rotation = Quaternion(-1.9081958e-17, 9.2590866e-17, 1.766815e-33, 1)
 bones/40/scale = Vector3(1, 1, 1)
 
-[node name="Body" type="MeshInstance3D" parent="Window/Novak/Skeleton/Skeleton3D"]
+[node name="Body" type="MeshInstance3D" parent="Window/Novak/Skeleton/Skeleton3D" unique_id=124653253]
 mesh = SubResource("ArrayMesh_hq2x7")
 skin = SubResource("Skin_13j6i")
 
-[node name="RoomLight3" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight3" type="MeshInstance3D" parent="Window" unique_id=276986589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.614597, 13.854558, -65.760475)
 mesh = SubResource("BoxMesh_6usr7")
 skeleton = NodePath("../..")
 
-[node name="RoomLight4" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight4" type="MeshInstance3D" parent="Window" unique_id=1899322072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.243046, 13.854558, -65.760475)
 mesh = SubResource("BoxMesh_6usr7")
 skeleton = NodePath("../..")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Window"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Window" unique_id=386744075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.104702, 14.479532, -65.15116)
 light_color = Color(1, 1, 0.95686275, 1)
 light_energy = 2.0
 omni_range = 2.0
 
-[node name="RoomLight5" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight5" type="MeshInstance3D" parent="Window" unique_id=570008398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.527157, 13.854558, -65.760475)
 mesh = SubResource("BoxMesh_ux2df")
 skeleton = NodePath("../..")
 
-[node name="RoomLight6" type="MeshInstance3D" parent="Window"]
+[node name="RoomLight6" type="MeshInstance3D" parent="Window" unique_id=1788786741]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.681896, 13.729602, -65.760475)
 mesh = SubResource("BoxMesh_64rlb")
 skeleton = NodePath("../..")
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="Window"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Window" unique_id=672243586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.30812, 14.479532, -65.15116)
 light_color = Color(1, 1, 0.95686275, 1)
 light_energy = 2.0
 omni_range = 2.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=344109602]
 transform = Transform3D(0.83070976, -0.1315471, -0.5409406, -0.0011211097, 0.971284, -0.23792061, 0.55670464, 0.19824943, 0.8067076, 53.46554, 0.7851964, -29.869535)
 environment = SubResource("Environment_ixj2m")
 attributes = SubResource("CameraAttributesPhysical_hrksf")
+fov = 37.849285
 
-[node name="ColorRect" type="ColorRect" parent="Camera3D"]
+[node name="ColorRect" type="ColorRect" parent="Camera3D" unique_id=1798454828]
 material = SubResource("ShaderMaterial_nw6w4")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1510,59 +1509,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_64rlb")
-}
-autoplay = "Gate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1796520662]
+libraries/ = SubResource("AnimationLibrary_64rlb")
+autoplay = &"Gate"
 
-[node name="PlayCutscene" type="Node3D" parent="." node_paths=PackedStringArray("_animationPlayer", "soundPositionNode")]
+[node name="PlayCutscene" type="Node3D" parent="." unique_id=1843093492 node_paths=PackedStringArray("_animationPlayer", "soundPositionNode")]
 script = ExtResource("29_ixj2m")
 _animationPlayer = NodePath("OpenGatePlayer")
 soundPath = "uid://b1psfphehsll5"
 soundPositionNode = NodePath("../Outside/GarbageEnclosure/Walls/gate2")
 
-[node name="OpenGatePlayer" type="AnimationPlayer" parent="PlayCutscene"]
-libraries = {
-&"": SubResource("AnimationLibrary_uaua6")
-}
+[node name="OpenGatePlayer" type="AnimationPlayer" parent="PlayCutscene" unique_id=683712406]
+libraries/ = SubResource("AnimationLibrary_uaua6")
 
-[node name="LampPost" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost" parent="." unique_id=1507712922 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, -4.917531e-08, 0, 3.278354e-08, 0.75, 55.908493, 0, -33.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 
-[node name="LampPost2" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost2" parent="." unique_id=2136151980 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, -4.917531e-08, 0, 3.278354e-08, 0.75, 66.90849, 0, -33.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[node name="LampPost3" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost3" parent="." unique_id=1767194073 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(-3.278354e-08, 3.278354e-08, 0.75, 0, 0.5, -4.917531e-08, -0.75, -1.433014e-15, -3.278354e-08, 66.90849, 0, -46.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[node name="LampPost4" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost4" parent="." unique_id=484136724 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(-3.278354e-08, 3.278354e-08, 0.75, 0, 0.5, -4.917531e-08, -0.75, -1.433014e-15, -3.278354e-08, 66.90849, 0, -54.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[node name="LampPost5" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost5" parent="." unique_id=1149914700 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, -4.917531e-08, 0, 3.278354e-08, 0.75, 45.908493, 0, -33.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[node name="LampPost6" parent="." instance=ExtResource("30_6rg0c")]
+[node name="LampPost6" parent="." unique_id=159081826 instance=ExtResource("30_6rg0c")]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, -4.917531e-08, 0, 3.278354e-08, 0.75, 35.908493, 0, -33.80695)
 material_override = SubResource("StandardMaterial3D_6rg0c")
 mesh = SubResource("ArrayMesh_sgl1c")
 EnableFlicker = false
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1195118440]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1571,8 +1566,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("30_sgl1c")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1343156685]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1580,52 +1576,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=1063966933]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=441619378]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=463976982]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1468478046]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("30_gsx2l")
 theme_override_font_sizes/font_size = 64
 text = "Catatonia: Breakdown"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1571643088]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="PlayButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("_cutscene")]
+[node name="PlayButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=2077478173 node_paths=PackedStringArray("_cutscene")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("30_gsx2l")
 theme_override_font_sizes/font_size = 64
 text = "Play"
 script = ExtResource("28_xiobc")
 _cutscene = NodePath("../../../../../../PlayCutscene")
 ScenePath = "uid://dkhjaw240tdsv"
 
-[node name="SourceButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="SourceButton" type="Button" parent="UI/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1766200529]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("30_gsx2l")
 theme_override_font_sizes/font_size = 64
 text = "Source"
 script = ExtResource("32_myqec")
 metadata/_custom_type_script = "uid://dnqe5cltr2up2"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=1368143602]
 layout_mode = 2
 size_flags_vertical = 3
 
