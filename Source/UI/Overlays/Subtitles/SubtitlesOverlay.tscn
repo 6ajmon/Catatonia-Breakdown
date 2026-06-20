@@ -1,21 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhnpe57oq6tq8"]
+[gd_scene format=3 uid="uid://bhnpe57oq6tq8"]
 
 [ext_resource type="Script" uid="uid://b8luv4n2gpsp5" path="res://Source/UI/Overlays/Subtitles/SubtitlesOverlay.cs" id="1_3mt3j"]
-[ext_resource type="FontFile" uid="uid://cxr6xmkh5dtg5" path="res://Assets/Fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="2_2n201"]
+[ext_resource type="Theme" uid="uid://b5nn07uukqhv4" path="res://Assets/Themes/MainTheme.tres" id="1_n8w4b"]
 
-[node name="SubtitlesOverlay" type="Control" node_paths=PackedStringArray("personNameLabel", "subtitleLabel")]
+[node name="SubtitlesOverlay" type="Control" unique_id=1484808984 node_paths=PackedStringArray("personNameLabel", "subtitleLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_n8w4b")
 script = ExtResource("1_3mt3j")
 personNameLabel = NodePath("MarginContainer/VBoxContainer/Person/MarginContainer/Label")
 subtitleLabel = NodePath("MarginContainer/VBoxContainer/Text/MarginContainer/Label")
 charactersPerSecond = 16.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1337580041]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,16 +28,16 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=927150135]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Person" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="Person" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=100748530]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Person"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Person" unique_id=461950370]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,19 +49,18 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Person/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Person/MarginContainer" unique_id=1249511372]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2n201")
 theme_override_font_sizes/font_size = 32
 text = "NOVAK TEST:"
 
-[node name="Text" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="Text" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1019613984]
 custom_minimum_size = Vector2(0, 196)
 layout_mode = 2
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Text"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Text" unique_id=954782470]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,12 +72,12 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Text/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Text/MarginContainer" unique_id=890636321]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_2n201")
+theme = ExtResource("1_n8w4b")
 theme_override_font_sizes/font_size = 32
 text = "TEST TEST test Test"
 autowrap_mode = 3

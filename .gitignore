@@ -25,3 +25,4 @@ Exports/
 
 *.csproj.user
 *.user
+*.csproj.old

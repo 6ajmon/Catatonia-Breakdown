@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://b5nn07uukqhv4"]
+
+[ext_resource type="FontFile" uid="uid://boc33mn8evff2" path="res://Assets/Fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="1_uuho2"]
+
+[resource]
+default_font = ExtResource("1_uuho2")
+default_font_size = 16
